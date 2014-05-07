@@ -1,3 +1,3 @@
 # M Squared Web
 
-This will be the new home for M Squared Web once constructed.
+M Squared Web Services is an application development company based in the Erlanger, Kentucky area that can provide professional web based solutions to small and medium sized businesses.
