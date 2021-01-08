@@ -26,7 +26,7 @@ university.
 ![](https://m2web.herokuapp.com/images/latelyGithub.PNG)
 
 ## Previously, in my career, my time was spent on:
-![](https://m2web.herokuapp.com/images/previouslyGithub.PNG)
+![](https://m2web.herokuapp.com/images/previousGithub.PNG)
 
 ## Contact Me
 ![](https://m2web.herokuapp.com/images/contactGithub.PNG)
