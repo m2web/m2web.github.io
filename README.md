@@ -22,11 +22,18 @@ experience and teaching Business Application Development, Introduction
 to Database, as well as Information Technology Governance at a local
 university.
 
+## My Stats
+
+[![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=m2web&hide_border=true&date_format=M%20j%5B%2C%20Y%5D)](https://git.io/streak-stats)
+
 ## Lately, I spend my time doing:
-![](https://m2web.herokuapp.com/images/latelyGithub.PNG)
+
+![Lately](https://m2web.herokuapp.com/images/latelyGithub.PNG)
 
 ## Previously, in my career, my time was spent on:
-![](https://m2web.herokuapp.com/images/previousGithub.PNG)
+
+![Previously](https://m2web.herokuapp.com/images/previousGithub.PNG)
 
 ## Contact Me
-![](https://m2web.herokuapp.com/images/contactGithub.PNG)
+
+![Contact Me](https://m2web.herokuapp.com/images/contactGithub.PNG)
