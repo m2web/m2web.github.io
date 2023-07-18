@@ -28,12 +28,12 @@ university.
 
 ## Lately, I spend my time doing
 
-![Lately](https://m2web.herokuapp.com/images/latelyGithub.PNG)
+![Lately](https://github.com/m2web/markmcfadden.net/blob/master/images/latelyGithub.PNG)
 
 ## Previously, in my career, my time was spent on
 
-![Previously](https://m2web.herokuapp.com/images/previousGithub.PNG)
+![Previously](https://github.com/m2web/markmcfadden.net/blob/master/images/previousGithub.PNG)
 
 ## Contact Me
 
-![Contact Me](https://m2web.herokuapp.com/images/contactGithub.PNG)
+![Contact Me](https://github.com/m2web/markmcfadden.net/blob/master/images/contactGithub.PNG)
