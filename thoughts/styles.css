@@ -57,3 +57,11 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Anchor link for thought posts */
+a.underline {
+    text-decoration: underline;
+}
+
+a.underline:hover {
+    text-decoration: none;
+}
