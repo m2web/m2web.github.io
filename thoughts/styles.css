@@ -1,67 +1,145 @@
-/* styles.css */
+/* Enhanced styles.css */
+:root {
+    /* Professional color palette */
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #2a2963;
+    --text-color: #2c3e50;
+    --light-gray: #ecf0f1;
+    --medium-gray: #bdc3c7;
+    --dark-gray: #7f8c8d;
+    --white: #ffffff;
+}
+
+/* Base styles with smooth font rendering */
 body {
-    background-color: #f9f9f9;
+    background-color: var(--light-gray);
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #333;
+    color: var(--text-color);
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+/* Responsive container with max-width */
 .container {
-    width: 80%;
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
+/* Responsive typography */
 h1, h2, h3 {
-    color: #444;
-    margin-top: 20px;
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 h1 {
-    font-size: 2.5em;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 10px;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    border-bottom: 2px solid var(--medium-gray);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 h2 {
-    font-size: 2em;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 1rem;
 }
 
 h3 {
-    font-size: 1.5em;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin-bottom: 0.8rem;
 }
 
+/* Improved paragraph spacing and readability */
 p {
-    margin-bottom: 15px;
+    margin-bottom: 1.2rem;
+    max-width: 70ch; /* Optimal line length for readability */
+    color: var(--text-color);
 }
 
+/* Enhanced lists */
 ul, ol {
-    margin-left: 20px;
-    margin-bottom: 15px;
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
 }
 
 li {
-    margin-bottom: 10px;
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
 }
 
+/* Modern link styling */
 a {
-    color: #262627;
+    color: var(--secondary-color);
     text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--accent-color);
 }
 
-/* Anchor link for thought posts */
+/* Enhanced underline links */
 a.underline {
-    text-decoration: underline;
+    border-bottom: 1px solid var(--secondary-color);
 }
 
 a.underline:hover {
+    border-bottom: 1px solid var(--accent-color);
     text-decoration: none;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    
+    body {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0;
+    }
+    
+    h1 {
+        margin-top: 1rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .container {
+        width: 100%;
+        box-shadow: none;
+    }
+    
+    body {
+        background: var(--white);
+        color: black;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
 }
