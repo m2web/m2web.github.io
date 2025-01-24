@@ -143,3 +143,10 @@ a.underline:hover {
         text-decoration: underline;
     }
 }
+
+.custom-title {
+    font-size: 3em; /* Adjust the size as needed */
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
