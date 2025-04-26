@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Tariff Revenues to Support the Working Class</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* Calculator widget styling */
+      #tariff-calculator {
+          max-width: 300px;
+          padding: 1rem;
+          border: 1px solid var(--medium-gray);
+          border-radius: 8px;
+          background: var(--light-gray);
+          margin: 1.5rem 0;
+      }
+      #tariff-calculator input,
+      #tariff-calculator button {
+          width: 100%;
+          margin: .5rem 0;
+          padding: .5rem;
+          box-sizing: border-box;
+          font-family: inherit;
+      }
+      #tariff-calculator button {
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          background: var(--secondary-color);
+          color: var(--white);
+      }
+      #tariff-calculator button:hover {
+          background: var(--accent-color);
+      }
+      #tariff-calculator p {
+          font-weight: bold;
+          margin-top: 1rem;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="underline">Back Home</a>
+        <h1 class="custom-title">Using Tariff Revenues to Support the Working Class</h1>
+
+        <section id="intro">
+            <p><em>Written on: April 26, 2025</em></p>
+            <p>Picture yourself as Pat the Autoworker in Ohio—coffee in hand, dreams of paying rent without living in a cardboard box. Wages have been on a snail’s pace, and many folks feel like they’re on the wrong side of the economic railroad tracks. What if, instead of Treasury elites playing Monopoly with tariff cash, we handed a stack of bills back to everyday Americans?</p>
+        </section>
+
+        <section id="tariff-proposal">
+            <h2>The Proposed Tariff Wall &amp; the Promise of Revenue</h2>
+            <p>Remember when President Trump rolled out plans for tariffs on steel, aluminum, and a buffet of Chinese goods? The aim was to generate tens of billions for Uncle Sam’s hypothetical piggy bank—though much of that haul is still on hold pending legal challenges and trade talks. <a href="https://www.gzeromedia.com/quick-take/who-benefits-from-trump-tariff-wall" target="_blank">GZERO Media explains who stands to pay and who stands to gain</a> if those tariffs ever kick in.</p>
+        </section>
+
+        <section id="bremmer-dividend">
+            <h2>Bremmer’s Dividend Concept</h2>
+            <p>Enter Ian Bremmer, stage left, with a bright idea: “Tariff Dividend.” Think of it as a coupon—but instead of 10% off tacos, it’s cold, hard cash sent to hardworking families. <a href="https://youtu.be/2u5R05RbQMQ?si=OoMOEGQobOiI41W8" target="_blank">Watch on YouTube</a> to see his full pitch.</p>
+            <blockquote>“Why let tariffs be a scare word? Treat them like a national piggy bank—everyone gets a scoop,” Bremmer quips.</blockquote>
+            <h3>Watch the Full Video</h3>
+            <iframe  
+                width="560"  
+                height="315"  
+                src="https://www.youtube.com/embed/2u5R05RbQMQ?si=OoMOEGQobOiI41W8"  
+                title="Ian Bremmer: Tariff Revenues as a Social Dividend"  
+                frameborder="0"  
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"  
+                allowfullscreen  
+            >
+            </iframe>
+        </section>
+
+        <section id="blueprint">
+            <h2>Blueprint for a Tariff Dividend Program</h2>
+            <ul>
+                <li><strong>Who’s In?</strong> Households under $75 K/year—because everyone deserves a piece of the pie.</li>
+                <li><strong>How It’s Paid</strong> Half as a refundable tax credit, half as a surprise direct-deposit gift.</li>
+                <li><strong>Inspiration</strong> Alaska’s Permanent Fund Dividend shows even modest annual payouts (think $1,000) can light up local economies.</li>
+            </ul>
+        </section>
+
+        <section id="calculator">
+            <h2>Try It Yourself: Tariff Dividend Calculator</h2>
+            <div id="tariff-calculator">
+                <h4>Estimate Your Tariff Dividend</h4>
+                <input type="number" id="income" placeholder="Annual Income (e.g. 50000)" />
+                <input type="number" id="rate" value="5" /> Tariff Rate (%)  
+                <button id="calc-btn">Calculate</button>
+                <p id="result"></p>
+            </div>
+        </section>
+
+        <section id="impact">
+            <h2>Impact &amp; Rollout</h2>
+            <p>On the big-picture front, a $1,000 “Tariff Dividend” per household could send consumer spending into turbo mode. On a personal level, imagine Patty from Youngstown using her share to buy welding goggles—and maybe even treat herself to a fancy latte. Next steps? Draft the bipartisan “Tariff Dividend Act,” high-five labor unions, and rally small-business owners. Splashy hashtag: <strong>#TariffDividend</strong>—because nothing sparks joy like a catchy campaign.</p>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion &amp; Call to Action</h2>
+            <p>Who said tariffs have to be boring policy mumbo-jumbo? Let’s remix them into a “you’ve-got-money” moment for the middle class. Watch Ian Bremmer’s full spiel, drop a comment with your dream dividend splurge, and share this post—because everyone loves free money (well, most everyone).</p>
+        </section>
+
+        <h2>📚 Sources Referenced</h2>
+        <ol>
+          <li><strong>GZERO Media.</strong> “Who Benefits from Trump’s Tariff Wall.” <a href="https://www.gzeromedia.com/quick-take/who-benefits-from-trump-tariff-wall" target="_blank">GZERO Media</a>, April 2025.</li>
+          <li><strong>Ian Bremmer.</strong> “Tariff Revenues as a Social Dividend.” <a href="https://youtu.be/2u5R05RbQMQ?si=OoMOEGQobOiI41W8" target="_blank">YouTube</a>, April 2025.</li>
+        </ol>
+    </div>
+
+    <script>
+      document.getElementById('calc-btn').addEventListener('click', () => {
+        const income = parseFloat(document.getElementById('income').value) || 0;
+        const rate = parseFloat(document.getElementById('rate').value) / 100 || 0;
+        const multiplier = 0.5;
+        const dividend = income * rate * multiplier;
+        document.getElementById('result').textContent =
+          income > 0
+            ? `Your estimated dividend: $${dividend.toFixed(2)}`
+            : 'Please enter a valid income.';
+      });
+    </script>
+</body>
+</html>
