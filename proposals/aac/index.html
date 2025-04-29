@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AAC Contracting Services – Professional home remodeling and renovation services in [City/Region]. Transform your home with our expert team.">
+  <meta name="keywords" content="home remodeling, kitchen renovation, bathroom renovation, home additions, basement finishing, AAC Contracting Services">
+  <meta name="author" content="AAC Contracting Services">
+  <title>AAC Contracting Services | Home Remodeling Experts</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <img src="acc-logo.png" alt="AAC Contracting Services Logo" class="logo">
+    <h1>AAC Contracting Services</h1>
+    <p>Transforming Homes. Enhancing Lives.</p>
+  </header>
+
+  <main>
+    <section class="about">
+      <h2>About Us</h2>
+      <p>We specialize in remodeling homes throughout [City/Region], with decades of experience turning your dream space into reality.</p>
+    </section>
+
+    <section class="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Kitchen Remodeling</li>
+        <li>Bathroom Renovation</li>
+        <li>Home Additions</li>
+        <li>Basement Finishing</li>
+      </ul>
+    </section>
+
+    <section class="portfolio">
+      <h2>(Optional) Project Gallery</h2>
+      <p>(Image thumbnails can be added here)</p>
+    </section>
+
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/xpwdqryp" method="POST">
+        <label>
+          Your Name:
+          <input type="text" name="name" placeholder="Your Name" required>
+        </label>
+        <label>
+          Your Email:
+          <input type="email" name="email" placeholder="Your Email" required>
+        </label>
+        <label>
+          Your Message:
+          <textarea name="message" placeholder="Your Message" required></textarea>
+        </label>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> AAC Contracting Services. All rights reserved.</p>
+  </footer>
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
