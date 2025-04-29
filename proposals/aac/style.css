@@ -37,9 +37,9 @@
   }
   
   section {
-    padding: 2.5rem 1rem;
+    padding: .5rem .25rem; /* Reduce vertical padding */
     max-width: 960px;
-    margin: auto;
+    margin: 1rem auto; /* Reduce vertical margin */
   }
   
   h2 {
