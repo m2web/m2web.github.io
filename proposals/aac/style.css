@@ -7,6 +7,7 @@
     --dark-gray: #7f8c8d;
     --text-color: #2c3e50;
     --white: #ffffff;
+    --secondary-color: #0f0d3d; /* Added secondary color */
   }
   
   body {
@@ -64,7 +65,7 @@
     flex-direction: column;
     gap: 1.5rem; /* Increase spacing between form elements */
     max-width: 500px; /* Adjust form width */
-    margin: 0 auto; /* Center the form horizontally */
+    margin: 0; /* Remove horizontal centering */
     padding: 1rem; /* Add padding around the form */
     background-color: var(--white); /* Add background color */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
@@ -132,6 +133,21 @@
     background-color: var(--primary-color);
     color: var(--white);
     font-size: 0.9rem;
+  }
+
+  .phone {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+  }
+
+  .phone-link {
+    text-decoration: none;
+    color: var(--secondary-color);
+  }
+
+  .phone-link:hover {
+    text-decoration: underline;
   }
 
   /* Responsive Design */
