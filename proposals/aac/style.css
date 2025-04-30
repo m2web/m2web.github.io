@@ -37,9 +37,9 @@
   }
   
   section {
-    padding: .5rem .25rem; /* Reduce vertical padding */
+    padding: .25rem .15rem; /* Reduce vertical padding */
     max-width: 960px;
-    margin: 1rem auto; /* Reduce vertical margin */
+    margin: .25rem auto; /* Reduce vertical margin */
   }
   
   h2 {
@@ -51,8 +51,30 @@
   }
   
   ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
+    list-style-type: none; /* Remove default bullets */
+    padding-left: 0; /* Remove default padding */
+  }
+
+  ul li {
+    position: relative;
+    padding-left: 1.5rem; /* Add space for custom icon */
+    margin-bottom: 1rem; /* Add spacing between list items */
+    line-height: 1.25; /* Maintain line height */
+    font-size: 1.1rem; /* Adjust font size */
+  }
+
+  ul li::before {
+    content: "✔"; /* Add a checkmark as a custom bullet */
+    position: absolute;
+    left: 0;
+    color: var(--accent-color); /* Use accent color for the checkmark */
+    font-size: 1.2rem; /* Adjust checkmark size */
+  }
+
+  .services ul,
+  .project-types ul {
+    column-count: 2; /* Split the list into two columns */
+    column-gap: 2rem; /* Add spacing between columns */
   }
   
   .portfolio p {
@@ -148,6 +170,11 @@
 
   .phone-link:hover {
     text-decoration: underline;
+  }
+
+  .about p {
+    font-size: 1.1rem; /* Match font size with lists */
+    line-height: 1.25; /* Maintain consistent line height */
   }
 
   /* Responsive Design */
