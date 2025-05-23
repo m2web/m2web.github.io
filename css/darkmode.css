@@ -1,3 +1,100 @@
+/* About Me Highlighted Text */
+.about-highlight {
+  font-size: 1.6rem;
+  color: var(--accent2);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  display: block;
+  letter-spacing: 1px;
+}
+/* Contact Section Styling */
+.contact-section {
+  background: #20232a;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  margin: 3rem auto 2rem auto;
+  max-width: 1200px;
+  border: 2px solid var(--accent2);
+}
+.contact-section h2 {
+  color: var(--accent);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+.contact-section .card-list {
+  margin-bottom: 1.5rem;
+}
+/* Progress Bar Styles for Cards */
+.progress-bar-container {
+  width: 100%;
+  background: #23262f;
+  border-radius: 8px;
+  margin-top: 10px;
+  height: 22px;
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+.progress-bar {
+  background: linear-gradient(90deg, #1a1a1a 60%, var(--accent2));
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1rem;
+  padding-left: 12px;
+  position: relative;
+  min-width: 40px;
+  transition: width 1.2s cubic-bezier(.4,2.08,.55,.44);
+}
+.progress-bar span {
+  position: absolute;
+  right: 12px;
+  color: #fff;
+  font-size: 1rem;
+}
+/* Bar Chart Styles */
+.bar-chart {
+  width: 100%;
+  max-width: 700px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.bar-label {
+  flex: 1 1 220px;
+  color: var(--accent3);
+  font-size: 1.05rem;
+}
+.bar {
+  background: var(--accent2);
+  color: #fff;
+  height: 28px;
+  border-radius: 8px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 0.75rem;
+  font-weight: bold;
+  position: relative;
+  transition: width 0.8s cubic-bezier(.4,2.08,.55,.44);
+}
+.bar span {
+  position: absolute;
+  right: 10px;
+  font-size: 1rem;
+  color: #fff;
+}
 /* darkmode.css - Dark Mode Tech Theme
    Author: Mark McFadden (2025)
    Description: Sleek, modern dark mode with neon/bright accents, responsive and accessible.
@@ -148,7 +245,7 @@ section {
 .hero-subtitle {
   color: var(--accent2);
   font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.25rem;
 }
 .hero-img {
   width: 140px;

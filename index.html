@@ -24,7 +24,7 @@
     </div>
     <div class="navbar-menu" id="navbar-menu">
       <a href="#about" class="navbar-link">About</a>
-      <a href="#contact" class="navbar-link">Contact</a>
+      <a href="#contact-section" class="navbar-link">Contact</a>
     </div>
   </div>
 </nav>
@@ -39,7 +39,7 @@
 <main>
   <section id="about">
     <h2>About Me</h2>
-    <p><em>I love technology</em></p>
+    <p class="about-highlight">I love technology</p>
     <p>I am a Software Developer currently doing software development for a large insurance/financial institution.</p>
     <p>I love learning new software languages and technologies. I also enjoy learning how these new tools can serve businesses and individuals better. I have over 29 years of experience in Information Technologies, specializing in Internet technologies, Network Administration, ASP/Visual Basic, .Net, J2E, Ruby on Rails, and JavaScript application design and development. I have designed and implemented several Internet-based systems, ranging from static “brochureware” sites to dynamic e-commerce solutions.</p>
     <p>Formerly, in addition to software development, I functioned as part-time faculty, teaching Business Application Development, Introduction to Database, Systems Management, and Information Technology Governance at a local university.</p>
@@ -51,56 +51,65 @@
       <div class="card">
         <div class="card-title"><i class="fa fa-file-code-o"></i> Azure APIM Development</div>
         <div class="card-desc">40%</div>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: 40%"><span>40%</span></div>
+        </div>
       </div>
       <div class="card">
         <div class="card-title"><i class="fa fa-file-code-o"></i> IBM API Connect Development</div>
         <div class="card-desc">40%</div>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: 40%"><span>40%</span></div>
+        </div>
       </div>
       <div class="card">
         <div class="card-title"><i class="fa fa-file-code-o"></i> C#, JavaScript, and Python Development</div>
         <div class="card-desc">20%</div>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: 20%"><span>20%</span></div>
+        </div>
       </div>
     </div>
   </section>
 
   <section>
     <h3>Previously, in my career, my time was spent on:</h3>
-    <div class="card-list">
-      <div class="card">
-        <div class="card-title"><i class="fa fa-file-code-o"></i> Integration Service Development (IBM Integration Bus)</div>
-        <div class="card-desc">5%</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <span class="bar-label">Integration Service Development (IBM Integration Bus)</span>
+        <div class="bar" style="width:5%"><span>5%</span></div>
       </div>
-      <div class="card">
-        <div class="card-title"><i class="fa fa-graduation-cap"></i> Adjunct Faculty: Software Development, Database, & IT Governance</div>
-        <div class="card-desc">20%</div>
+      <div class="bar-row">
+        <span class="bar-label">Adjunct Faculty: Software Development, Database, & IT Governance</span>
+        <div class="bar" style="width:20%"><span>20%</span></div>
       </div>
-      <div class="card">
-        <div class="card-title"><i class="fa fa-file-code-o"></i> HTML/CSS</div>
-        <div class="card-desc">20%</div>
+      <div class="bar-row">
+        <span class="bar-label">HTML/CSS</span>
+        <div class="bar" style="width:20%"><span>20%</span></div>
       </div>
-      <div class="card">
-        <div class="card-title"><i class="fa fa-file-code-o"></i> Classic ASP</div>
-        <div class="card-desc">15%</div>
+      <div class="bar-row">
+        <span class="bar-label">Classic ASP</span>
+        <div class="bar" style="width:15%"><span>15%</span></div>
       </div>
-      <div class="card">
-        <div class="card-title"><i class="fa fa-file-code-o"></i> C#</div>
-        <div class="card-desc">20%</div>
+      <div class="bar-row">
+        <span class="bar-label">C#</span>
+        <div class="bar" style="width:20%"><span>20%</span></div>
       </div>
-      <div class="card">
-        <div class="card-title"><i class="fa fa-file-code-o"></i> Java</div>
-        <div class="card-desc">20%</div>
+      <div class="bar-row">
+        <span class="bar-label">Java</span>
+        <div class="bar" style="width:20%"><span>20%</span></div>
       </div>
-      <div class="card">
-        <div class="card-title"><i class="fa fa-file-code-o"></i> JavaScript</div>
-        <div class="card-desc">10%</div>
+      <div class="bar-row">
+        <span class="bar-label">JavaScript</span>
+        <div class="bar" style="width:10%"><span>10%</span></div>
       </div>
-      <div class="card">
-        <div class="card-title"><i class="fa fa-file-code-o"></i> Web Development</div>
-        <div class="card-desc">15%</div>
+      <div class="bar-row">
+        <span class="bar-label">Web Development</span>
+        <div class="bar" style="width:15%"><span>15%</span></div>
       </div>
-      <div class="card">
-        <div class="card-title"><i class="fa fa-laptop"></i> Network Administration</div>
-        <div class="card-desc">30%</div>
+      <div class="bar-row">
+        <span class="bar-label">Network Administration</span>
+        <div class="bar" style="width:30%"><span>30%</span></div>
       </div>
     </div>
   </section>
@@ -109,7 +118,7 @@
     <div class="card-list">
       <div class="card">
         <div class="card-title">Years Experience</div>
-        <div class="card-desc" style="font-size:2rem; color:var(--accent);">27+</div>
+        <div class="card-desc" style="font-size:2rem; color:var(--accent);">29+</div>
       </div>
       <div class="card">
         <div class="card-title">Projects Done</div>
@@ -120,7 +129,8 @@
 </main>
 
 
-<section id="contact">
+
+<section id="contact-section" class="contact-section">
   <h2>Contact Me</h2>
   <div class="card-list">
     <div class="card">
