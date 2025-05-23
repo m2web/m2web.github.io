@@ -248,8 +248,8 @@ section {
   margin-bottom: 0.25rem;
 }
 .hero-img {
-  width: 140px;
-  height: 140px;
+  width: 270px;
+  height: 270px;
   border-radius: 50%;
   border: 3px solid var(--accent2);
   box-shadow: var(--shadow);
