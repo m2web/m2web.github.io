@@ -30,15 +30,15 @@ C#, JavaScript, and Python     [██████████                  
 ## Previously, in my career, my time was spent on
 
 ```
-Integration Service Development (IBM Integration Bus)   [█         ] 5%
+Integration Service Development (IBM Integration Bus)   [█                   ] 5%
 Adjunct Faculty: Software Development, ...              [████████████        ] 20%
-HTML/CSS                                               [████████████        ] 20%
-Classic ASP                                            [███████             ] 15%
-C#                                                     [████████████        ] 20%
-Java                                                   [████████████        ] 20%
-JavaScript                                             [████                ] 10%
-Web Development                                        [███████             ] 15%
-Network Administration                                 [████████████████    ] 30%
+HTML/CSS                                                [████████████        ] 20%
+Classic ASP                                             [███████             ] 15%
+C#                                                      [████████████        ] 20%
+Java                                                    [████████████        ] 20%
+JavaScript                                              [████                ] 10%
+Web Development                                         [███████             ] 15%
+Network Administration                                  [████████████████    ] 30%
 ```
 
 ## Years Experience & Projects Done
