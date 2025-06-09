@@ -1,0 +1,84 @@
+body{
+	padding:0px;
+	margin:0px;
+	background:#c7c7c7;
+}
+
+table{
+	width:800px;
+	border:0px;
+	margin:auto;
+	border-collapse:collapse;
+}
+
+table tr td {
+	padding:0px; 
+}
+
+td.image {
+	background-color:#ffffff;
+}
+
+td.content {
+	background-color:#efefef;
+	font: 14px/18px Tahoma, Geneva, sans-serif;
+	color:#000;
+	font-weight:normal;
+	padding:5px;
+}
+
+td.footer {
+	background-color:#a7a7a7;
+	font: 14px/18px Tahoma, Geneva, sans-serif;
+	color:#000;
+	font-weight:normal;
+	width:100%;
+	height:25px;
+}
+
+.headerText {
+	font: 22px/28px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color:#000;
+	font-weight:bold;
+}
+
+.dateStyle {
+	font: 12px/14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color:#000;
+	font-weight:bold;
+	background-color:#a7a7a7;
+	vertical-align:middle;
+	text-align:left;
+	width:100%;
+	height:25px;
+	padding:5px;
+}
+
+img.facebookButton{
+	height:30px;
+	vertical-align:middle;
+	border:0px;
+}
+
+/*  Links  */
+a:link {
+	font: 14px/18px Tahoma, Geneva, sans-serif;
+	color:#000;
+	font-weight:normal;
+	text-decoration:underline;
+}
+
+a:visited{
+	font: 14px/18px Tahoma, Geneva, sans-serif;
+	color:#000;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+a:hover {
+	font: 14px/18px Tahoma, Geneva, sans-serif;
+	color:#000;
+	font-weight:normal;
+	text-decoration:none;
+}
+
