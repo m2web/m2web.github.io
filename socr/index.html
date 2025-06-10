@@ -15,26 +15,64 @@ body, html {
 }
 .bgimg {
     background-position: center;
-	background-attachment: fixed;
+    background-attachment: fixed;
     background-size: cover;
     background-image: url("images/SunriseDuringRun.jpg");
     min-height: 100%;
+    width: 100%;
+    /* Optional: add overlay for readability */
+    position: relative;
 }
-
-/* For the map image */
-.visibledevice {display:none;}
-.visibledesktop {display:display;}
-
-/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-width: 900px) {
+    .bgimg {
+        min-height: 60vh;
+        background-attachment: scroll;
+    }
+}
 @media only screen and (max-width: 684px) {
     .bgimg {
+        min-height: 40vh;
         background-attachment: scroll;
     }
     /* Change if device max width is less than 684px*/
     .visibledevice {display:block;}
     .visibledesktop {display:none;}
 }
-
+/* Optional: overlay for text readability */
+.bgimg::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.18);
+    z-index: 0;
+}
+.w3-display-container > * {
+    position: relative;
+    z-index: 1;
+}
+.header-bottom-center {
+  position: absolute;
+  left: 50%;
+  bottom: 2.5rem;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 2;
+  width: 90%;
+  max-width: 500px;
+  pointer-events: auto;
+}
+@media (max-width: 600px) {
+  .header-bottom-center {
+    bottom: 1.2rem;
+    max-width: 98vw;
+    font-size: 0.95em;
+  }
+  .header-bottom-center .w3-tag {
+    font-size: 0.95em;
+    padding: 6px 10px;
+  }
+}
 </style>
 <body>
 
@@ -57,13 +95,13 @@ body, html {
 
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
-    <span class="w3-tag"><a href="#contact" style="text-decoration-line: none">Contact us to arrange a run</a></span>
-  </div>
-  <div class="w3-display-middle w3-center">
-  </div>
-  <div class="w3-display-bottomright w3-center w3-padding-large">
-    <span class="w3-tag">818 Scott St., Covington, KY 41011</span>
+  <div class="header-bottom-center">
+    <span class="w3-tag" style="display:block;margin-bottom:0.5em;">
+      <a href="#contact" style="text-decoration-line: none; color:inherit;">Contact us to arrange a run</a>
+    </span>
+    <span class="w3-tag" style="display:block;">
+      818 Scott St., Covington, KY 41011
+    </span>
   </div>
 </header>
 
