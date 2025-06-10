@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html>
+<title>Sites of Cincinnati Run</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" />
+<link rel="ICON" href="favicon.ico" type="image/ico" />
+<style>
+body, html {
+    height: 100%;
+    font-family: "Inconsolata", sans-serif;
+}
+.bgimg {
+    background-position: center;
+	background-attachment: fixed;
+    background-size: cover;
+    background-image: url("images/sunriseDuringRun.jpg");
+    min-height: 100%;
+}
+
+/* For the map image */
+.visibledevice {display:none;}
+.visibledesktop {display:display;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-width: 684px) {
+    .bgimg {
+        background-attachment: scroll;
+    }
+    /* Change if device max width is less than 684px*/
+    .visibledevice {display:block;}
+    .visibledesktop {display:none;}
+}
+
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+    <i class="fa fa-bars"></i>
+  </a>
+  <a href="#home" class="w3-bar-item w3-button fa fa-home"> HOME</a>
+  <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+  <a href="#where" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-map"></i> WHERE</a>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+        <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+        <a href="#where" class="w3-bar-item w3-button" onclick="toggleFunction()">WHERE</a>
+      </div>
+    
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag"><a href="#contact" style="text-decoration-line: none">Contact us to arrange a run</a></span>
+  </div>
+  <div class="w3-display-middle w3-center">
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-tag">818 Scott St., Covington, KY 41011</span>
+  </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- About Container -->
+<div class="w3-container w3-padding-64 w3-light-blue w3-grayscale-min w3-xlarge" id="about">
+    <div class="w3-content">
+        <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide w3-xlarge">ABOUT THE RUN</span></h5>
+        <div class="w3-tag">Where are we starting?</div>
+        <p>We are starting at our home: 818 Scott St., Covington, KY 41011.</p>
+        <div class="w3-tag">What will we run by?</div>
+        <p>We start in Covington, KY and run by:</p>
+        <p><a href="https://hotelcovington.com" target="_blank">Hotel Covington</a></p>
+        <p><a href="http://www.braxtonbrewing.com/" target="_blank">Braxton's Brewing Taphouse</a></p>
+        <p><a href="http://www.mainstrasse.org/" target="_blank">Mainstrasse</a></p>
+        <p><a href="https://www.meetnky.com/learn/nky-neighborhoods/roebling-point/" target="_blank">Roebling Point</a></p>
+        <p>Run over the <a href="http://www.roeblingbridge.org/" target="_blank">John A. Roebling Suspension Bridge</a></p>
+        <p>Getting into Cincinnati we run by:</p>
+        <p>
+            <a href="https://www.cincinnati-oh.gov/cincyparks/visit-a-park/find-a-parkfacility/smale-riverfront-park/" target="_blank">
+                Smale Park
+            </a>
+        </p>
+        <p>
+            <a href="http://www.bengals.com/stadium/" target="_blank">
+                Paycor Stadium
+            </a>
+        </p>
+        <p>
+            <a href="https://bradymusiccenter.com/" target="_blank">
+                The Andrew J. Brady Music Center
+            </a>
+        </p>
+        <p>
+            <a href="http://www.duke-energycenter.com/" target="_blank">
+                Duke Convention Center
+            </a>
+        </p>
+        <p>In Over-the-Rhine we run by:</p>
+        <p>
+            <a href="https://www.cincinnati-oh.gov/cincyparks/visit-a-park/find-a-parkfacility/washington-park/" target="_blank">
+                Washington Park
+            </a>
+        </p>
+        <p>
+            <a href="https://www.cincinnatiarts.org/music-hall" target="_blank">
+                Cincinnati Music Hall
+            </a>
+        </p>
+        <p>
+            <a href="http://www.findlaymarket.org/" target="_blank">
+                Findlay Market
+            </a>
+        </p>
+        <p>
+            <a href="http://www.rhinegeist.com/" target="_blank">
+                Rhinegeist Brewery
+            </a>
+        </p>
+        <p>
+            <a href="https://www.otrchamber.com/map-guide/" target="_blank">
+                Various restaraunts
+            </a>
+        </p>
+        <p>In downtown Cincinnti we run by:</p>
+        <p>
+            <a href="https://myfountainsquare.com/" target="_blank">
+                Fountain Square
+            </a>
+        </p>
+        <p>
+            <a href="http://tafttheatre.org/" target="_blank">
+                Taft Theater
+            </a>
+        </p>
+        <p>
+            <a href="http://www.cincinnatiparks.com/central/lytle-park/" target="_blank">
+                Lytle Park
+            </a>
+        </p>
+        <p>
+            <a href="https://www.mlb.com/reds/ballpark" target="_blank">
+                Great American Ball Park
+            </a>
+        </p>
+        <p>
+            <a href="http://www.cincinnatiparks.com/river-parks/sawyer-point-park-yeatmans-cove/" target="_blank">
+                Serpentine Wall & Yeatman's Cove
+            </a>
+        </p>
+        Run over the
+        <a href="http://purplepeoplebridge.com/" target="_blank">
+            Purple People Bridge
+        </a>
+        back into Newport, Kentucky
+        <p>Getting back into Newport we run by:</p>
+        <p>
+            <a href="https://www.hofbrauhausnewport.com/" target="_blank">
+                Hofbrauhaus
+            </a>
+        </p>
+        <p>
+            <a href="https://www.newportaquarium.com/" target="_blank">
+                The Newport Aquarium
+            </a>
+        </p>
+        <p>
+            <a href="https://southgatehouse.com/" target="_blank">
+                Southgate Revival House
+            </a>
+        </p>
+
+        <p>Back into Covinton we go by:</p>
+        <p>
+            <a href="http://www.thecarnegie.com/" target="_blank">
+                The Carnegie
+            </a>
+        </p>
+        <p>
+            <a href="http://www.reddengardens.org/" target="_blank">
+                Redden Gardens
+            </a>
+        </p>
+    <div class="w3-tag" id="contact">Who do I contact if I have any questions?</div>
+    <p>Please contact <a href="mailto:mark@m2.fyi">Mark</a>.</p>
+</div>
+</div>
+    
+<!-- Where/Area Container -->
+<div class="w3-container" id="where" style="padding-bottom:32px;">
+  <div class="w3-content">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide w3-xlarge">WHERE TO FIND US</span></h5>
+    <p>Find us at 818 Scott St., Covington, KY 41011.</p>
+    <div class="visibledesktop">
+        <a target="_blank" href="https://runkeeper.com/user/m2web/route/4791121">
+            <img src="images/SitesOfCincinnatiRunMap.PNG"/>
+        </a>
+    </div>
+    <div class="visibledevice">
+        <a target="_blank" href="images/SitesOfCincinnatiRunMap.PNG">
+            <img src="images/SitesOfCincinnatiRunMap.PNG" width="350px"/>
+        </a>
+    </div>
+  </div>
+</div>
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+ </footer>
+ <script>
+ 
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function toggleFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
+</body>
+</html>
