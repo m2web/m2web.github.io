@@ -38,6 +38,18 @@ body, html {
     .visibledevice {display:block;}
     .visibledesktop {display:none;}
 }
+/* Show .visibledesktop by default, hide .visibledevice */
+.visibledesktop { display: block; }
+.visibledevice { display: none; }
+/* On small screens, swap visibility */
+@media only screen and (max-width: 684px) {
+    .bgimg {
+        min-height: 40vh;
+        background-attachment: scroll;
+    }
+    .visibledevice { display: block; }
+    .visibledesktop { display: none; }
+}
 /* Optional: overlay for text readability */
 .bgimg::before {
     content: "";
