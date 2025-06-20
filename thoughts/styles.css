@@ -150,3 +150,37 @@ a.underline:hover {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.envyofnone-img {
+    display: block;
+    margin: 2rem auto 2.5rem auto;
+    max-width: 900px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transition: max-width 0.3s;
+}
+
+@media (max-width: 1200px) {
+    .envyofnone-img {
+        max-width: 700px;
+    }
+}
+@media (max-width: 900px) {
+    .envyofnone-img {
+        max-width: 500px;
+    }
+}
+@media (max-width: 600px) {
+    .envyofnone-img {
+        max-width: 95vw;
+        border-radius: 6px;
+    }
+}
+@media (max-width: 400px) {
+    .envyofnone-img {
+        max-width: 99vw;
+        border-radius: 4px;
+    }
+}
