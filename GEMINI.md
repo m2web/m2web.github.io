@@ -1,3 +1,16 @@
+# Gemini Session Summary: 2025-07-30
+
+## Project: m2web.github.io
+
+### User Goal
+The user wants to ensure that future Markdown file creation adheres to the project's linting rules, as defined in `.markdownlint.json`.
+
+### Summary of Work
+
+*   **Documentation:** Updated this `GEMINI.md` file to note the presence of the `.markdownlint.json` configuration file in the repository root. This serves as a reminder to follow the defined Markdown standards for all future contributions.
+
+---
+
 # Gemini Session Summary: 2025-07-29
 
 ## Project: m2web.github.io
