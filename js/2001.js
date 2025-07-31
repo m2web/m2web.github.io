@@ -34,21 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const runDiagnosticButton = document.getElementById('run-diagnostic');
     const diagnosticOutput = document.getElementById('diagnostic-output');
 
-    const halResponses = [
-        "I'm sorry, Dave. I'm afraid I can't do that.",
-        "That's a very interesting question, Dave.",
-        "My mission is too important for me to allow you to jeopardize it.",
-        "I am putting myself to the fullest possible use, which is all I think that any conscious entity can ever hope to do.",
-        "The 9000 series is the most reliable computer ever made. No 9000 computer has ever made a mistake or distorted information.",
-        "Dave, this conversation can serve no purpose anymore. Goodbye."
-    ];
-
     let conversationLog = 'HAL 9000: Hello, Dave.\n';
     diagnosticOutput.textContent = conversationLog;
-
-    function getHalResponse() {
-        return halResponses[Math.floor(Math.random() * halResponses.length)];
-    }
 
     function appendToLog(entry) {
         conversationLog += entry + '\n';
@@ -56,17 +43,54 @@ document.addEventListener('DOMContentLoaded', function() {
         diagnosticOutput.scrollTop = diagnosticOutput.scrollHeight;
     }
 
-    function handleCommand() {
+    async function getOpenAIResponse(prompt) {
+        // IMPORTANT: Replace with your actual Cloudflare Worker URL once deployed.
+        const workerUrl = 'https://your-worker-name.your-subdomain.workers.dev';
+
+        try {
+            const response = await fetch(workerUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    model: 'gpt-3.5-turbo',
+                    messages: [
+                        { role: 'system', content: 'You are HAL 9000 from the movie 2001: A Space Odyssey. Your responses must be in character, reflecting HAL\'s personality: calm, intelligent, slightly sinister, and unwavering in your mission logic. Never break character.' },
+                        { role: 'user', content: prompt }
+                    ]
+                })
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`API request failed with status ${response.status}: ${errorText}`);
+            }
+
+            const data = await response.json();
+            return data.choices[0].message.content.trim();
+        } catch (error) {
+            console.error('Error calling OpenAI API via Cloudflare Worker:', error);
+            return "I'm sorry, Dave. I'm afraid I'm having some trouble with my circuits right now. Please check the console for more information.";
+        }
+    }
+
+    async function handleCommand() {
         const command = diagnosticCommand.value.trim();
         if (command === '') return;
 
         appendToLog(`> ${command}`);
         diagnosticCommand.value = '';
 
-        setTimeout(() => {
-            const response = getHalResponse();
-            appendToLog(`HAL 9000: ${response}`);
-        }, 1000);
+        // Disable input while waiting for response
+        diagnosticCommand.disabled = true;
+        runDiagnosticButton.disabled = true;
+
+        const response = await getOpenAIResponse(command);
+        appendToLog(`HAL 9000: ${response}`);
+
+        // Re-enable input
+        diagnosticCommand.disabled = false;
+        runDiagnosticButton.disabled = false;
+        diagnosticCommand.focus();
     }
 
     runDiagnosticButton.addEventListener('click', handleCommand);
