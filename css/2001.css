@@ -167,7 +167,7 @@ body {
     color: var(--bg-primary);
     padding: 10px;
     font-family: var(--font-mono);
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 #run-diagnostic {
