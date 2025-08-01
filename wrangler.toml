@@ -1,0 +1,9 @@
+name = "openai-proxy-worker"
+main = "functions/api/worker.js"
+compatibility_date = "2025-08-01"
+
+[vars]
+# Define environment variables here if needed
+
+# [env.production]
+# Production-specific settings (optional)
