@@ -37,12 +37,16 @@ wrangler secret put OPENAI_API_KEY
 Now, deploy the Worker script located at `functions/api/worker.js`. This command will bundle and upload your script to the Cloudflare network.
 
 **Important:** This command must also be run from the root directory.
+(Optional but recommended) Test your deployment with a dry run first:
 
 ```sh
-wrangler deploy functions/api/worker.js --name your-worker-name
+wrangler functions/api/worker.js --dry-run
 ```
 
-- Replace `your-worker-name` with a unique name for your worker (e.g., `hal-9000-proxy`).
+```sh
+wrangler deploy functions/api/worker.js
+```
+
 - After deployment, Wrangler will output your worker's public URL, which will look something like `https://your-worker-name.your-subdomain.workers.dev`.
 
 ## Step 5: Update the JavaScript with Your Worker URL
