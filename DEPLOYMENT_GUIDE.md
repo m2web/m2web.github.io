@@ -49,15 +49,14 @@ wrangler deploy functions/api/worker.js --name your-worker-name
 
 Finally, you need to tell the website how to contact your newly deployed worker.
 
-1.  Copy the worker URL from the output of the `wrangler deploy` command.
-2.  Open the `js/2001.js` file.
-3.  Find the following line of code:
+1. Copy the worker URL from the output of the `wrangler deploy` command.
+2. Open the `js/2001.js` file.
+3. Find the following line of code:
 
     ```javascript
     const workerUrl = 'https://your-worker-name.your-subdomain.workers.dev';
     ```
 
-4.  Replace the placeholder URL with your actual worker URL.
+4. Replace the placeholder URL with your actual worker URL.
 
 Once you have completed these steps, the diagnostics chat on your website will be fully functional, powered by the OpenAI API via your secure Cloudflare Worker.
-
