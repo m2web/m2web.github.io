@@ -62,19 +62,7 @@ export default {
 
 ## Step 3: Deploy the Worker
 
-1. Install Wrangler if you haven't:
-
-   ```sh
-   npm install -g wrangler
-   ```
-
-2. Authenticate Wrangler:
-
-   ```sh
-   wrangler login
-   ```
-
-3. Deploy your Worker:
+- Deploy your Worker:
 
    ```sh
    wrangler deploy worker.js
