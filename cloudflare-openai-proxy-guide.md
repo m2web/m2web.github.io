@@ -39,11 +39,23 @@ export default {
 
 ## Step 2: Store Your OpenAI API Key as a Secret
 
-Use the [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/) to store your API key securely:
+- Install Wrangler if you haven't:
 
-```sh
-wrangler secret put OPENAI_API_KEY
-```
+       ```sh
+       npm install -g wrangler
+       ```
+
+- Authenticate Wrangler:
+
+        ```sh
+        wrangler login
+        ```
+
+- Use the [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/) to store your API key securely:
+
+      ```sh
+      wrangler secret put OPENAI_API_KEY
+      ```
 
 ---
 
