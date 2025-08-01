@@ -12,7 +12,7 @@ This guide explains how to securely call the OpenAI API from a static site (like
 
 ## Step 1: Write the Cloudflare Worker Script
 
-Create a file named `worker.js` with the following code:
+Create a file named `worker.js` with the following code (`note this is already created in the functions/api folder`):
 
 ```js
 export default {
@@ -41,21 +41,21 @@ export default {
 
 - Install Wrangler if you haven't:
 
-       ```sh
+    ```sh
        npm install -g wrangler
-       ```
+    ```
 
 - Authenticate Wrangler:
 
-        ```sh
-        wrangler login
-        ```
+    ```sh
+      wrangler login
+    ```
 
 - Use the [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/) to store your API key securely:
 
-      ```sh
+    ```sh
       wrangler secret put OPENAI_API_KEY
-      ```
+    ```
 
 ---
 
