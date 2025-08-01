@@ -1,18 +1,19 @@
-# Using a Cloudflare Worker to Call the OpenAI API
+# Using a Cloudflare Worker with GitHub Pages to Call the OpenAI API
 
-This guide explains how to securely call the OpenAI API from a static site (like GitHub Pages) using a Cloudflare Worker as a proxy. This approach keeps your OpenAI API key secret and enables safe API calls from the browser.
+This guide explains how to securely call the OpenAI API from a static site hosted on **GitHub Pages** by using a **Cloudflare Worker** as a proxy. This approach keeps your OpenAI API key secret and enables safe API calls from the browser, since GitHub Pages cannot run server-side code.
 
-## Why Use a Cloudflare Worker?
+## Why Use a Cloudflare Worker with GitHub Pages?
 
-- **Security:** Never expose your OpenAI API key in client-side code.
+- **Security:** Never expose your OpenAI API key in client-side code. The Worker acts as a secure backend.
 - **Flexibility:** Add logging, rate limiting, or custom logic in your Worker.
-- **Simplicity:** No need to manage your own server.
+- **Simplicity:** No need to manage your own server or backend infrastructure.
+- **Compatibility:** GitHub Pages only serves static files, so a Worker is needed for dynamic API calls.
 
 ---
 
 ## Step 1: Write the Cloudflare Worker Script
 
-Create a file named `worker.js` with the following code (`note this is already created in the functions/api folder`):
+Create a file named `worker.js` with the following code (or use your preferred filename):
 
 ```js
 export default {
@@ -81,9 +82,9 @@ export default {
 
 ---
 
-## Step 4: Call the Worker from Your Static Site
+## Step 4: Call the Worker from Your GitHub Pages Site
 
-In your GitHub Pages site, use JavaScript to call your Worker endpoint:
+In your GitHub Pages static site, use JavaScript to call your Worker endpoint. This allows your static site to interact with the OpenAI API securely, without exposing your API key:
 
 ```js
 fetch('https://<your-worker-subdomain>.workers.dev', {
@@ -98,7 +99,7 @@ fetch('https://<your-worker-subdomain>.workers.dev', {
   .then(data => console.log(data));
 ```
 
-Replace `<your-worker-subdomain>` with your actual Worker URL.
+Replace `<your-worker-subdomain>` with your actual Worker URL (e.g., `myworker.myaccount.workers.dev`).
 
 ---
 
@@ -107,3 +108,9 @@ Replace `<your-worker-subdomain>` with your actual Worker URL.
 - You can add authentication, rate limiting, or logging in your Worker for more control.
 - This approach works for any OpenAI API endpoint—just adjust the Worker code as needed.
 - For more info, see the [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/) and [OpenAI API docs](https://platform.openai.com/docs/api-reference/introduction).
+
+---
+
+**Summary:**
+
+By using a Cloudflare Worker as a secure proxy, your GitHub Pages static site can safely call the OpenAI API without exposing sensitive credentials. This pattern is recommended for any static site needing to interact with third-party APIs that require secret keys.
