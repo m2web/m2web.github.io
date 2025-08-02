@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function getOpenAIResponse(prompt) {
-        // IMPORTANT: Replace with your actual Cloudflare Worker URL once deployed.
-        const workerUrl = 'https://hal-9000-proxy.m2web.workers.dev';
+    // Use a configurable worker URL. Set window.WORKER_URL in your HTML to override for different environments.
+    const workerUrl = window.WORKER_URL || 'https://hal-9000-proxy.m2web.workers.dev';
 
         try {
             const response = await fetch(workerUrl, {
