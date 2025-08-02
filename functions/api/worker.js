@@ -1,0 +1,80 @@
+const ALLOWED_ORIGINS = [
+  'https://m2web.github.io',
+  'http://127.0.0.1:5500'
+];
+
+export default {
+  async fetch(request, env) {
+    if (!env.OPENAI_API_KEY) {
+      return new Response('Missing OpenAI API key in environment variables.', { status: 500 });
+    }
+    // Handle CORS pre-flight requests
+    if (request.method === 'OPTIONS') {
+      return handleOptions(request);
+    }
+
+    const apiUrl = 'https://api.openai.com/v1/chat/completions';
+    
+    // Ensure the request body is valid JSON
+    let body;
+    try {
+      body = await request.json();
+    } catch (e) {
+      return new Response('Invalid JSON in request body', { status: 400 });
+    }
+
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.OPENAI_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    // Add CORS headers to the response
+    const newHeaders = new Headers(response.headers);
+    const origin = request.headers.get('Origin');
+    if (origin && ALLOWED_ORIGINS.includes(origin)) {
+      newHeaders.set('Access-Control-Allow-Origin', origin);
+      newHeaders.set('Vary', 'Origin');
+    }
+    newHeaders.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    newHeaders.set('Access-Control-Allow-Headers', 'Content-Type');
+
+    return new Response(response.body, {
+      status: response.status,
+      headers: newHeaders
+    });
+  }
+};
+
+function handleOptions(request) {
+  const headers = request.headers;
+  const origin = headers.get('Origin');
+  if (
+    origin !== null &&
+    headers.get('Access-Control-Request-Method') !== null &&
+    headers.get('Access-Control-Request-Headers') !== null
+  ) {
+    // Handle CORS pre-flight request.
+    let corsHeaders = {
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    };
+    if (ALLOWED_ORIGINS.includes(origin)) {
+      corsHeaders['Access-Control-Allow-Origin'] = origin;
+      corsHeaders['Vary'] = 'Origin';
+    }
+    return new Response(null, {
+      headers: corsHeaders,
+    });
+  } else {
+    // Handle non-CORS pre-flight request.
+    return new Response(null, {
+      headers: {
+        Allow: 'POST, OPTIONS',
+      },
+    });
+  }
+}

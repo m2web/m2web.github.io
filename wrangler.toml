@@ -1,0 +1,9 @@
+name = "hal-9000-proxy"
+main = "functions/api/worker.js"
+compatibility_date = "2025-08-01"
+
+[vars]
+# Define environment variables here if needed
+
+# [env.production]
+# Production-specific settings (optional)

@@ -1,198 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Mark McFadden</title>
-  <link rel="ICON" href="favicon.ico" type="image/ico" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="Mark McFadden, Western & Southern, Business Informatics, .Net Core, C#, Java, JavaScript, Python, Azure, Terraform, API Connect, NKU, Northern Kentucky University" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/darkmode.css">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark McFadden :: 2001 Interface</title>
+    <link rel="ICON" href="favicon.ico" type="image/ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Orbitron:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/2001.css">
 </head>
 <body>
+    <header class="main-header">
+        <h1 id="main-title"></h1>
+        <nav class="main-nav">
+            <a href="#about">AE-35 UNIT</a>
+            <a href="#status">DIAGNOSTICS</a>
+            <a href="#contact">COMMS</a>
+            <a href="https://m2.fyi" target="_blank" rel="noopener">LOGS</a>
+        </nav>
+    </header>
 
+    <div class="hal-eye"></div>
 
-<nav>
-  <div class="navbar">
-    <a href="#home" class="navbar-logo">Mark McFadden</a>
-    <div class="navbar-toggle" id="navbar-toggle" aria-label="Open navigation" tabindex="0">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="navbar-menu" id="navbar-menu">
-      <a href="#about" class="navbar-link">About</a>
-      <a href="#contact-section" class="navbar-link">Contact</a>
-    </div>
-  </div>
-</nav>
+    <section id="about" class="monolith">
+        <h2>AE-35 UNIT [ABOUT]</h2>
+        <p>Unit Designation: Mark McFadden</p>
+        <p>Function: Software Developer</p>
+        <p>Operational History: 29+ years in Information Technologies. Specializing in web technologies, API development, and cloud infrastructure. Formerly an educator in software development and IT governance.</p>
+        <p>Primary Directive: To learn, build, and improve systems for business and individual use.</p>
+    </section>
 
-<header class="hero" id="home">
-  <img src="images/meStanding.jpg" alt="Mark McFadden" class="hero-img" />
-  <h1 class="hero-title">Mark McFadden</h1>
-  <div class="hero-subtitle">Software Developer | Tech Enthusiast | Educator</div>
-</header>
-
-
-<main>
-  <section id="about">
-    <h2>About Me</h2>
-    <p class="about-highlight">I love technology</p>
-    <p>I am a Software Developer currently doing software development for a large insurance/financial institution.</p>
-    <p>I love learning new software languages and technologies. I also enjoy learning how these new tools can serve businesses and individuals better. I have over 29 years of experience in Information Technologies, specializing in Internet technologies, Network Administration, ASP/Visual Basic, .Net, J2E, Ruby on Rails, and JavaScript application design and development. I have designed and implemented several Internet-based systems, ranging from static “brochureware” sites to dynamic e-commerce solutions.</p>
-    <p>Formerly, in addition to software development, I functioned as part-time faculty, teaching Business Application Development, Introduction to Database, Systems Management, and Information Technology Governance at a local university.</p>
-  </section>
-
-  <section>
-    <h3>Lately, I spend my time doing:</h3>
-    <div class="card-list">
-      <div class="card">
-        <div class="card-title"><i class="fa fa-file-code-o"></i> Azure APIM Development</div>
-        <div class="card-desc">40%</div>
-        <div class="progress-bar-container">
-          <div class="progress-bar" style="width: 40%"><span>40%</span></div>
+    <section id="status" class="monolith">
+        <h2>SYSTEM DIAGNOSTICS [STATUS]</h2>
+        <div class="diagnostics-grid">
+            <div class="diagnostic-item">
+                <span class="diagnostic-label">Azure APIM Development</span>
+                <span class="diagnostic-value status-blue">ACTIVE</span>
+            </div>
+            <div class="diagnostic-item">
+                <span class="diagnostic-label">IBM API Connect</span>
+                <span class="diagnostic-value status-blue">ACTIVE</span>
+            </div>
+            <div class="diagnostic-item">
+                <span class="diagnostic-label">C# / JS / Python</span>
+                <span class="diagnostic-value status-blue">STANDBY</span>
+            </div>
+            <div class="diagnostic-item">
+                <span class="diagnostic-label">Network Admin</span>
+                <span class="diagnostic-value status-archive">ARCHIVED</span>
+            </div>
+                <div class="diagnostic-item">
+                <span class="diagnostic-label">Adjunct Faculty</span>
+                <span class="diagnostic-value status-archive">ARCHIVED</span>
+            </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-title"><i class="fa fa-file-code-o"></i> IBM API Connect Development</div>
-        <div class="card-desc">40%</div>
-        <div class="progress-bar-container">
-          <div class="progress-bar" style="width: 40%"><span>40%</span></div>
+        <div class="interactive-diagnostics">
+            <input type="text" id="diagnostic-command" placeholder="What would you like to discuss?">
+            <button id="run-diagnostic">EXECUTE</button>
+            <pre id="diagnostic-output"></pre>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-title"><i class="fa fa-file-code-o"></i> C#, JavaScript, and Python Development</div>
-        <div class="card-desc">20%</div>
-        <div class="progress-bar-container">
-          <div class="progress-bar" style="width: 20%"><span>20%</span></div>
+    </section>
+
+    <section id="contact" class="monolith">
+        <h2>COMMS-LINK [CONTACT]</h2>
+        <ul class="contact-list">
+            <li><span class="comm-label">LOCATION:</span> <span class="comm-value">Covington, KY</span></li>
+            <li><span class="comm-label">EMAIL:</span> <a href="mailto:m2web@yahoo.com">m2web@yahoo.com</a></li>
+            <li><span class="comm-label">PHONE:</span> <span class="comm-value">859.750.1953</span></li>
+        </ul>
+    </section>
+
+    <footer class="main-footer">
+        <div class="social-links">
+            <a href="https://github.com/m2web" target="_blank" aria-label="GitHub">[G H]</a>
+            <a href="https://www.linkedin.com/in/m2web/" target="_blank" aria-label="LinkedIn">[L I]</a>
+            <a href="https://twitter.com/m2web" target="_blank" aria-label="Twitter">[T W]</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h3>Previously, in my career, my time was spent on:</h3>
-    <div class="bar-chart">
-      <div class="bar-row">
-        <span class="bar-label">Integration Service Development (IBM Integration Bus)</span>
-        <div class="bar" style="width:5%"><span>5%</span></div>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">Adjunct Faculty: Software Development, Database, & IT Governance</span>
-        <div class="bar" style="width:20%"><span>20%</span></div>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">HTML/CSS</span>
-        <div class="bar" style="width:20%"><span>20%</span></div>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">Classic ASP</span>
-        <div class="bar" style="width:15%"><span>15%</span></div>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">C#</span>
-        <div class="bar" style="width:20%"><span>20%</span></div>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">Java</span>
-        <div class="bar" style="width:20%"><span>20%</span></div>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">JavaScript</span>
-        <div class="bar" style="width:10%"><span>10%</span></div>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">Web Development</span>
-        <div class="bar" style="width:15%"><span>15%</span></div>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">Network Administration</span>
-        <div class="bar" style="width:30%"><span>30%</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="banner-row">
-    <div class="card-list">
-      <div class="card">
-        <div class="card-title">Years Experience</div>
-        <div class="card-desc" style="font-size:2rem; color:var(--accent);">29+</div>
-      </div>
-      <div class="card">
-        <div class="card-title">Projects Done</div>
-        <div class="card-desc" style="font-size:2rem; color:var(--accent2);">n+1</div>
-      </div>
-    </div>
-  </section>
-</main>
-
-
-
-<section id="contact-section" class="contact-section">
-  <h2>Contact Me</h2>
-  <div class="card-list">
-    <div class="card">
-      <div class="card-title"><i class="fa fa-map-marker"></i> Location</div>
-      <div class="card-desc">Covington, KY</div>
-    </div>
-    <div class="card">
-      <div class="card-title"><i class="fa fa-phone"></i> Phone</div>
-      <div class="card-desc">859.750.1953</div>
-    </div>
-    <div class="card">
-      <div class="card-title"><i class="fa fa-envelope"></i> Email</div>
-      <div class="card-desc"><a href="mailto:m2web@yahoo.com">m2web@yahoo.com</a></div>
-    </div>
-    <div class="card">
-      <div class="card-title"><i class="fa fa-desktop"></i> Blog</div>
-      <div class="card-desc"><a href="https://m2.fyi" target="_blank" rel="noopener">m2.fyi</a></div>
-    </div>
-  </div>
-  <p style="text-align:center; margin-top:2rem;">Contact me and we can talk over a cup of <i class="fa fa-coffee"></i> or a pint of <i class="fa fa-beer"></i>.</p>
-</section>
-
-
-<footer>
-  <a href="#home" class="navbar-link" style="margin-bottom:1rem;display:inline-block;"><i class="fa fa-arrow-up"></i> To the top</a>
-  <div class="footer-social">
-    <a href="https://www.facebook.com/mark.mcfadden" target="_blank" aria-label="Facebook"><i class="fa fa-facebook-official"></i></a>
-    <a href="https://github.com/m2web" target="_blank" aria-label="GitHub"><i class="fa fa-github"></i></a>
-    <a href="https://twitter.com/m2web" target="_blank" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-    <a href="https://www.linkedin.com/in/m2web/" target="_blank" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-  </div>
-  <div style="margin-top:1rem; color:var(--text-secondary); font-size:0.95rem;">&copy; 2025 Mark McFadden</div>
-</footer>
- 
-<!-- Custom JS will be inserted here -->
-<script>
-// Mobile navbar toggle
-const navbarToggle = document.getElementById('navbar-toggle');
-const navbarMenu = document.getElementById('navbar-menu');
-const navbarLinks = document.querySelectorAll('.navbar-link');
-
-function toggleMenu() {
-  navbarMenu.classList.toggle('open');
-}
-if (navbarToggle) {
-  navbarToggle.addEventListener('click', toggleMenu);
-  navbarToggle.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') toggleMenu();
-  });
-}
-// Close menu on link click (mobile)
-navbarLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    navbarMenu.classList.remove('open');
-  });
-});
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkMHk3Yh1AdoYUg9S61SJ5GDYzwY-epQw&callback=myMap"></script>
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
-
+        <p>&copy; 2025 MARK MCFADDEN :: ALL SYSTEMS FUNCTIONAL</p>
+        <p style="font-size: 0.8rem; margin-top: 1rem;">HAL 9000 Interface</p>
+    </footer>
+    <script src="js/2001.js"></script>
 </body>
 </html>
