@@ -35,7 +35,10 @@ export default {
       });
     }
 
-    // Existing OpenAI proxy logic
+    // Proxy requests to the OpenAI Chat Completions API:
+    // - Forwards the request body to OpenAI with the API key from the environment
+    // - Handles authentication and error responses
+    // - Adds appropriate CORS headers to the response
     if (!env.OPENAI_API_KEY) {
       return new Response('Missing OpenAI API key in environment variables.', { status: 500 });
     }
