@@ -1,1 +1,3 @@
+# Ignore Cloudflare Wrangler state and cache
+.wrangler/
 _site

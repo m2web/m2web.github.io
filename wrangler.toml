@@ -7,3 +7,8 @@ compatibility_date = "2025-08-01"
 
 # [env.production]
 # Production-specific settings (optional)
+
+# 
+[[kv_namespaces]]
+binding = "RESUME"
+id = "44cf3d9bd8454125b1be172fcc4b7c3c"

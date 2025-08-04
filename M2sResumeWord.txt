@@ -1,0 +1,124 @@
+﻿Mark C. McFadden
+	818 Scott Street
+Covington, KY 41011
+Phone: 859-750-1953
+http://www.markmcfadden.net        
+	Blog: https://m2.fyi
+E-Mail: m2web@yahoo.com
+LinkedIn: https://www.linkedin.com/in/m2web/
+	
+
+	SUMMARY OF QUALIFICATIONS
+	Over twenty-nine years’ experience in the Information Technologies field, specializing in Internet Technologies, Network Administration, .Net and J2EE application design and development, API Gateway administration, and utilizing Artificial Intelligence.  I have designed and implemented several Internet-based systems ranging from static “brochure ware” sites to dynamic e-commerce solutions. Additionally, I have regularly spoken before teams and corporate gatherings, educating them on various topics and technologies, as well as taught at a local university.
+	
+
+	TECHNICAL SKILLS
+	* Basic AI Development
+* Agile Development Methodologies
+* IBM API Connect
+* HTML/XHTML/CSS
+* C#/.Net Development
+	* Ruby and Ruby on Rails 3.x
+* Bash/PowerShell/ JavaScript Development
+* Java with Struts and Ant
+* JavaScript Development & Frameworks
+* Elastic Search/Logstash/Kibana Stack
+	EDUCATION
+	
+Major: Business Informatics
+School: Northern Kentucky University
+Awarded: Master’s in Business Informatics, Outstanding Student 2009-2010
+Degree: Master of Science in Business Informatics- 3.86 GPA
+Certificate: Graduate Certificate in Enterprise Resource Planning
+Completion Date: 12/2009
+
+
+Major: Networking & Distributed Systems
+School: Columbus State Community College
+Degree/Certificate: Certified Novell Administrator (CNA) - 3.X
+Completion Date: 03/1997
+
+
+	Major: Education
+School: Ohio University
+Degree/Certificate: Bachelor of Science- Summa Cum Laude
+Completion Date: 11/1993
+
+
+	EMPLOYMENT HISTORY
+	Employer: Northern Kentucky University
+	Location: Highland Heights, KY
+Title: Part-Time Faculty
+	Duration: 08/2015 – 05/2023
+	* Taught college students Advanced Line of Business Application Programming and Introduction to Database Courses
+* Instructor in the Graduate Level Information Technology Governance Course
+* GitHub Campus Advisor
+	Employer: Western & Southern Financial Group
+	Location: Cincinnati, OH
+Title: Senior Software Developer II
+	Duration: 03/2013 – Present
+* Participated in the pilot project for Generative AI Development Tools, contributing to the integration and practical application of these tools and assessing their effectiveness in development tools and workflows.
+* Utilized OpenAI APIs in a Personal Proof of Concept
+* Setup, Administered, and Developed Enterprise APIs
+* Developed .Net MVC Web App for On Demand Correspondence
+* Developed Java Based Solutions for New Business Data
+* Utilized WebSphere Application Server with a DB2 Database
+* Constructed Reports from Java to work with a Batch Control Interface API
+* Created both Windows Services and Web Services for Service Oriented Architecture
+	
+Employer: US Bank
+	Location: Cincinnati, OH
+Title: Application Developer
+	Duration: 11/2000 – 03/2013
+	* Developed a Java Based Commercial Customer Banking Application
+* Combined Ant Build Scripts and JUnit Tests into an automated builds and tests
+* Utilized Automated Testing Applications such as NUnit for Test Driven Development
+* Design of various Intranet Applications with Unified Modeling Language
+* Developed web applications utilizing Active Server Pages and Visual Basic COM
+* Created Object-Oriented Web based applications on the Microsoft.NET platform with C# and SQL Server
+* Lead Development Group in Application Design and Implementation
+* Presented Instructional Topics on Development Methodologies and Patterns
+* Utilized Rational Tools for Lifecycle Development
+* Developed Web Parts for SharePoint Portal Server.
+* Created .Net XML Web and Windows Services
+	
+
+	Employer: ICES Limited
+	Location: Air Force Institute of Technology, Wright-Patterson Air Force Base, Ohio
+Title: Web Administrator
+	Duration: 08/1999 – 11/2000
+	* Setup and Administered Four Dell Power Edge 6300 And 6400 Web Servers
+* Setup and Administered Internet Information Server 4 And 5 Servers
+* Create Active Server Page Web Applications with VB Script, JavaScript, And Database Connectivity
+* Design and Execution of MS Access And SQL Server Databases
+* Setup and Administered Microsoft Proxy Server
+* Supported and Managed Fifteen Web Authors for More Than Twenty Different Web Sites
+	
+
+	Employer: PIC 17 Workforce Board
+	Location: Circleville, Ohio
+Title: Systems Administration/Web Developer
+	Duration: 05/1995 – 08/1999
+	* Administered Citrix Winframe 1.7 Server with A Custom SQL Server 6.5 Application
+* Designed and Provided Training on Various Software Tools and Web Page Creation
+* Setup and Administered Linux Red Hat 6 File Server Within a NT 4 Environment
+* Created Custom Built Web Based Database Application and Related Manuals and Windows Based Help Files
+* Planned, Deployed, And Evaluated Network Hardware and Software Solutions for the Various Partner Agencies
+* Supported End Users with Hardware and Software Needs and Problems
+* Chaired and Facilitated an Inter-agency Electronic Connectivity Project Consisting of Twenty Separate Agencies
+	
+
+	Employer: Great Oaks Institute of Technology
+	Location: Washington CH, Ohio
+Title: Adult Education Computer Instructor (Part Time)
+	Duration: 09/1997 – 08/1999
+	* Taught adult students basic computer applications and use of Microsoft Office 95 and 97 Suite Applications
+* Taught students in Internet Usage of Web Browsers, E-mail Clients, and News Group Readers
+		Employer: Great Oaks Institute of Technology (OakWeb Community Internet)
+	Location: Washington CH, Ohio
+Title: System Administrator/Webmaster (Volunteer)
+	Duration: 08/1995 - 09/1997
+	* Created and managed Website on Sun Sparc V System
+* Monitored and maintained Unix BSD system activity
+* Conducted public presentations for Community Network and Internet promotion
+* Instructed on Internet use and Web Page creation with JavaScript and HTML

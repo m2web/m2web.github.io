@@ -5,16 +5,43 @@ const ALLOWED_ORIGINS = [
 
 export default {
   async fetch(request, env) {
-    if (!env.OPENAI_API_KEY) {
-      return new Response('Missing OpenAI API key in environment variables.', { status: 500 });
-    }
+    const url = new URL(request.url);
     // Handle CORS pre-flight requests
     if (request.method === 'OPTIONS') {
       return handleOptions(request);
     }
 
+    // Serve resume.json from KV at /api/resume
+    if (request.method === 'GET' && url.pathname === '/api/resume') {
+      const origin = request.headers.get('Origin');
+      let corsHeaders = {
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      };
+      if (origin && ALLOWED_ORIGINS.includes(origin)) {
+        corsHeaders['Access-Control-Allow-Origin'] = origin;
+        corsHeaders['Vary'] = 'Origin';
+      }
+      const data = await env.RESUME.get('resume');
+      if (!data) {
+        return new Response('Resume not found', { status: 404, headers: corsHeaders });
+      }
+      return new Response(data, {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          ...corsHeaders
+        }
+      });
+    }
+
+    // Existing OpenAI proxy logic
+    if (!env.OPENAI_API_KEY) {
+      return new Response('Missing OpenAI API key in environment variables.', { status: 500 });
+    }
+
     const apiUrl = 'https://api.openai.com/v1/chat/completions';
-    
+
     // Ensure the request body is valid JSON
     let body;
     try {
