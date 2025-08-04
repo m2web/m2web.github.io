@@ -22,7 +22,15 @@ export default {
         corsHeaders['Access-Control-Allow-Origin'] = origin;
         corsHeaders['Vary'] = 'Origin';
       }
-      const data = await env.RESUME.get('resume');
+      let data;
+      try {
+        data = await env.RESUME.get('resume');
+      } catch (err) {
+        return new Response(
+          'Error accessing resume data: ' + (err && err.message ? err.message : String(err)),
+          { status: 500, headers: corsHeaders }
+        );
+      }
       if (!data) {
         return new Response('Resume not found', { status: 404, headers: corsHeaders });
       }
