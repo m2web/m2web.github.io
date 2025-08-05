@@ -72,7 +72,10 @@ export default {
         userMessage = lastUserMsg.content;
         // Only match 'Mark McFadden', 'Mr. McFadden', or 'Mark' (capitalized, standalone)
         const keywords = [/Mark\s+McFadden/, /Mr\.\s*McFadden/, /\bMark\b/];
-        shouldIncludeResume = keywords.some(re => re.test(userMessage));
+        const matchResults = keywords.map(re => re.test(userMessage));
+        shouldIncludeResume = matchResults.some(Boolean);
+        console.log('[DEBUG] User message:', userMessage);
+        console.log('[DEBUG] Regex match results:', matchResults);
       }
     }
 
@@ -97,6 +100,7 @@ export default {
           ];
           // Log the system message and a flag for debugging
           console.log('[RESUME INJECTED]', systemMsg);
+          console.log('[DEBUG] Full messages array:', JSON.stringify(body.messages));
         }
       }
     }
