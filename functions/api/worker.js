@@ -18,10 +18,10 @@ export default {
         'Access-Control-Allow-Methods': 'GET, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',
       };
-      if (origin && ALLOWED_ORIGINS.includes(origin)) {
+      // if (origin && ALLOWED_ORIGINS.includes(origin)) {
         corsHeaders['Access-Control-Allow-Origin'] = origin;
         corsHeaders['Vary'] = 'Origin';
-      }
+      // }
       let data;
       try {
         data = await env.RESUME.get('resume');
