@@ -70,7 +70,8 @@ export default {
       const lastUserMsg = [...body.messages].reverse().find(m => m.role === 'user');
       if (lastUserMsg && lastUserMsg.content) {
         userMessage = lastUserMsg.content;
-        const keywords = [/mark\s+mcfadden/i, /\bmark\b/i, /mr\.\s*mcfadden/i];
+        // Only match 'Mark McFadden', 'Mr. McFadden', or 'Mark' (capitalized, standalone)
+        const keywords = [/Mark\s+McFadden/, /Mr\.\s*McFadden/, /\bMark\b/];
         shouldIncludeResume = keywords.some(re => re.test(userMessage));
       }
     }
