@@ -95,6 +95,8 @@ export default {
             { role: 'system', content: systemMsg },
             ...body.messages
           ];
+          // Log the system message and a flag for debugging
+          console.log('[RESUME INJECTED]', systemMsg);
         }
       }
     }
