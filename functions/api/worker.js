@@ -62,6 +62,43 @@ export default {
       return new Response('Invalid JSON in request body', { status: 400 });
     }
 
+    // Check if the user's message contains keywords to trigger resume context
+    let shouldIncludeResume = false;
+    let userMessage = '';
+    if (body && Array.isArray(body.messages)) {
+      // Find the latest user message
+      const lastUserMsg = [...body.messages].reverse().find(m => m.role === 'user');
+      if (lastUserMsg && lastUserMsg.content) {
+        userMessage = lastUserMsg.content;
+        // Only match 'Mark McFadden', 'Mr. McFadden', or 'Mark' (capitalized, standalone)
+        const keywords = [/Mark\s+McFadden/, /Mr\.\s*McFadden/, /\bMark\b/];
+        shouldIncludeResume = keywords.some(re => re.test(userMessage));
+      }
+    }
+
+    if (shouldIncludeResume) {
+      // Fetch succinct resume from KV and add as a system message
+      let succinctResume = await env.RESUME.get('RESUME_SUCCINCT');
+      if (succinctResume) {
+        let resumeObj;
+        try {
+          resumeObj = JSON.parse(succinctResume);
+        } catch (e) {
+          resumeObj = null;
+        }
+        let summary = resumeObj && resumeObj.summary ? resumeObj.summary.join(' ') : '';
+        let titles = resumeObj && resumeObj.experience_titles ? resumeObj.experience_titles.join(', ') : '';
+        let systemMsg = `Resume for Mark McFadden. Summary: ${summary} Experience titles: ${titles}`;
+        // Prepend system message
+        if (body && Array.isArray(body.messages)) {
+          body.messages = [
+            { role: 'system', content: systemMsg },
+            ...body.messages
+          ];
+        }
+      }
+    }
+
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
