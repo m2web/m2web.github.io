@@ -26,6 +26,7 @@ export default {
       try {
   data = await env.RESUME.get('RESUME'); // Use uppercase key
       } catch (err) {
+        console.error('Error accessing resume data:', err);
         return new Response(
           'Error accessing resume data: ' + (err && err.message ? err.message : String(err)),
           { status: 500, headers: corsHeaders }
