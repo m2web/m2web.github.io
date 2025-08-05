@@ -24,7 +24,7 @@ export default {
       }
       let data;
       try {
-        data = await env.RESUME.get('resume');
+        data = await env.RESUME.get('RESUME');
       } catch (err) {
         return new Response(
           'Error accessing resume data: ' + (err && err.message ? err.message : String(err)),
