@@ -24,15 +24,8 @@ export default {
       }
       let data;
       try {
-        data = await env.RESUME.get('RESUME'); // Use uppercase key
-        // Log the value to the console for debugging
-        if (typeof data === 'string') {
-          console.log('KV RESUME value:', data.substring(0, 200));
-        } else {
-          console.log('KV RESUME value:', data);
-        }
+        data = await env.RESUME.get('RESUME');
       } catch (err) {
-        console.log('Error accessing resume data:', err);
         return new Response(
           'Error accessing resume data: ' + (err && err.message ? err.message : String(err)),
           { status: 500, headers: corsHeaders }
