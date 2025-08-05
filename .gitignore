@@ -1,3 +1,5 @@
+# Ignore node_modules and all subfolders
+node_modules/
 # Ignore Cloudflare Wrangler state and cache
 .wrangler/
 _site
