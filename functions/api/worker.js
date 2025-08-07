@@ -65,6 +65,10 @@ export default {
       return new Response('Invalid JSON in request body', { status: 400 });
     }
 
+    if (request.method === 'POST') {
+      console.log('[DEBUG] Almost there!');
+    }
+
     // Check if the user's message contains keywords to trigger resume context
     let shouldIncludeResume = false;
     let userMessage = '';
