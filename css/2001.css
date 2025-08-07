@@ -1,3 +1,25 @@
+/* HAL 9000 themed tooltip styles */
+.hal-tooltip {
+    position: fixed;
+    z-index: 9999;
+    background: rgba(20, 20, 20, 0.98);
+    color: #ff4d4d;
+    font-family: 'Orbitron', 'Space Mono', monospace;
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    box-shadow: 0 0 16px #d00000, 0 0 2px #fff;
+    border: 1.5px solid #ff4d4d;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+    transition: opacity 0.18s cubic-bezier(.4,2,.6,1), transform 0.18s cubic-bezier(.4,2,.6,1);
+    white-space: nowrap;
+}
+.hal-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
 :root {
     --bg-primary: #ffffff;
     --bg-secondary: #000000;

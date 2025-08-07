@@ -1,3 +1,49 @@
+// HAL 9000 themed tooltip logic for main menu
+(function() {
+    const nav = document.querySelector('.main-nav');
+    if (!nav) return;
+    let tooltip = document.createElement('div');
+    tooltip.className = 'hal-tooltip';
+    document.body.appendChild(tooltip);
+    let active = null;
+
+    nav.addEventListener('mouseover', function(e) {
+        const link = e.target.closest('a[data-tooltip]');
+        if (link) {
+            tooltip.textContent = link.getAttribute('data-tooltip');
+            tooltip.classList.add('visible');
+            active = link;
+            const rect = link.getBoundingClientRect();
+            // Position tooltip above or below depending on space
+            let top = rect.top - tooltip.offsetHeight - 8;
+            if (top < 0) top = rect.bottom + 8;
+            let left = rect.left + (rect.width - tooltip.offsetWidth) / 2;
+            if (left < 8) left = 8;
+            if (left + tooltip.offsetWidth > window.innerWidth - 8) left = window.innerWidth - tooltip.offsetWidth - 8;
+            tooltip.style.top = top + window.scrollY + 'px';
+            tooltip.style.left = left + window.scrollX + 'px';
+        }
+    });
+    nav.addEventListener('mouseout', function(e) {
+        const link = e.target.closest('a[data-tooltip]');
+        if (link && link === active) {
+            tooltip.classList.remove('visible');
+            active = null;
+        }
+    });
+    nav.addEventListener('mousemove', function(e) {
+        if (active) {
+            const rect = active.getBoundingClientRect();
+            let top = rect.top - tooltip.offsetHeight - 8;
+            if (top < 0) top = rect.bottom + 8;
+            let left = rect.left + (rect.width - tooltip.offsetWidth) / 2;
+            if (left < 8) left = 8;
+            if (left + tooltip.offsetWidth > window.innerWidth - 8) left = window.innerWidth - tooltip.offsetWidth - 8;
+            tooltip.style.top = top + window.scrollY + 'px';
+            tooltip.style.left = left + window.scrollX + 'px';
+        }
+    });
+})();
 document.addEventListener('DOMContentLoaded', function() {
     const titleElement = document.getElementById('main-title');
     const titleText = 'M A R K   M C F A D D E N'; // Reduced spaces
