@@ -90,7 +90,9 @@ export default {
         }
         let summary = resumeObj && resumeObj.summary ? resumeObj.summary.join(' ') : '';
         let titles = resumeObj && resumeObj.experience_titles ? resumeObj.experience_titles.join(', ') : '';
-        let systemMsg = `You are an assistant who only answers questions about Mark McFadden using the following resume data. If the answer is not in the data, reply: \"I don't know.\" Resume data: Summary: ${summary} Experience titles: ${titles}`;
+        let education = resumeObj && resumeObj.education ? resumeObj.education.join(' ') : '';
+        let skills = resumeObj && resumeObj.skills ? resumeObj.skills.join(', ') : '';
+        let systemMsg = `You are an assistant who only answers questions about Mark McFadden using the following resume data. If the answer is not in the data, reply: \"I don't know.\" Resume data: Summary: ${summary} Experience titles: ${titles} Education: ${education} Skills: ${skills}`;
         // Prepend system message
         if (body && Array.isArray(body.messages)) {
           body.messages = [
