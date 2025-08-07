@@ -5,6 +5,7 @@ const ALLOWED_ORIGINS = [
 
 export default {
   async fetch(request, env) {
+    console.log('[DEBUG] Top of fetch handler', request.method, request.url);
     const url = new URL(request.url);
     if (request.method === 'POST') {
       console.log('[DEBUG] Entered POST handler');
