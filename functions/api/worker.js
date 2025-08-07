@@ -25,16 +25,16 @@ export default {
       }
       let data;
       try {
-  data = await env.RESUME.get('RESUME'); // Use uppercase key
+        data = await env.RESUME.get('RESUME_SUCCINCT');
       } catch (err) {
-        console.error('Error accessing resume data:', err);
+        console.error('Error accessing succinct resume data:', err);
         return new Response(
-          'Error accessing resume data: ' + (err && err.message ? err.message : String(err)),
+          'Error accessing succinct resume data: ' + (err && err.message ? err.message : String(err)),
           { status: 500, headers: corsHeaders }
         );
       }
       if (!data) {
-        return new Response('Resume not found', { status: 404, headers: corsHeaders });
+        return new Response('Mark\'s succinct resume not found', { status: 404, headers: corsHeaders });
       }
       return new Response(data, {
         status: 200,
@@ -90,7 +90,7 @@ export default {
         }
         let summary = resumeObj && resumeObj.summary ? resumeObj.summary.join(' ') : '';
         let titles = resumeObj && resumeObj.experience_titles ? resumeObj.experience_titles.join(', ') : '';
-        let systemMsg = `Resume for Mark McFadden. Summary: ${summary} Experience titles: ${titles}`;
+        let systemMsg = `You are an assistant who only answers questions about Mark McFadden using the following resume data. If the answer is not in the data, reply: \"I don't know.\" Resume data: Summary: ${summary} Experience titles: ${titles}`;
         // Prepend system message
         if (body && Array.isArray(body.messages)) {
           body.messages = [
