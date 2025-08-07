@@ -5,11 +5,8 @@ const ALLOWED_ORIGINS = [
 
 export default {
   async fetch(request, env) {
-    console.log('[DEBUG] Top of fetch handler', request.method, request.url);
     const url = new URL(request.url);
-    if (request.method === 'POST') {
-      console.log('[DEBUG] Entered POST handler');
-    }
+
     // Handle CORS pre-flight requests
     if (request.method === 'OPTIONS') {
       return handleOptions(request);
@@ -66,10 +63,6 @@ export default {
       return new Response('Invalid JSON in request body', { status: 400 });
     }
 
-    if (request.method === 'POST') {
-      console.log('[DEBUG] Almost there!');
-    }
-
     // Check if the user's message contains keywords to trigger resume context
     let shouldIncludeResume = false;
     let userMessage = '';
@@ -78,12 +71,10 @@ export default {
       const lastUserMsg = [...body.messages].reverse().find(m => m.role === 'user');
       if (lastUserMsg && lastUserMsg.content) {
         userMessage = lastUserMsg.content;
-        // Only match 'Mark McFadden', 'Mr. McFadden', or 'Mark' (capitalized, standalone)
-        const keywords = [/Mark\s+McFadden/, /Mr\.\s*McFadden/, /\bMark\b/];
+        // Match 'Mark McFadden', 'Mr. McFadden', 'Mark', or 'McFadden'
+        const keywords = [/Mark\s+McFadden/i, /Mr\.\s*McFadden/, /\bMark\b/, /McFadden/i];
         const matchResults = keywords.map(re => re.test(userMessage));
         shouldIncludeResume = matchResults.some(Boolean);
-        console.log('[DEBUG] User message:', userMessage);
-        console.log('[DEBUG] Regex match results:', matchResults);
       }
     }
 
@@ -107,8 +98,7 @@ export default {
             ...body.messages
           ];
           // Log the system message and a flag for debugging
-          console.log('[RESUME INJECTED]', systemMsg);
-          console.log('[DEBUG] Full messages array:', JSON.stringify(body.messages));
+          console.log('[RESUME INJECTED DEBUG]', systemMsg);
         }
       }
     }
