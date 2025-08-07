@@ -6,6 +6,9 @@ const ALLOWED_ORIGINS = [
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (request.method === 'POST') {
+      console.log('[DEBUG] Entered POST handler');
+    }
     // Handle CORS pre-flight requests
     if (request.method === 'OPTIONS') {
       return handleOptions(request);
