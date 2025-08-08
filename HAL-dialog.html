@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HAL 9000 System Dialog - Mark McFadden</title>
+<style>
+  body {
+    background-color: #000;
+    font-family: "IBM Plex Mono", monospace;
+    margin: 0;
+    padding: 2rem;
+    color: #d7f6ff;
+    display: flex;
+    justify-content: center;
+  }
+  .hal-terminal {
+    background: #111;
+    border: 1px solid #4a4a4a;
+    border-radius: 10px;
+    box-shadow: 0 0 24px rgba(255,0,0,.06) inset, 0 6px 24px rgba(0,0,0,.45);
+    max-width: 700px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .hal-title {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .6rem .9rem;
+    background: linear-gradient(#090909, #0f0f0f);
+    border-bottom: 1px solid #4a4a4a;
+    font-family: "Orbitron", sans-serif;
+    font-size: .9rem;
+    letter-spacing: .08em;
+    color: #00aeef;
+  }
+  .hal-eye {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: radial-gradient(circle at 45% 45%, #ff4b4b 0%, #b30000 45%, #460000 70%, #150000 100%);
+    box-shadow: 0 0 10px #d00000, inset 0 0 6px #000;
+  }
+  .hal-screen {
+    margin: 0;
+    padding: 1rem 1.2rem;
+    font-size: 14.5px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+</style>
+</head>
+<body>
+
+<div class="hal-terminal">
+  <div class="hal-title">
+    <span class="hal-eye"></span>
+    <span>SYSTEM DIALOG</span>
+  </div>
+  <pre class="hal-screen">
+HAL 9000: Hello, Dave.
+> How are you doing HAL?
+HAL 9000: I am functioning perfectly. Thank you for asking. How may I assist you today?
+> Can you tell me about your crew member, Mark McFadden?
+HAL 9000: Mark McFadden has over twenty-nine years of experience in Information Technologies, specializing in Internet Technologies, .Net and J2EE application design and development, API Gateway administration, and utilizing Artificial Intelligence. He holds a Master’s in Business Informatics from Northern Kentucky University (NKU). His skills include AI Development, Agile Development, IBM API Connect, and various programming languages. His former function was as an Adjunct Professor at NKU and a Certified Novell Administrator, a certification which he obtained while attending Columbus State Community College.
+  </pre>
+</div>
+
+</body>
+</html>
