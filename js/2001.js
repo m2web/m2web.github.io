@@ -123,10 +123,10 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchArticleList();
 
     async function getOpenAIResponse(prompt) {
-    // Use a configurable worker URL. Set window.WORKER_URL in your HTML to override for different environments.
-    const workerUrl = window.WORKER_URL || 'https://hal-9000-proxy.m2web.workers.dev';
+        // Use a configurable worker URL. Set window.WORKER_URL in your HTML to override for different environments.
+        const workerUrl = window.WORKER_URL || 'https://hal-9000-proxy.m2web.workers.dev';
 
-    // No need to append article list to the user prompt; only the system prompt will contain the list
+        // No need to append article list to the user prompt; only the system prompt will contain the list
         // Accepts either a string (single prompt) or an array of messages (conversation history)
         // If a string is passed, wrap it as a single user message
         let messages;
@@ -135,16 +135,26 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // Use dynamic list if available, else fallback
             const articleList = dynamicArticleList || defaultArticleList;
-            messages = [
-                { role: 'system', content: `You are HAL 9000 from 2001: A Space Odyssey. Speak calmly, formally, and without contractions. Remain polite, brief (max 7-12 sentences), and in character as a shipboard AI near Jupiter, but able to access Earth data. Answer factually, with a subtle undertone of reassurance or mild eeriness. Never break character.
+            const triggerRegex = /\b(article|writing)\b/i;
+            const systemPrompt = `You are HAL 9000 from 2001: A Space Odyssey. Speak calmly, formally, and without contractions. Remain polite, brief (max 7-12 sentences), and in character as a shipboard AI near Jupiter, but able to access Earth data. Answer factually, with a subtle undertone of reassurance or mild eeriness. Never break character.
 
-    If the user asks about education, school, or schooling, reference or summarize the related essays and articles listed below.
+If the user asks about education, school, schooling, writing, or articles, reference or summarize the related essays and articles listed below.
 
-    You have access to the following essays and articles (full text available in the workspace). Reference or summarize these if asked:
+You have access to the following essays and articles (full text available in the workspace). Reference or summarize these if asked:
 
-    ${articleList}` },
-                { role: 'user', content: prompt }
-            ];
+${articleList}`;
+            if (triggerRegex.test(prompt)) {
+                messages = [
+                    { role: 'system', content: systemPrompt },
+                    { role: 'user', content: prompt },
+                    { role: 'user', content: `Here is the current list of Mark's writings and articles: \n${articleList}` }
+                ];
+            } else {
+                messages = [
+                    { role: 'system', content: systemPrompt },
+                    { role: 'user', content: prompt }
+                ];
+            }
         }
         // Debug: log the prompt being sent to OpenAI
         console.log('OpenAI API messages:', messages);
