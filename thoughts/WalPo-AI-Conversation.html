@@ -37,6 +37,11 @@
     .wave-wrap { height: 34px; margin-top: 6px; overflow: hidden; border-radius: 4px; }
     svg.wave { width: 100%; height: 100%; display: block; }
     .wave path { fill: none; stroke: #00e676; stroke-width: 2; filter: drop-shadow(0 0 2px rgba(0,230,118,.6)); }
+    /* Intercept Status waveform override: blue */
+    .intercept-status .wave path {
+      stroke: var(--accent-blue, #00aeef) !important;
+      filter: drop-shadow(0 0 2px rgba(0,174,239,.6)) !important;
+    }
     .wave g { animation: slide-left 1.99s linear infinite; } /* slowed 10% from 1.4s */
     @keyframes slide-left { from { transform: translateX(0); } to { transform: translateX(-120px); } }
 
@@ -74,10 +79,14 @@
     <div id="sidebar" aria-label="Instruments">
       <div class="module">
         <h3>Signal Strength</h3>
-        ████████░░
-        <div class="chart" aria-hidden="true"></div>
+        <div class="chart signal-chart" aria-hidden="true" style="height: 44px; display: flex; align-items: flex-end; gap: 2px; background: none; box-shadow: none;">
+          <div style="width: 6px; height: 16px; background: #baffc9; border-radius: 2px;"></div>
+          <div style="width: 6px; height: 22px; background: #7fffd4; border-radius: 2px;"></div>
+          <div style="width: 6px; height: 30px; background: #00e676; border-radius: 2px;"></div>
+          <div style="width: 6px; height: 38px; background: #00ff99; border-radius: 2px;"></div>
+        </div>
       </div>
-      <div class="module">
+      <div class="module intercept-status">
         <h3>Intercept Status</h3>
         ACTIVE
         <div class="wave-wrap">
@@ -104,7 +113,13 @@
       <div class="module">
         <h3>Encryption</h3>
         AES-256
-        <div class="chart" aria-hidden="true"></div>
+        <div class="chart encryption-chart" aria-hidden="true" style="position: relative; height: 44px; background: repeating-linear-gradient(90deg, #ff2b2b 0 8px, #1c2027 8px 12px); border-radius: 6px; box-shadow: 0 0 0 1px #ff2b2b44;">
+          <svg width="22" height="22" viewBox="0 0 22 22" style="position: absolute; right: 8px; top: 11px;" aria-hidden="true">
+            <rect x="4" y="10" width="14" height="7" rx="2" fill="#fff" fill-opacity="0.13" stroke="#ff2b2b" stroke-width="1.2"/>
+            <rect x="8" y="6" width="6" height="6" rx="3" fill="#ff2b2b" fill-opacity="0.7"/>
+            <rect x="10" y="14" width="2" height="3" rx="1" fill="#fff" fill-opacity="0.7"/>
+          </svg>
+        </div>
       </div>
       <div class="module">
         <h3>Radar Sweep</h3>
@@ -113,9 +128,42 @@
     </div>
 
     <div id="feed" aria-live="polite">
+      <div id="visual-sequence-demo" style="display: flex; align-items: center; gap: 32px; margin: 32px 0 24px 0; justify-content: center;">
+        <div id="signal-seq" style="opacity:0; transition: opacity 0.7s; display: flex; flex-direction: column; align-items: center;">
+          <svg width="38" height="32" viewBox="0 0 38 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="26" width="6" height="4" rx="2" fill="#00e676"/>
+            <rect x="10" y="20" width="6" height="10" rx="2" fill="#00e676"/>
+            <rect x="18" y="14" width="6" height="16" rx="2" fill="#00e676"/>
+            <rect x="26" y="8" width="6" height="22" rx="2" fill="#00e676"/>
+          </svg>
+          <span style="font-size: 0.95em; color: #00e676; margin-top: 4px; letter-spacing: 0.04em;">Signal Strength</span>
+        </div>
+        <div id="arrow-seq" style="opacity:0; transition: opacity 0.7s; font-size: 2.2em; color: #888;">&#8594;</div>
+        <div id="aes-seq" style="opacity:0; transition: opacity 0.7s; display: flex; flex-direction: column; align-items: center;">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="7" y="15" width="20" height="12" rx="3" fill="#ff2b2b"/>
+            <rect x="13" y="9" width="8" height="8" rx="4" fill="#ff2b2b"/>
+            <rect x="15.5" y="21" width="3" height="4" rx="1.5" fill="#fff"/>
+          </svg>
+          <span style="font-size: 0.95em; color: #ff2b2b; margin-top: 4px; letter-spacing: 0.04em;">AES-256 Encryption</span>
+        </div>
+      </div>
+      <script>
+        // Animate the sequence: signal appears, then arrow, then AES lock
+        window.addEventListener('DOMContentLoaded', () => {
+          setTimeout(() => {
+            document.getElementById('signal-seq').style.opacity = 1;
+            setTimeout(() => {
+              document.getElementById('arrow-seq').style.opacity = 1;
+              setTimeout(() => {
+                document.getElementById('aes-seq').style.opacity = 1;
+              }, 700);
+            }, 700);
+          }, 400);
+        });
+      </script>
       <div class="highlight">
-        A Conversation with a subservient AI?... 
-        <a href="https://www.washingtonpost.com/ask-the-post-ai/" target="_blank">https://www.washingtonpost.com/ask-the-post-ai/</a>
+        A Literal Conversation with....a subservient AI?: <a href="https://www.washingtonpost.com/ask-the-post-ai/" target="_blank">https://www.washingtonpost.com/ask-the-post-ai/</a>
       </div>
       <div class="row assistant"><div class="bubble" data-speaker="AI">https://www.washingtonpost.com/ask-the-post-ai/</div></div>
       <div class="row user"><div class="bubble" data-speaker="Mark">Is this right? President Donald Trump is ousting Billy Long from his role as commissioner of the Internal Revenue Service just two months after he was confirmed to the position, four sources familiar told CNN. Trump has already selected Treasury Secretary Scott Bessent to serve as the acting head of the IRS while the administration seeks a more permanent replacement, according to two White House officials.</div></div>
