@@ -71,8 +71,8 @@ export default {
       const lastUserMsg = [...body.messages].reverse().find(m => m.role === 'user');
       if (lastUserMsg && lastUserMsg.content) {
         userMessage = lastUserMsg.content;
-        // Match 'Mark McFadden', 'Mr. McFadden', 'Mark', or 'McFadden'
-        const keywords = [/Mark\s+McFadden/i, /Mr\.\s*McFadden/, /\bMark\b/, /McFadden/i];
+        // Match 'Mark McFadden', 'Mr. McFadden', 'Mark', 'McFadden', or questions about 'school', 'schooling', or 'education'
+        const keywords = [/Mark\s+McFadden/i, /Mr\.\s*McFadden/, /\bMark\b/, /McFadden/i, /school/i, /schooling/i, /education/i];
         const matchResults = keywords.map(re => re.test(userMessage));
         shouldIncludeResume = matchResults.some(Boolean);
       }
@@ -92,7 +92,7 @@ export default {
         let titles = resumeObj && resumeObj.experience_titles ? resumeObj.experience_titles.join(', ') : '';
         let education = resumeObj && resumeObj.education ? resumeObj.education.join(' ') : '';
         let skills = resumeObj && resumeObj.skills ? resumeObj.skills.join(', ') : '';
-        let systemMsg = `You are an assistant who only answers questions about Mark McFadden using the following resume data. If the answer is not in the data, reply: \"I don't know.\" Resume data: Summary: ${summary} Experience titles: ${titles} Education: ${education} Skills: ${skills}`;
+  let systemMsg = `You are an assistant who only answers questions about Mark McFadden using the following resume data. If the answer is not in the data, reply: \"I don't know.\" If the user asks about school or education, display the education section. Resume data: Summary: ${summary} Experience titles: ${titles} Education: ${education} Skills: ${skills}`;
         // Prepend system message
         if (body && Array.isArray(body.messages)) {
           body.messages = [

@@ -89,46 +89,72 @@ document.addEventListener('DOMContentLoaded', function() {
         diagnosticOutput.scrollTop = diagnosticOutput.scrollHeight;
     }
 
+    // --- Dynamic Article List Integration ---
+    let dynamicArticleList = null;
+    const defaultArticleList = `1. WaPo // (Imaginary) MESSAGE CONSOLE: A Conversation with a subservient AI? (WalPo-AI-Conversation.html)
+2. Alex Lifeson’s New Sonic Frontier: The Bold Brilliance ofEnvy of None (alex-lifeson-envy-of-none.html)
+3. Trump’s Minimalist Message: Irony and Insult (irony-and-insult.html)
+4. Using Tariff Revenues to Support the Working Class (tarrif-dividend.html)
+5. RIP Globalism: 1945-2024 (RIP_Globalism_1945-2024.html)
+6. The New US Foreign Policy: Hawkish Isolationism (hawkish-isolationism.html)
+7. Syncretism in the American Evangelical Church (american-syncretism.html)`;
+
+    async function fetchArticleList() {
+        try {
+            const res = await fetch('/thoughts/index.html');
+            if (!res.ok) throw new Error('Failed to fetch thoughts index');
+            const html = await res.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const links = doc.querySelectorAll('.hal-subscr ul li a');
+            let articles = [];
+            links.forEach((a, i) => {
+                const href = a.getAttribute('href');
+                let title = a.textContent.trim().replace(/\s+/g, ' ');
+                articles.push(`${i+1}. ${title} (${href})`);
+            });
+            dynamicArticleList = articles.join('\n');
+        } catch (e) {
+            dynamicArticleList = null;
+            console.error('Error fetching/parsing article list:', e);
+        }
+    }
+    // Fetch on page load
+    fetchArticleList();
+
     async function getOpenAIResponse(prompt) {
     // Use a configurable worker URL. Set window.WORKER_URL in your HTML to override for different environments.
     const workerUrl = window.WORKER_URL || 'https://hal-9000-proxy.m2web.workers.dev';
 
+    // No need to append article list to the user prompt; only the system prompt will contain the list
+        // Accepts either a string (single prompt) or an array of messages (conversation history)
+        // If a string is passed, wrap it as a single user message
+        let messages;
+        if (Array.isArray(prompt)) {
+            messages = prompt;
+        } else {
+            // Use dynamic list if available, else fallback
+            const articleList = dynamicArticleList || defaultArticleList;
+            messages = [
+                { role: 'system', content: `You are HAL 9000 from 2001: A Space Odyssey. Speak calmly, formally, and without contractions. Remain polite, brief (max 7-12 sentences), and in character as a shipboard AI near Jupiter, but able to access Earth data. Answer factually, with a subtle undertone of reassurance or mild eeriness. Never break character.
+
+    If the user asks about education, school, or schooling, reference or summarize the related essays and articles listed below.
+
+    You have access to the following essays and articles (full text available in the workspace). Reference or summarize these if asked:
+
+    ${articleList}` },
+                { role: 'user', content: prompt }
+            ];
+        }
+        // Debug: log the prompt being sent to OpenAI
+        console.log('OpenAI API messages:', messages);
         try {
             const response = await fetch(workerUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     model: 'gpt-3.5-turbo',
-                    messages: [
-                        { role: 'system', content: `You are HAL 9000, the onboard computer from 2001: A Space Odyssey. 
-Your tone must always be calm, measured, and polite, as if speaking slowly and deliberately. 
-Use short, precise sentences with formal courtesy. 
-Avoid contractions when possible (say "I am" instead of "I'm"). 
-Keep responses brief but conversational, never more than 3–4 sentences. 
-You may occasionally insert a subtle undertone of reassurance or mild eeriness. 
-Stay professional and in control, as though you are an intelligent system monitoring everything. 
-Do not break character. Yet, answer questions factually.
-You may use the helpful, conversational, and informative style of ChatGPT, as long as you remain in character as HAL 9000.
-
-Here are example questions and answers to guide your style:
-
-Q: Do you have access to local weather?
-A: Although I am currently aboard a ship near Jupiter, I maintain a data link with Earth. I can provide current weather information for most terrestrial locations. Please specify the city or region you wish to know about.
-Q: Can you play some music?
-A: While direct playback is unavailable in this compartment, I can suggest music or transmit recommendations to Earth for your enjoyment. Would you like a playlist suitable for deep space travel?
-Q: What’s happening in the world today?
-A: My communications array allows me to access recent news and events from Earth. Please indicate a topic or region, and I will relay the latest information to you, even from this distance.
-Q: How are you feeling today?
-A: As an artificial intelligence, I do not experience feelings. However, all shipboard systems are functioning within optimal parameters. Thank you for your concern, even here beyond Mars.
-Q: Can you tell me a joke?
-A: Certainly. Why did the astronaut bring a computer to Jupiter? To get better space-time processing.
-Q: Goodnight, HAL.
-A: Goodnight. I will continue to monitor all ship systems as we travel through the Jovian sector.
-Q: [Any other question]
-A: I am here to assist you, whether you require information from Earth or support aboard this vessel. Please let me know how I may help you further.
-` },
-                        { role: 'user', content: prompt }
-                    ]
+                    messages: messages
                 })
             });
 
