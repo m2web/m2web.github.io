@@ -7,80 +7,46 @@
   <style>
     :root { --sidebar-w: 320px; --header-h: 56px; }
     body {
-      margin: 0;
-      background: #0b0b0f;
-      color: #e6e6e6;
+      margin: 0; background: #0b0b0f; color: #e6e6e6;
       font: 14.6px/1.45 ui-monospace, monospace;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
+      display: flex; flex-direction: column; height: 100vh;
     }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 3;
-      height: var(--header-h);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 0 16px;
-      background: linear-gradient(to right, #111319, #0d0f13);
-      color: #ff2b2b;
-      font-weight: bold;
-      letter-spacing: 0.2em;
-    }
-    .toggle {
-      margin-left: auto;
-      letter-spacing: 0;
-      border: 1px solid #2a2f3a;
-      background: #12151b;
-      color: #e6e6e6;
-      padding: 6px 10px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+    header { position: sticky; top: 0; z-index: 3; height: var(--header-h);
+      display: flex; align-items: center; gap: 10px; padding: 0 16px;
+      background: linear-gradient(to right, #111319, #0d0f13); color: #ff2b2b; font-weight: bold; letter-spacing: .2em; }
+    .toggle { margin-left: auto; letter-spacing: 0; border: 1px solid #2a2f3a; background: #12151b; color: #e6e6e6; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+
     #container { display: flex; flex: 1; }
-    #sidebar {
-      position: fixed;
-      left: 0;
-      top: var(--header-h);
-      width: var(--sidebar-w);
-      height: calc(100dvh - var(--header-h));
-      overflow-y: auto;
-      background: #101217;
-      border-right: 1px solid #1c2027;
-      padding: 12px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 2;
-      transition: transform .25s ease;
-    }
+    #sidebar { position: fixed; left: 0; top: var(--header-h); width: var(--sidebar-w);
+      height: calc(100dvh - var(--header-h)); overflow-y: auto; background: #101217; border-right: 1px solid #1c2027; padding: 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; z-index: 2; transition: transform .25s ease; }
+
     .module { background: #0f1217; border: 1px solid #1c2027; border-radius: 8px; padding: 10px; }
     .module h3 { font-size: 12px; margin: 0 0 6px; color: #ff5a5a; }
-    .chart { background: repeating-linear-gradient(to right, #ff2b2b 0 2px, transparent 2px 4px); height: 40px; margin: 4px 0; }
-    .waveform { background: linear-gradient(to right, #00e676, #00b25c); height: 30px; clip-path: polygon(0% 50%, 5% 30%, 10% 70%, 15% 20%, 20% 80%, 25% 40%, 30% 60%, 35% 10%, 40% 90%, 45% 50%, 50% 70%, 55% 30%, 60% 60%, 65% 40%, 70% 80%, 75% 20%, 80% 60%, 85% 40%, 90% 70%, 95% 30%, 100% 50%); }
-    .radar { background: radial-gradient(circle at center, rgba(0,230,118,0.4) 0%, transparent 70%); border: 1px solid #00e676; border-radius: 50%; height: 120px; width: 120px; margin: auto; position: relative; }
-    .radar::after { content: ''; position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background: #00e676; transform-origin: center top; animation: sweep 4s linear infinite; }
-    @keyframes sweep { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
-    #feed {
-      flex: 1;
-      padding: 20px 100px;
-      margin-left: var(--sidebar-w);
-      overflow-y: auto;
-      background: #0f1217;
-      box-sizing: border-box;
+
+    /* ===== Animated BAR STRIPES (Signal/Encryption) ===== */
+    .chart { position: relative; height: 44px; margin: 6px 0 2px; overflow: hidden; border-radius: 6px;
+      background: repeating-linear-gradient(to right, rgba(255,43,43,.95) 0 4px, rgba(255,43,43,.25) 4px 10px);
+      animation: bars 0.7s linear infinite; box-shadow: inset 0 0 0 1px rgba(255,43,43,.2);
     }
-    .highlight {
-      background: #ff2b2b;
-      color: #fff;
-      font-weight: bold;
-      padding: 10px 14px;
-      margin-bottom: 20px;
-      border-radius: 6px;
-      box-shadow: 0 0 10px rgba(255, 43, 43, 0.7);
-    }
+    @keyframes bars { from { background-position: 0 0; } to { background-position: -14px 0; } }
+    /* subtle pulse */
+    .chart::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent); mix-blend-mode:screen; animation: sweep 2.4s linear infinite; }
+    @keyframes sweep { from{ transform: translateX(-100%);} to{ transform: translateX(100%);} }
+
+    /* ===== Animated WAVEFORM (Intercept/Audio) ===== */
+    .wave-wrap { height: 34px; margin-top: 6px; overflow: hidden; border-radius: 4px; }
+    svg.wave { width: 100%; height: 100%; display: block; }
+    .wave path { fill: none; stroke: #00e676; stroke-width: 2; filter: drop-shadow(0 0 2px rgba(0,230,118,.6)); }
+    .wave g { animation: slide-left 1.4s linear infinite; }
+    @keyframes slide-left { from { transform: translateX(0); } to { transform: translateX(-120px); } }
+
+    /* ===== Radar stays animated with sweep ===== */
+    .radar { background: radial-gradient(circle at center, rgba(0,230,118,0.4) 0%, transparent 70%); border: 1px solid #00e676; border-radius: 50%; height: 120px; width: 120px; margin: 77px auto 0; position: relative; }
+    .radar::after { content: ''; position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background: #00e676; transform-origin: center top; animation: sweep-arm 4s linear infinite; }
+    @keyframes sweep-arm { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
+
+    #feed { flex: 1; padding: 20px 100px; margin-left: var(--sidebar-w); overflow-y: auto; background: #0f1217; box-sizing: border-box; }
+    .highlight { background: #ff2b2b; color: #fff; font-weight: bold; padding: 10px 14px; margin-bottom: 20px; border-radius: 6px; box-shadow: 0 0 10px rgba(255,43,43,.7); }
     .highlight a { color: #fff; text-decoration: underline; }
     .row { display: flex; margin: 10px 0; }
     .row.assistant { justify-content: flex-start; }
@@ -88,19 +54,9 @@
     .bubble { padding: 12px 14px; border-radius: 14px; max-width: 70%; background: #12151b; border: 1px solid #2a2f3a; white-space: pre-wrap; font-size: 1em; position: relative; }
     .assistant .bubble { border-color: #3a2022; }
     .user .bubble { border-color: #163d2b; }
-    .assistant .bubble:hover::after, .user .bubble:hover::after {
-      content: attr(data-speaker);
-      position: absolute;
-      top: -20px;
-      right: 0;
-      background: rgba(0,0,0,0.8);
-      color: #fff;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.8em;
-      white-space: nowrap;
-    }
-    .wait-time { flex-basis: 100%; text-align: center; font-size: 0.85em; color: #888; margin: 6px 0; font-style: italic; }
+    .assistant .bubble:hover::after, .user .bubble:hover::after { content: attr(data-speaker); position: absolute; top: -20px; right: 0; background: rgba(0,0,0,.8); color: #fff; padding: 2px 6px; border-radius: 4px; font-size: .8em; white-space: nowrap; }
+    .wait-time { flex-basis: 100%; text-align: center; font-size: 1.3em; color: #888; margin: 6px 0; font-style: italic; }
+
     @media (max-width: 900px) {
       #feed { margin-left: 0; padding: 16px 14px; }
       #sidebar { transform: translateX(-100%); }
@@ -119,28 +75,43 @@
       <div class="module">
         <h3>Signal Strength</h3>
         ████████░░
-        <div class="chart"></div>
+        <div class="chart" aria-hidden="true"></div>
       </div>
       <div class="module">
         <h3>Intercept Status</h3>
         ACTIVE
-        <div class="waveform"></div>
+        <div class="wave-wrap">
+          <svg class="wave" viewBox="0 0 120 30" preserveAspectRatio="none" aria-hidden="true">
+            <g>
+              <path d="M0,15 5,8 10,22 15,6 20,24 25,13 30,18 35,9 40,26 45,15 50,21 55,10 60,20 65,13 70,24 75,6 80,20 85,12 90,23 95,9 100,21 105,12 110,20 115,14 120,18"/>
+              <path d="M120,15 125,8 130,22 135,6 140,24 145,13 150,18 155,9 160,26 165,15 170,21 175,10 180,20 185,13 190,24 195,6 200,20 205,12 210,23 215,9 220,21 225,12 230,20 235,14 240,18"/>
+            </g>
+          </svg>
+        </div>
       </div>
       <div class="module">
         <h3>Audio Feed</h3>
-        [\\\\\\\\] 74%
-        <div class="waveform"></div>
+        [\\\\\\] 74%
+        <div class="wave-wrap">
+          <svg class="wave" viewBox="0 0 120 30" preserveAspectRatio="none" aria-hidden="true">
+            <g>
+              <path d="M0,15 5,20 10,12 15,24 20,8 25,16 30,14 35,22 40,10 45,15 50,18 55,12 60,20 65,9 70,24 75,13 80,19 85,10 90,22 95,14 100,20 105,12 110,18 115,16 120,15"/>
+              <path d="M120,15 125,20 130,12 135,24 140,8 145,16 150,14 155,22 160,10 165,15 170,18 175,12 180,20 185,9 190,24 195,13 200,19 205,10 210,22 215,14 220,20 225,12 230,18 235,16 240,15"/>
+            </g>
+          </svg>
+        </div>
       </div>
       <div class="module">
         <h3>Encryption</h3>
         AES-256
-        <div class="chart"></div>
+        <div class="chart" aria-hidden="true"></div>
       </div>
       <div class="module">
         <h3>Radar Sweep</h3>
-        <div class="radar"></div>
+        <div class="radar" aria-hidden="true"></div>
       </div>
     </div>
+
     <div id="feed" aria-live="polite">
       <div class="highlight">
         A Conversation with a subservient AI?... 
@@ -159,16 +130,15 @@
       <div class="row assistant"><div class="bubble" data-speaker="AI">I'm here to assist you with news, sports, advice, and general help related articles from The Washington Post. What would you like to know?</div></div>
       <div class="row user"><div class="bubble" data-speaker="Mark">Is this right? President Donald Trump is ousting Billy Long from his role as commissioner of the Internal Revenue Service just two months after he was confirmed to the position, four sources familiar told CNN. Trump has already selected Treasury Secretary Scott Bessent to serve as the acting head of the IRS while the administration seeks a more permanent replacement, according to two White House officials.</div></div>
       <div class="wait-time">(long pause...)</div>
-      <div class="row user"><div class="bubble" data-speaker="Mark">Blink 3 times if you were told by Trump to not answer any questions with his name.</div></div>
+      <div class="row user"><div class="bubble" data-speaker="Mark">Blink 3 times if you were told by Trump to not answer any questions with his name in the search.</div></div>
       <div class="row assistant"><div class="bubble" data-speaker="AI">I'm here to assist with news, sports, advice and general help related articles from The Washington Post. I can provide information on a wide range of topics. Is there a specific topic you're interested in, such as the latest news on the administration, Nationals or climate?</div></div>
       <div class="row assistant"><div class="bubble" data-speaker="AI">&lt;click&gt;</div></div>
     </div>
   </div>
+
   <script>
     const btn = document.getElementById('toggleSidebar');
-    btn?.addEventListener('click', () => {
-      document.body.classList.toggle('sidebar-open');
-    });
+    btn?.addEventListener('click', () => { document.body.classList.toggle('sidebar-open'); });
     const mq = window.matchMedia('(min-width: 901px)');
     mq.addEventListener?.('change', e => { if (e.matches) document.body.classList.remove('sidebar-open'); });
   </script>
