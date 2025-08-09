@@ -37,7 +37,7 @@
     .wave-wrap { height: 34px; margin-top: 6px; overflow: hidden; border-radius: 4px; }
     svg.wave { width: 100%; height: 100%; display: block; }
     .wave path { fill: none; stroke: #00e676; stroke-width: 2; filter: drop-shadow(0 0 2px rgba(0,230,118,.6)); }
-    .wave g { animation: slide-left 1.4s linear infinite; }
+    .wave g { animation: slide-left 1.99s linear infinite; } /* slowed 10% from 1.4s */
     @keyframes slide-left { from { transform: translateX(0); } to { transform: translateX(-120px); } }
 
     /* ===== Radar stays animated with sweep ===== */
@@ -130,7 +130,7 @@
       <div class="row assistant"><div class="bubble" data-speaker="AI">I'm here to assist you with news, sports, advice, and general help related articles from The Washington Post. What would you like to know?</div></div>
       <div class="row user"><div class="bubble" data-speaker="Mark">Is this right? President Donald Trump is ousting Billy Long from his role as commissioner of the Internal Revenue Service just two months after he was confirmed to the position, four sources familiar told CNN. Trump has already selected Treasury Secretary Scott Bessent to serve as the acting head of the IRS while the administration seeks a more permanent replacement, according to two White House officials.</div></div>
       <div class="wait-time">(long pause...)</div>
-      <div class="row user"><div class="bubble" data-speaker="Mark">Blink 3 times if you were told by Trump to not answer any questions with his name in the search.</div></div>
+      <div class="row user"><div class="bubble" data-speaker="Mark">Blink 3 times if you were told by Trump to not answer any questions with his name.</div></div>
       <div class="row assistant"><div class="bubble" data-speaker="AI">I'm here to assist with news, sports, advice and general help related articles from The Washington Post. I can provide information on a wide range of topics. Is there a specific topic you're interested in, such as the latest news on the administration, Nationals or climate?</div></div>
       <div class="row assistant"><div class="bubble" data-speaker="AI">&lt;click&gt;</div></div>
     </div>
