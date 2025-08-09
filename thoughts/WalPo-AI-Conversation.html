@@ -77,6 +77,7 @@
   </header>
   <div id="container">
     <div id="sidebar" aria-label="Instruments">
+
       <div class="module">
         <h3>Signal Strength</h3>
         <div class="chart signal-chart" aria-hidden="true" style="height: 44px; display: flex; align-items: flex-end; gap: 2px; background: none; box-shadow: none;">
@@ -178,9 +179,41 @@
       <div class="row assistant"><div class="bubble" data-speaker="AI">I'm here to assist you with news, sports, advice, and general help related articles from The Washington Post. What would you like to know?</div></div>
       <div class="row user"><div class="bubble" data-speaker="Mark">Is this right? President Donald Trump is ousting Billy Long from his role as commissioner of the Internal Revenue Service just two months after he was confirmed to the position, four sources familiar told CNN. Trump has already selected Treasury Secretary Scott Bessent to serve as the acting head of the IRS while the administration seeks a more permanent replacement, according to two White House officials.</div></div>
       <div class="wait-time">(long pause...)</div>
-      <div class="row user"><div class="bubble" data-speaker="Mark">Blink 3 times if you were told by Trump to not answer any questions with his name.</div></div>
-      <div class="row assistant"><div class="bubble" data-speaker="AI">I'm here to assist with news, sports, advice and general help related articles from The Washington Post. I can provide information on a wide range of topics. Is there a specific topic you're interested in, such as the latest news on the administration, Nationals or climate?</div></div>
-      <div class="row assistant"><div class="bubble" data-speaker="AI">&lt;click&gt;</div></div>
+      <div class="row user"><div class="bubble" data-speaker="Mark">Blink 3 times if you were told by Trump to not answer any questions with his name in the prompt text.</div></div>
+      <div class="row assistant"><div class="bubble" data-speaker="AI">
+        <span id="blinking-eyes" style="display: flex; justify-content: center; align-items: center; margin: 0 0 10px 0;">
+          <svg width="54" height="24" viewBox="0 0 54 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <ellipse class="eye" cx="14" cy="12" rx="12" ry="8" fill="#222" stroke="#fff" stroke-width="2"/>
+              <ellipse class="pupil" cx="14" cy="12" rx="3.2" ry="3.2" fill="#fff"/>
+              <ellipse class="eye" cx="40" cy="12" rx="12" ry="8" fill="#222" stroke="#fff" stroke-width="2"/>
+              <ellipse class="pupil" cx="40" cy="12" rx="3.2" ry="3.2" fill="#fff"/>
+              <rect class="eyelid left" x="2" y="4" width="24" height="16" fill="#0b0b0f" style="opacity:0;"/>
+              <rect class="eyelid right" x="28" y="4" width="24" height="16" fill="#0b0b0f" style="opacity:0;"/>
+            </g>
+          </svg>
+        </span>
+        <style>
+          #blinking-eyes .eyelid {
+            transition: opacity 0.13s;
+          }
+          #blinking-eyes.blink .eyelid {
+            opacity: 1 !important;
+          }
+        </style>
+        <script>
+          (function blinkEyes() {
+            var eyes = document.getElementById('blinking-eyes');
+            if (!eyes) return;
+            setInterval(function() {
+              eyes.classList.add('blink');
+              setTimeout(function() { eyes.classList.remove('blink'); }, 160);
+            }, 2600 + Math.random() * 1200);
+          })();
+        </script>
+        I'm here to assist with news, sports, advice and general help related articles from The Washington Post. I can provide information on a wide range of topics. Is there a specific topic you're interested in, such as the latest news on the administration, Nationals or climate?
+      </div></div>
+      <!-- ...existing code... -->
     </div>
   </div>
 
