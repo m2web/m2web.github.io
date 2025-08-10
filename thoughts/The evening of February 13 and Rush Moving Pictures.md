@@ -4,13 +4,13 @@ On the evening of February 13, 1981, I was rehearsing with my band—myself on b
 
 ![Wikipedia Moving Pictures Album Cover; Release Date](Fri13RushImages/Picture1.png)
 
-The trip would take approximately 25 minutes to drive. I also wanted time to get settled, a few joints rolled, and the cassette deck ready to record when WLVQ-FM 96 started playing the whole album. In fact, as you can see from the image above from Wikipedia, Moving Pictures had just been released the day before, on February 12, 1981.
+The trip would take approximately 25 minutes to drive. I also wanted time to get settled and get the cassette deck ready to record when WLVQ-FM 96 started playing the whole album. In fact, as you can see from the image above from Wikipedia, Moving Pictures had just been released the day before, on February 12, 1981.
 
 ![A map showing the route from the band practice location to my home.](Fri13RushImages/Picture2.png)
 
 OK. I got home, got the album recorded, and then went to bed.
 
-Now, on to the next day, which adds to this true story. According to the Saturday, February 14th, Record Herald Newspaper (see below), there was another local “Friday the 13th” event that was much less advertised. It was a coordinated effort that originated from Madison Mills, Ohio, just north of where I lived. In fact, I remember passing at least six law enforcement cars on Route 62 NE, back to back, on the way home, which I found unusual. However, I was looking forward to listening to and recording the latest album by one of my favorite bands. 
+Now, on to the next day, which adds to this true story. According to the Saturday, February 14th, Record Herald Newspaper (see below), there was another local “Friday the 13th” event that was much less advertised. It was a coordinated effort that originated from Madison Mills, Ohio, just north of where I lived. In fact, I remember passing at least six law enforcement cars on Route 62 NE, back to back, on the way home, which I found unusual. However, I was looking forward to listening to and recording the latest album by one of my favorite bands.
 
 ![Record Herald Newspaper Headlines](Fri13RushImages/Picture3.png)
 
