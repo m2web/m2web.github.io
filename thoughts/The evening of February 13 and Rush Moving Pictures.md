@@ -4,7 +4,7 @@ On the evening of February 13, 1981, I was rehearsing with my band—myself on b
 
 ![Wikipedia Moving Pictures Album Cover; Release Date](Fri13RushImages/Picture1.png)
 
-The trip would take approximately 25 minutes to drive. I also wanted time to get settled and get the cassette deck ready to record when WLVQ-FM 96 started playing the whole album. In fact, as you can see from the image above from Wikipedia, Moving Pictures had just been released the day before, on February 12, 1981.
+The trip would take approximately 25 minutes to drive. I also wanted time to get settled, a few joints rolled, and the cassette deck ready to record when WLVQ-FM 96 started playing the whole album. In fact, as you can see from the image above from Wikipedia, Moving Pictures had just been released the day before, on February 12, 1981.
 
 ![A map showing the route from the band practice location to my home.](Fri13RushImages/Picture2.png)
 
