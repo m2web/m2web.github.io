@@ -1,0 +1,331 @@
+Delivered-To: msquaredwebsvc@gmail.com
+Received: by 2002:a05:7508:2c85:b0:8f:f038:1b4a with SMTP id gh5csp2536949gbb;
+        Sun, 10 Aug 2025 10:29:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCXLPomNIKidlEzR+CybzKf20i0aQ9CwaRUhPI9VEcD0kslA1I+EKfdaR0751KgiaBw614fqaW217OFB/EyJYA==@gmail.com
+X-Google-Smtp-Source: AGHT+IEhAxQgNgLHkGmb6Vi3huJherOKqR2ADSh7wuOPdDY1R5EH+U72r9gOt7V2GWTvEjDF1Jcq
+X-Received: by 2002:a05:620a:4053:b0:7e3:2c4f:fe4f with SMTP id af79cd13be357-7e82c77c4b6mr1147890785a.53.1754846961059;
+        Sun, 10 Aug 2025 10:29:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1754846961; cv=none;
+        d=google.com; s=arc-20240605;
+        b=YZsciEqri0m1+8ptDqXnNAw073/G3Dhrq30PtfN+Bn8fTR1zuJlpSMSs2x91Ek4fP4
+         EBr/kJvfyhOjxSjL9PmX4hnmeoT82Fd2V9+qosL8yd3wLIg+Zlt7yb8BiwOwUgDKco7p
+         qzfd/UOHTFZlrDxwOkKgXNl4H6Vr7SWcs+4hgK69hS3R+hFgbYnP8E8kvKPqyj+rY+xR
+         hJfQgV+BBM3TjWnwn7Ge0QiBy3uWKlNmxO+WpCjqBAdOlHMYxZR9uOcY+MRrDBuLl3LU
+         YY7iSyK6mObBA/VblQSnsNNvlhFbKsmMO53iAVKux3iIYjDbqXkbb+7dKbzdCyL8nscs
+         WT+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=destinations:list-unsubscribe-post:list-unsubscribe:list-post
+         :list-archive:list-id:precedence:content-transfer-encoding
+         :mime-version:subject:references:in-reply-to:message-id:cc:to
+         :reply-to:from:date:dkim-signature;
+        bh=fBNcEUKeDbNv5utcwqqaWG9W1AoVM5kEzU8AWu13Hio=;
+        fh=mhS9Ik9gXz5PgMrmM90lPE/oHrsPznFcoCf0ETT6LwA=;
+        b=XCcmgmIITWq9qbtRWE/d4taNQK1nsJtSOobVLIVJe+LSj5ItTk0cmrGONQ4J40PQ94
+         FeVi+c/yACisepODptFuzR+1z8MYmPeIOdw6nKEgqSQZKYxA+QTOfLxnDkNlMLMI4o+G
+         //97N9SYJLFAdB/aTrAHy2OMn/ilsfWkyUHedlnZuEukiibtJsS0+ue92sG+WRQa4u/x
+         Rp8AJta1iOWbWp4y2u2ss794JZeP+XEcQRJXiAl8XDxdkDDerLHyuNb+lRcxqROSEewF
+         5memgyHfFUBOE88GOsV5OAz7BKhlGoGeetWnuHYCjOUwKojCN+KE3l2LSWG6ODwp2nIT
+         CGzg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=KgfyGgeP;
+       spf=softfail (google.com: domain of transitioning noreply@github.com does not designate 66.163.184.201 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Return-Path: <noreply@github.com>
+Received: from sonic301-32.consmr.mail.ne1.yahoo.com (sonic301-32.consmr.mail.ne1.yahoo.com. [66.163.184.201])
+        by mx.google.com with ESMTPS id af79cd13be357-7e80ada3ea4si708250285a.102.2025.08.10.10.29.20
+        for <msquaredwebsvc@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 10 Aug 2025 10:29:21 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning noreply@github.com does not designate 66.163.184.201 as permitted sender) client-ip=66.163.184.201;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=KgfyGgeP;
+       spf=softfail (google.com: domain of transitioning noreply@github.com does not designate 66.163.184.201 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+X-Sonic-MF: noreply@github.com
+X-Sonic-ID: 42f346f4-a872-4a08-9cff-d4b8d6ab6d86
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic301.consmr.mail.ne1.yahoo.com with HTTP; Sun, 10 Aug 2025 17:29:20 +0000
+Received: from 10.217.150.13
+ by atlas109.free.mail.ne1.yahoo.com pod-id NONE with HTTPS; Sun, 10 Aug 2025 17:29:19 +0000
+Return-Path: <noreply@github.com>
+X-Originating-Ip: [192.30.252.203]
+Received-SPF: pass (domain of github.com designates 192.30.252.203 as permitted sender)
+Authentication-Results: atlas109.free.mail.ne1.yahoo.com;
+ dkim=pass header.i=@github.com header.s=pf2023 arc_overridden_status=NOT_OVERRIDDEN;
+ spf=pass smtp.mailfrom=github.com arc_overridden_status=NOT_OVERRIDDEN;
+ dmarc=pass(p=REJECT) header.from=github.com arc_overridden_status=NOT_OVERRIDDEN;
+X-Apparently-To: m2web@yahoo.com; Sun, 10 Aug 2025 17:29:19 +0000
+X-YMailISG: NIqdt.gWLDsoaGyX4z5KkeIfKM20PX.DgWDgUVaJSb_9yTgi
+ RzdXOHN4CwZcf2mmW5ofN8xOurqSeHIyF3DKI3mF7RaMPjWVhbSuuITM8Uvl
+ bHcrkK3H2ykBS1t2edrvJNB1ncv043AVFUTetEL25na5f7fPXX7aObuhjyVI
+ oxbuomwFwbAcrJcMB7zXsJNnZBkz1gcmfMrL14DXEIbZ2jLDP0tDdUeNYsom
+ zo8wAUBZZ5Th69wQ855sj1Le8YDDUpSW8efbXjh4TuOTWN_B0nxW6WNyyUC1
+ 66od8KOUJagjYW4ni9wXqUdYJHj6742fAe1J9LIWmPrp9zZo5z55RlnfUWUv
+ liEyk05zj3CdFsp36DEY5PW4Mv9w1uWxL6ElyjzYn85Bf449UJZth9GV_TUt
+ I5hWTVW5oniCbnwp2LMnfvHsvQcDnJELl7apx66NBxzh5KQ3CEwLvGhm2SgO
+ tjYI6qujg8fiXTKZCQzEVniCL86SAake0DTqisRsETtY3_esuKm5MURSbGmm
+ BL27pXJHB7jsbfdb_8wA_738SB5iYOnkhgi1_PXD3dLjPERKX0y.Q0y.Bv5i
+ Fg0o_uPJRbzTvibxHWT68AoM4mWHsuUq5vuFWWntVbYJjPBtg6WpWy9012va
+ cvvZV11Gh0c2lOpQkRPtXh4G6aI.WFzokUtHJHUd7viNuCtI.KiULpgkv.Ma
+ TP2pnZipMXdwenyXrLCpXwdrWi8geV5giIJpwRmH2sEwVApi2jUYINMy.uhZ
+ Lt.DKL86aG343OH9I149n72Cob1TKa5pRCZhOhEMMPIN4BiGyFBT1DhP0Cdv
+ BmZeCmnc3KhkllDxG_MIqGXkTFGVw_HvVQF.tjM2gTASWaWIwE.N052wd_L5
+ 7KyZZ3_60rwf0rFRdaTSVl8GRw_URsY0EXg0.5hk25k7ikDupQ91Igs6P6Dl
+ RxvB.t7.7j0hV7qOfGInCp4HoIigcgLyxFGP4uehcmJZqoz37jzRON8V_BDU
+ OScbJAKqSkK1CefWiCTQ8p9mTcaD..UPNTaiLUybS7mJ8vL3W99_6fxIOxz6
+ pDP1OqjD75esdVSaff.XRV15GmKR0Brey0IPOnqc5zJf9CtQv1Kk2qXf7w_o
+ Ee3zbs5TZQOrw7V4Y7Ab3C_6y_bTI8iDh3aLawwMj97yrp2m681HncZOu9IX
+ PquW6SPwvNMyTjSy3RrVUMpEVxSf2ZF4nwyA.cCMLM9YyOSlilDbvZdxvias
+ PHZEt1D0QbEZ3_Y90FNKs0JgaMiltm2chX0jxg2NDjIAJd2.LLfkxBaNuo9B
+ KtakygEZJpPjMw07nU46RcxysP2Qa2l_
+Received: from 192.30.252.203 (EHLO out-20.smtp.github.com)
+ by 10.217.150.13 with SMTPs
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256);
+ Sun, 10 Aug 2025 17:29:19 +0000
+Received: from github.com (hubbernetes-node-578484e.va3-iad.github.net [10.48.134.43])
+	by smtp.github.com (Postfix) with ESMTPA id 88EA78C0386
+	for <m2web@yahoo.com>; Sun, 10 Aug 2025 10:29:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=github.com;
+	s=pf2023; t=1754846958;
+	bh=fBNcEUKeDbNv5utcwqqaWG9W1AoVM5kEzU8AWu13Hio=;
+	h=Date:From:Reply-To:To:Cc:In-Reply-To:References:Subject:List-ID:
+	 List-Archive:List-Post:List-Unsubscribe:List-Unsubscribe-Post:
+	 From;
+	b=KgfyGgePbMzU9wWjWQx1cFChFzIWjYg2IoeFkG7IkysT7Fg28go811hF9zwG2ksIn
+	 Xvh1rId9v+jHcvJ+M+h2aVCumnhTlmOjFoCniVSM6G0NhtrdXnfT0oDAglA+To+u3O
+	 Fk5DPMdLATUkPDitLhntiZ/LVn6Y56l3OwhufULE=
+Date: Sun, 10 Aug 2025 10:29:18 -0700
+From: Copilot <notifications@github.com>
+Reply-To: "m2web/m2web.github.io" <reply+AACGUGCE4OPBSA2BM4UPGUOGUS365EVBNHHMKKIDPU@reply.github.com>
+To: "m2web/m2web.github.io" <m2web.github.io@noreply.github.com>
+Cc: Mark McFadden <m2web@yahoo.com>, 
+ Author <author@noreply.github.com>
+Message-ID: <m2web/m2web.github.io/pull/14/review/3103695323@github.com>
+In-Reply-To: <m2web/m2web.github.io/pull/14@github.com>
+References: <m2web/m2web.github.io/pull/14@github.com>
+Subject: Re: [m2web/m2web.github.io] Story/feb13th nod to rush album recording
+ (PR #14)
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6898d6ee86903_d6107050340";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Precedence: list
+X-GitHub-Sender: Copilot
+X-GitHub-Recipient: m2web
+X-GitHub-Reason: author
+List-ID: m2web/m2web.github.io <m2web.github.io.m2web.github.com>
+List-Archive: https://github.com/m2web/m2web.github.io
+List-Post: <mailto:reply+AACGUGCE4OPBSA2BM4UPGUOGUS365EVBNHHMKKIDPU@reply.github.com>
+List-Unsubscribe: <mailto:unsub+AACGUGCE4OPBSA2BM4UPGUOGUS365EVBNHHMKKIDPU@reply.github.com>,
+ <https://github.com/notifications/unsubscribe/one-click/AACGUGCQ2VDWYL4KSB3NVLL3M56O5ANCNFSM6AAAAACDRQ5VVU>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-GitHub-Notify-Platform: newsies
+X-Auto-Response-Suppress: All
+destinations: m2web@yahoo.com
+X-GitHub-Recipient-Address: m2web@yahoo.com
+X-Yahoo-Forwarded: From m2web@yahoo.com To msquaredwebsvc@gmail.com
+Content-Length: 7912
+
+
+----==_mimepart_6898d6ee86903_d6107050340
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+@Copilot commented on this pull request.
+
+## Pull Request Overview
+
+This PR adds a new blog post about a personal story from February 13, 198=
+1, involving the author's experience recording Rush's Moving Pictures alb=
+um and inadvertently avoiding a police raid. The story connects the album=
+ release timing to avoiding potential arrest during a coordinated law enf=
+orcement effort.
+
+- Adds a new blog post in both Markdown and HTML formats with embedded im=
+ages
+- Updates the thoughts index page to include a link to the new post
+- Includes supporting images showing the album cover, route map, and news=
+paper clippings
+
+### Reviewed Changes
+
+Copilot reviewed 3 out of 7 changed files in this pull request and genera=
+ted 1 comment.
+
+| File | Description |
+| ---- | ----------- |
+| thoughts/index.html | Adds navigation link to the new blog post |
+| thoughts/The evening of February 13 and Rush Moving Pictures.md | Markd=
+own version of the blog post with personal story and embedded images |
+| thoughts/The evening of February 13 and Rush Moving Pictures.html | HTM=
+L version of the blog post with proper styling and navigation |
+
+
+
+
+
+> +    }
++  </style>
++</head>
++<body>
++  <header class=3D"main-header">
++    <div class=3D"hal-eye"></div>
++    <h1 id=3D"main-title">The evening of February 13 and Rush Moving Pic=
+tures</h1>
++    <nav class=3D"main-nav">
++      <a href=3D"../index.html">Home</a>
++      <a href=3D"index.html">Thoughts</a>
++    </nav>
++  </header>
++  <main>
++    <section class=3D"monolith visible">
++      <h2>The evening of February 13 and Rush Moving Pictures</h2>
++      <p>On the evening of February 13, 1981, I was rehearsing with my b=
+and=E2=80=94myself on bass and vocals, Curtis Conely on drums, Jimmy Arle=
+dge on guitar and vocals, and Sam Beedy on guitar=E2=80=94at what I belie=
+ve was 1916 Miami Trace Rd NW, Washington Court House (WCH), Ohio. At the=
+ time, I was living with friends at 8020 US Route 62, just north of WCH. =
+While listening to QFM-96 out of Columbus, OH, I learned that the new Rus=
+h album, <em>Moving Pictures</em>, would be played in its entirety that F=
+riday night. Determined to record it onto cassette tape using my stereo r=
+eceiver and tape deck, I knew I needed to leave practice by 10 PM to make=
+ it home in time.</p>
+
+There's an inconsistency in the radio station name. The text mentions 'QF=
+M-96' initially but later refers to 'WLVQ-FM 96'. This should be consiste=
+nt throughout the content.
+
+-- =
+
+Reply to this email directly or view it on GitHub:
+https://github.com/m2web/m2web.github.io/pull/14#pullrequestreview-310369=
+5323
+You are receiving this because you authored the thread.
+
+Message ID: <m2web/m2web.github.io/pull/14/review/3103695323@github.com>=
+
+----==_mimepart_6898d6ee86903_d6107050340
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<p></p>
+<p><b>@Copilot</b> commented on this pull request.</p>
+
+<h2 dir=3D"auto">Pull Request Overview</h2>
+<p dir=3D"auto">This PR adds a new blog post about a personal story from =
+February 13, 1981, involving the author's experience recording Rush's Mov=
+ing Pictures album and inadvertently avoiding a police raid. The story co=
+nnects the album release timing to avoiding potential arrest during a coo=
+rdinated law enforcement effort.</p>
+<ul dir=3D"auto">
+<li>Adds a new blog post in both Markdown and HTML formats with embedded =
+images</li>
+<li>Updates the thoughts index page to include a link to the new post</li=
+>
+<li>Includes supporting images showing the album cover, route map, and ne=
+wspaper clippings</li>
+</ul>
+<h3 dir=3D"auto">Reviewed Changes</h3>
+<p dir=3D"auto">Copilot reviewed 3 out of 7 changed files in this pull re=
+quest and generated 1 comment.</p>
+<markdown-accessiblity-table><table role=3D"table">
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>thoughts/index.html</td>
+<td>Adds navigation link to the new blog post</td>
+</tr>
+<tr>
+<td>thoughts/The evening of February 13 and Rush Moving Pictures.md</td>
+<td>Markdown version of the blog post with personal story and embedded im=
+ages</td>
+</tr>
+<tr>
+<td>thoughts/The evening of February 13 and Rush Moving Pictures.html</td=
+>
+<td>HTML version of the blog post with proper styling and navigation</td>=
+
+</tr>
+</tbody>
+</table></markdown-accessiblity-table><hr>
+
+<p>In <a href=3D"https://github.com/m2web/m2web.github.io/pull/14#discuss=
+ion_r2265372101">thoughts/The evening of February 13 and Rush Moving Pict=
+ures.html</a>:</p>
+<pre style=3D'color:#555'>&gt; +    }
++  &lt;/style&gt;
++&lt;/head&gt;
++&lt;body&gt;
++  &lt;header class=3D&quot;main-header&quot;&gt;
++    &lt;div class=3D&quot;hal-eye&quot;&gt;&lt;/div&gt;
++    &lt;h1 id=3D&quot;main-title&quot;&gt;The evening of February 13 and=
+ Rush Moving Pictures&lt;/h1&gt;
++    &lt;nav class=3D&quot;main-nav&quot;&gt;
++      &lt;a href=3D&quot;../index.html&quot;&gt;Home&lt;/a&gt;
++      &lt;a href=3D&quot;index.html&quot;&gt;Thoughts&lt;/a&gt;
++    &lt;/nav&gt;
++  &lt;/header&gt;
++  &lt;main&gt;
++    &lt;section class=3D&quot;monolith visible&quot;&gt;
++      &lt;h2&gt;The evening of February 13 and Rush Moving Pictures&lt;/=
+h2&gt;
++      &lt;p&gt;On the evening of February 13, 1981, I was rehearsing wit=
+h my band=E2=80=94myself on bass and vocals, Curtis Conely on drums, Jimm=
+y Arledge on guitar and vocals, and Sam Beedy on guitar=E2=80=94at what I=
+ believe was 1916 Miami Trace Rd NW, Washington Court House (WCH), Ohio. =
+At the time, I was living with friends at 8020 US Route 62, just north of=
+ WCH. While listening to QFM-96 out of Columbus, OH, I learned that the n=
+ew Rush album, &lt;em&gt;Moving Pictures&lt;/em&gt;, would be played in i=
+ts entirety that Friday night. Determined to record it onto cassette tape=
+ using my stereo receiver and tape deck, I knew I needed to leave practic=
+e by 10 PM to make it home in time.&lt;/p&gt;
+</pre>
+<p dir=3D"auto">There's an inconsistency in the radio station name. The t=
+ext mentions 'QFM-96' initially but later refers to 'WLVQ-FM 96'. This sh=
+ould be consistent throughout the content.</p>
+
+<p style=3D"font-size:small;-webkit-text-size-adjust:none;color:#666;">&m=
+dash;<br />Reply to this email directly, <a href=3D"https://github.com/m2=
+web/m2web.github.io/pull/14#pullrequestreview-3103695323">view it on GitH=
+ub</a>, or <a href=3D"https://github.com/notifications/unsubscribe-auth/A=
+ACGUGDNFLKRIP4GBX75SVT3M56O5AVCNFSM6AAAAACDRQ5VVWVHI2DSMVQWIX3LMV43YUDVNR=
+WFEZLROVSXG5CSMV3GSZLXHMZTCMBTGY4TKMZSGM">unsubscribe</a>.<br />You are r=
+eceiving this because you authored the thread.<img src=3D"https://github.=
+com/notifications/beacon/AACGUGAATFJABDBR5XXM3WD3M56O5A5CNFSM6AAAAACDRQ5V=
+VWWGG33NNVSW45C7OR4XAZNRKB2WY3CSMVYXKZLTORJGK5TJMV32UY3PNVWWK3TUL5UWJTVY7=
+2Q5W.gif" height=3D"1" width=3D"1" alt=3D"" /><span style=3D"color: trans=
+parent; font-size: 0; display: none; visibility: hidden; overflow: hidden=
+; opacity: 0; width: 0; height: 0; max-width: 0; max-height: 0; mso-hide:=
+ all">Message ID: <span>&lt;m2web/m2web</span><span>.</span><span>github<=
+/span><span>.</span><span>io/pull/14/review/3103695323</span><span>@</spa=
+n><span>github</span><span>.</span><span>com&gt;</span></span></p>
+<script type=3D"application/ld+json">[
+{
+"@context": "http://schema.org",
+"@type": "EmailMessage",
+"potentialAction": {
+"@type": "ViewAction",
+"target": "https://github.com/m2web/m2web.github.io/pull/14#pullrequestre=
+view-3103695323",
+"url": "https://github.com/m2web/m2web.github.io/pull/14#pullrequestrevie=
+w-3103695323",
+"name": "View Pull Request"
+},
+"description": "View this Pull Request on GitHub",
+"publisher": {
+"@type": "Organization",
+"name": "GitHub",
+"url": "https://github.com"
+}
+}
+]</script>=
+
+----==_mimepart_6898d6ee86903_d6107050340--
