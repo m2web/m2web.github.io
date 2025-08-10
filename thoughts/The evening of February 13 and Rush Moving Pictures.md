@@ -1,6 +1,6 @@
 # The evening of February 13 and Rush Moving Pictures
 
-On the evening of February 13, 1981, I was rehearsing with my band—myself on bass and vocals, Curtis Conely on drums, Jimmy Arledge on guitar and vocals, and Sam Beedy on guitar—at what I believe was 1916 Miami Trace Rd NW, Washington Court House (WCH), Ohio. At the time, I was living with friends at 8020 US Route 62, just north of WCH. While listening to QFM-96 out of Columbus, OH, I learned that the new Rush album, *Moving Pictures*, would be played in its entirety that Friday night. Determined to record it onto cassette tape using my stereo receiver and tape deck, I knew I needed to leave practice by 10 PM to make it home in time.
+On the evening of February 13, 1981, I was rehearsing with my band—myself on bass and vocals, Curtis Conely on drums, Jimmy Arledge on guitar and vocals, and Sam Beedy on guitar and vocals—at what I believe was 1916 Miami Trace Rd NW, Washington Court House (WCH), Ohio. At the time, I was living with friends at 8020 US Route 62, just north of WCH. While listening to QFM-96 out of Columbus, OH, I learned that the new Rush album, *Moving Pictures*, would be played in its entirety that Friday night. Determined to record it onto cassette tape using my stereo receiver and tape deck, I knew I needed to leave practice by 10 PM to make it home in time.
 
 ![Wikipedia Moving Pictures Album Cover; Release Date](Fri13RushImages/Picture1.png)
 
