@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="../css/2001.css">
     <link rel="icon" href="../favicon.ico">
     <style>
+        #main-title {
+            word-break: break-word;
+            overflow-wrap: anywhere;
+            white-space: normal;
+            max-width: 90vw;
+            margin: 0 auto;
+            display: block;
+        }
         .monolith img {
             max-width: 100%;
             border-radius: 6px;
@@ -55,6 +63,13 @@
             padding: 1.2em 2em;
             font-size: 1.15em;
             font-family: var(--font-mono);
+        }
+        .monolith a {
+            word-break: break-word;
+            overflow-wrap: anywhere;
+            white-space: normal;
+            display: inline-block;
+            max-width: 100%;
         }
         @media (max-width: 600px) {
             .monolith { padding: 1rem; }
