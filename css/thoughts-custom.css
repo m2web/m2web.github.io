@@ -1,0 +1,68 @@
+/* Custom styles for thoughts pages (HAL 9000/2001 theme extensions) */
+
+#main-title {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    max-width: 90vw;
+    margin: 0 auto;
+    display: block;
+}
+.monolith img {
+    max-width: 100%;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+    box-shadow: 0 0 10px #222;
+}
+.monolith figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+.monolith figcaption {
+    color: #b0b0b0;
+    font-size: 0.95em;
+    margin-top: 0.5em;
+}
+.monolith table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: #111;
+    color: #ffd700;
+    font-family: var(--font-mono, 'Space Mono', monospace);
+}
+.monolith th, .monolith td {
+    border: 1px solid #b0b0b0;
+    padding: 0.7em 1em;
+    text-align: left;
+}
+.monolith th {
+    background: #222;
+    color: #ffd700;
+    font-size: 1.1em;
+}
+.monolith h2 {
+    color: #ffd700;
+    font-family: var(--font-heading);
+    margin-top: 2.5rem;
+}
+.monolith blockquote {
+    background: #222;
+    color: #00aeef;
+    border-left: 4px solid #d00000;
+    margin: 2rem 0;
+    padding: 1.2em 2em;
+    font-size: 1.15em;
+    font-family: var(--font-mono);
+}
+.monolith a {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    display: inline-block;
+    max-width: 100%;
+}
+@media (max-width: 600px) {
+    .monolith { padding: 1rem; }
+    .monolith table, .monolith th, .monolith td { font-size: 0.95em; }
+}
