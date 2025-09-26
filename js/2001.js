@@ -91,13 +91,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Dynamic Article List Integration ---
     let dynamicArticleList = null;
-    const defaultArticleList = `1. WaPo // (Imaginary) MESSAGE CONSOLE: A Conversation with a subservient AI? (WalPo-AI-Conversation.html)
-2. Alex Lifeson’s New Sonic Frontier: The Bold Brilliance ofEnvy of None (alex-lifeson-envy-of-none.html)
-3. Trump’s Minimalist Message: Irony and Insult (irony-and-insult.html)
-4. Using Tariff Revenues to Support the Working Class (tarrif-dividend.html)
-5. RIP Globalism: 1945-2024 (RIP_Globalism_1945-2024.html)
-6. The New US Foreign Policy: Hawkish Isolationism (hawkish-isolationism.html)
-7. Syncretism in the American Evangelical Church (american-syncretism.html)`;
+    const defaultArticleList = '';
+//     defaultArticleList = `1. The Time for Overreach Is Now? (The-time-for-overreach-is-now.html)
+// 2. A Single Perfect Sphere: What Rush Teaches About America’s Divide (a-single-perfect-sphere.html)
+// 3. The Illiberal Left and the Authoritarian Right: A Decade of Reaction and Counter‑Reaction (illiberal-left-authoritarian-right-decade.html)
+// 4. Restoring a Pariah? Trump, Putin, and the Quiet Resurrection of Russia’s Economy (restoring_a_pariah_trump_putin_russia.html)
+// 5. When Power Shapes the Past: Trump and the Orwellian Playbook (when_power_shapes_the_past.html)
+// 6. The evening of February 13 and Rush Moving Pictures (the_evening_of_february_13_and_rush_moving_pictures.html)
+// 7. WaPo // (Imaginary) MESSAGE CONSOLE: A Conversation with a subservient AI? (WalPo-AI-Conversation.html)
+// 8. Alex Lifeson’s New Sonic Frontier: The Bold Brilliance ofEnvy of None (alex-lifeson-envy-of-none.html)
+// 9. Trump’s Minimalist Message: Irony and Insult (irony-and-insult.html)
+// 10. Using Tariff Revenues to Support the Working Class (tarrif-dividend.html)
+// 11. RIP Globalism: 1945-2024 (RIP_Globalism_1945-2024.html)
+// 12. The New US Foreign Policy: Hawkish Isolationism (hawkish-isolationism.html)
+// 13. Syncretism in the American Evangelical Church (american-syncretism.html)`;
 
     async function fetchArticleList() {
         try {
@@ -120,7 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     // Fetch on page load
-    fetchArticleList();
+    // Commenting out to stop a reference to my personal articles for now.
+    // fetchArticleList();
 
     async function getOpenAIResponse(prompt) {
         // Use a configurable worker URL. Set window.WORKER_URL in your HTML to override for different environments.
