@@ -4,6 +4,11 @@
 document.addEventListener('DOMContentLoaded', function() {
   var halEye = document.getElementById('hal-eye');
   var stickyEye = document.getElementById('hal-eye-sticky');
+  // Check if both elements exist before proceeding
+  if (!halEye || !stickyEye) {
+    // Optionally, you could log a warning here
+    return;
+  }
   // Clone the HAL eye's styles and structure
   stickyEye.className = 'hal-eye';
   stickyEye.style.position = 'fixed';
