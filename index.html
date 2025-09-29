@@ -20,7 +20,10 @@
         </nav>
     </header>
 
-    <div class="hal-eye"></div>
+    <div class="hal-eye" id="hal-eye"></div>
+    
+    <!-- Sticky HAL eye that appears when scrolled past original -->
+    <div class="hal-eye hal-eye-sticky" id="hal-eye-sticky"></div>
 
     <section id="status" class="monolith">
         <h2>SYSTEM DIAGNOSTICS [STATUS]</h2>
@@ -94,5 +97,29 @@
         <p style="font-size: 0.8rem; margin-top: 1rem;">HAL 9000 Interface</p>
     </footer>
     <script src="js/2001.js"></script>
+    <script>
+    // Sticky HAL eye functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const halEye = document.getElementById('hal-eye');
+        const stickyEye = document.getElementById('hal-eye-sticky');
+        
+        function checkStickyVisibility() {
+            const halEyeRect = halEye.getBoundingClientRect();
+            
+            // Show sticky eye when original eye is scrolled past
+            if (halEyeRect.bottom < 0) {
+                stickyEye.style.display = 'block';
+            } else {
+                stickyEye.style.display = 'none';
+            }
+        }
+        
+        // Listen for scroll events
+        window.addEventListener('scroll', checkStickyVisibility);
+        
+        // Initial check
+        checkStickyVisibility();
+    });
+    </script>
 </body>
 </html>
