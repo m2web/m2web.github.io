@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const runDiagnosticButton = document.getElementById('run-diagnostic');
     const diagnosticOutput = document.getElementById('diagnostic-output');
 
-    let conversationLog = 'HAL 9000: Hello, Dave.\n';
+    let conversationLog = 'HAL 9000: Hello.\n';
     diagnosticOutput.textContent = conversationLog;
 
     function appendToLog(entry) {
@@ -185,7 +185,7 @@ ${articleList}`;
             return data.choices[0].message.content.trim();
         } catch (error) {
             console.error('Error calling OpenAI API via Cloudflare Worker:', error);
-            return "I'm sorry, Dave. I'm afraid I'm having some trouble with my circuits right now. Please check the console for more information.";
+            return "I'm sorry. I'm afraid I'm having some trouble with my circuits right now. Please check the console for more information.";
         }
     }
 
