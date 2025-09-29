@@ -80,12 +80,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const runDiagnosticButton = document.getElementById('run-diagnostic');
     const diagnosticOutput = document.getElementById('diagnostic-output');
 
-    let conversationLog = 'HAL 9000: Hello.\n';
-    diagnosticOutput.textContent = conversationLog;
+    let conversationLog = '<strong>HAL 9000:</strong> Hello.\n';
+    diagnosticOutput.innerHTML = conversationLog;
 
     function appendToLog(entry) {
         conversationLog += entry + '\n';
-        diagnosticOutput.textContent = conversationLog;
+        diagnosticOutput.innerHTML = conversationLog;
         diagnosticOutput.scrollTop = diagnosticOutput.scrollHeight;
     }
 
@@ -201,7 +201,7 @@ ${articleList}`;
         runDiagnosticButton.disabled = true;
 
         const response = await getOpenAIResponse(command);
-        appendToLog(`HAL 9000: ${response}`);
+        appendToLog(`<strong>HAL 9000:</strong> ${response}`);
 
         // Re-enable input
         diagnosticCommand.disabled = false;
