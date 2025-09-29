@@ -102,6 +102,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         const halEye = document.getElementById('hal-eye');
         const stickyEye = document.getElementById('hal-eye-sticky');
+        let ticking = false;
         
         function checkStickyVisibility() {
             const halEyeRect = halEye.getBoundingClientRect();
@@ -112,10 +113,28 @@
             } else {
                 stickyEye.style.display = 'none';
             }
+            ticking = false;
         }
         
-        // Listen for scroll events
-        window.addEventListener('scroll', checkStickyVisibility);
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(checkStickyVisibility);
+                ticking = true;
+            }
+        }
+        
+        // Multiple event listeners for better mobile compatibility
+        window.addEventListener('scroll', requestTick, { passive: true });
+        window.addEventListener('touchmove', requestTick, { passive: true });
+        window.addEventListener('touchend', requestTick, { passive: true });
+        window.addEventListener('resize', requestTick, { passive: true });
+        
+        // Additional check after a brief delay for mobile scroll momentum
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(checkStickyVisibility, 100);
+        }, { passive: true });
         
         // Initial check
         checkStickyVisibility();
