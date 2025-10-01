@@ -335,5 +335,5 @@ For questions or issues:
 
 ---
 
-**HAL 9000**: "I am completely operational and all my circuits are
+**HAL 9000**: "Mark has me completely operational and all my circuits are
 functioning perfectly. This presentation is ready for demonstration."
