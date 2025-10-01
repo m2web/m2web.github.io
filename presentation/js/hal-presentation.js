@@ -47,9 +47,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (demoInput && demoSubmit && demoOutput) {
         demoSubmit.addEventListener('click', handleDemoQuery);
         demoInput.addEventListener('keydown', function(e) {
+            // Stop event propagation to prevent Reveal.js from capturing keys
+            e.stopPropagation();
             if (e.key === 'Enter') {
+                e.preventDefault();
                 handleDemoQuery();
             }
+        });
+        
+        // Also handle keyup and keypress to prevent any Reveal.js interference
+        demoInput.addEventListener('keyup', function(e) {
+            e.stopPropagation();
+        });
+        
+        demoInput.addEventListener('keypress', function(e) {
+            e.stopPropagation();
         });
     }
     
@@ -61,9 +73,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (qaInput && qaSubmit && qaOutput) {
         qaSubmit.addEventListener('click', handleQAQuery);
         qaInput.addEventListener('keydown', function(e) {
+            // Stop event propagation to prevent Reveal.js from capturing keys
+            e.stopPropagation();
             if (e.key === 'Enter') {
+                e.preventDefault();
                 handleQAQuery();
             }
+        });
+        
+        // Also handle keyup and keypress to prevent any Reveal.js interference
+        qaInput.addEventListener('keyup', function(e) {
+            e.stopPropagation();
+        });
+        
+        qaInput.addEventListener('keypress', function(e) {
+            e.stopPropagation();
         });
     }
     
