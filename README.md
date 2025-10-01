@@ -4,8 +4,11 @@
 
 **Unit Designation:** Mark McFadden  
 **Function:** Software Developer  
-**Operational History:** 29+ years in Information Technologies. Specializing in web technologies, API development, and cloud infrastructure. Formerly an educator in software development and IT governance.  
-**Primary Directive:** To learn, build, and improve systems for business and individual use.
+**Operational History:** 29+ years in Information Technologies. Specializing
+in web technologies, API development, and cloud infrastructure. Formerly an
+educator in software development and IT governance.  
+**Primary Directive:** To learn, build, and improve systems for business
+and individual use.
 
 ---
 
@@ -31,7 +34,9 @@
 
 ## Social Links
 
-[GitHub](https://github.com/m2web) | [LinkedIn](https://www.linkedin.com/in/m2web/) | [Twitter](https://twitter.com/m2web)
+[GitHub](https://github.com/m2web) |
+[LinkedIn](https://www.linkedin.com/in/m2web/) |
+[Twitter](https://twitter.com/m2web)
 
 ---
 
@@ -42,6 +47,7 @@
 HAL 9000: I am functioning perfectly. Thank you for asking.
 ```
 
-Try it here: [HAL 9000 `SYSTEM DIAGNOSTICS` Interaction](https://markmcfadden.net/#status)
+Try it here:
+[HAL 9000 `SYSTEM DIAGNOSTICS` Interaction](https://markmcfadden.net/#status)
 
 ---
