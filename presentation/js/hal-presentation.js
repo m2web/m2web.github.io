@@ -236,6 +236,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
     
+    // Handle fragment visibility for demo container animation
+    Reveal.addEventListener('fragmentshown', function(event) {
+        const fragment = event.fragment;
+        if (fragment.classList.contains('demo-features')) {
+            const demoContainer = fragment.closest('.demo-container');
+            if (demoContainer) {
+                demoContainer.classList.add('fragment-visible');
+            }
+        }
+    });
+    
+    Reveal.addEventListener('fragmenthidden', function(event) {
+        const fragment = event.fragment;
+        if (fragment.classList.contains('demo-features')) {
+            const demoContainer = fragment.closest('.demo-container');
+            if (demoContainer) {
+                demoContainer.classList.remove('fragment-visible');
+            }
+        }
+    });
+
     // Slide-specific enhancements
     Reveal.addEventListener('slidechanged', function(event) {
         const slideIndex = event.indexh;

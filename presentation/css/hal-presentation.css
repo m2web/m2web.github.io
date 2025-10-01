@@ -296,8 +296,61 @@ title-slide .subtitle {
 }
 
 /* Console Styling */
-.console-demo, .qa-session {
+.demo-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
     margin: 2rem 0;
+    position: relative;
+}
+
+/* Initial state: console-demo takes full width */
+.console-demo {
+    flex: 1;
+    width: 100%;
+    transition: all 0.8s ease-in-out;
+    margin: 0;
+}
+
+/* Demo features initially hidden and positioned for fade-in */
+.demo-features {
+    flex: 0;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.8s ease-in-out;
+    transform: translateX(20px);
+}
+
+/* When fragment becomes visible, adjust layout */
+.demo-container:has(.demo-features.visible) .console-demo,
+.demo-container .demo-features.visible ~ .console-demo {
+    flex: 1;
+    width: 50%;
+}
+
+.demo-features.visible {
+    flex: 1;
+    width: 50%;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fallback for browsers that don't support :has() */
+.demo-container.fragment-visible .console-demo {
+    flex: 1;
+    width: 50%;
+}
+
+.demo-container.fragment-visible .demo-features {
+    flex: 1;
+    width: 50%;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.qa-session {
+    margin: 0;
 }
 
 .hal-console-embed, .qa-console {
@@ -710,10 +763,27 @@ title-slide .subtitle {
 }
 
 @media (max-width: 768px) {
-    .flow-container, .device-frames, .implementation-overview, .conclusion-content {
+    .flow-container, .device-frames, .implementation-overview, .conclusion-content, .demo-container {
         flex-direction: column;
         gap: 1.5rem;
     }
+    
+    /* Mobile responsive behavior for demo container */
+    .console-demo {
+        width: 100% !important;
+        flex: 1 !important;
+    }
+    
+    .demo-features {
+        width: 100% !important;
+        flex: 1 !important;
+        transform: translateY(20px) !important;
+    }
+    
+    .demo-features.visible {
+        transform: translateY(0) !important;
+    }
+    
     .roadmap {
         grid-template-columns: 1fr;
     }
