@@ -876,30 +876,66 @@ title-slide .subtitle {
 }
 
 /* Responsive Design */
-@media (max-width: 900px) {
-    .reveal h1 {
-        font-size: 1.6em;
-    }
-    .reveal h2 {
-        font-size: 1.1em;
-    }
+/* Large tablets and small desktops */
+@media (max-width: 1200px) {
     .reveal {
-        font-size: 0.9em;
+        font-size: 16px;
     }
-}
-@media (max-width: 600px) {
-    .reveal h1 {
-        font-size: 1.2em;
+    
+    .interface-showcase {
+        flex-direction: column;
+        gap: 2rem;
     }
-    .reveal h2 {
-        font-size: 1em;
-    }
-    .reveal {
-        font-size: 0.85em;
+    
+    .device-frames {
+        gap: 2rem;
     }
 }
 
+/* Tablets */
+@media (max-width: 900px) {
+    .reveal h1 {
+        font-size: 2em;
+    }
+    .reveal h2 {
+        font-size: 1.4em;
+    }
+    .reveal {
+        font-size: 15px;
+    }
+    
+    .hal-eye-large {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .terminal-prompt {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9em;
+    }
+    
+    .live-preview iframe {
+        height: 300px;
+    }
+}
+
+/* Small tablets and large phones */
 @media (max-width: 768px) {
+    .reveal h1 {
+        font-size: 1.8em;
+        line-height: 1.2;
+        margin-bottom: 0.5em;
+    }
+    .reveal h2 {
+        font-size: 1.3em;
+        line-height: 1.3;
+        margin-bottom: 0.8em;
+    }
+    .reveal {
+        font-size: 14px;
+    }
+    
+    /* Layout adjustments */
     .flow-container, .device-frames, .implementation-overview, .conclusion-content, .demo-container {
         flex-direction: column;
         gap: 1.5rem;
@@ -921,21 +957,239 @@ title-slide .subtitle {
         transform: translateY(0) !important;
     }
     
+    /* Grid layouts become single column */
     .roadmap {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
+    
+    /* Button adjustments */
     .suggestion-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 0.8rem;
     }
+    
     .cta-buttons {
         align-items: center;
     }
+    
+    /* HAL eye adjustments */
+    .hal-eye-large {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .hal-eye-demo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    /* Device frames adjustments */
+    .device.mobile {
+        width: 160px;
+        height: 280px;
+    }
+    
+    .device.tablet {
+        width: 280px;
+        height: 200px;
+    }
+    
+    /* Console adjustments */
+    .console-input-container, .qa-input-container {
+        flex-direction: column;
+    }
+    
+    .console-input-container input, .qa-input-container input {
+        border-bottom: 1px solid var(--hal-red);
+        border-radius: 0;
+    }
+    
+    .console-input-container button, .qa-input-container button {
+        border-radius: 0 0 8px 8px;
+        padding: 1.2rem 2rem;
+    }
+    
+    /* Live preview iframe */
+    .live-preview iframe {
+        height: 250px;
+        width: 100%;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 600px) {
     .reveal h1 {
-        font-size: 2.5em;
+        font-size: 1.5em;
+        line-height: 1.2;
     }
     .reveal h2 {
-        font-size: 2em;
+        font-size: 1.1em;
+        line-height: 1.3;
+    }
+    .reveal {
+        font-size: 13px;
+    }
+    
+    /* Title slide adjustments */
+    .title-slide h1 {
+        font-size: 2.2em;
+    }
+    
+    /* HAL eye adjustments */
+    .hal-eye-large {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .hal-eye-demo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    /* Terminal prompt */
+    .terminal-prompt {
+        padding: 0.6rem 1rem;
+        font-size: 0.8em;
+        margin: 1rem auto;
+    }
+    
+    /* Device frames for mobile showcase */
+    .device.mobile {
+        width: 120px;
+        height: 220px;
+    }
+    
+    .device.tablet {
+        width: 220px;
+        height: 160px;
+    }
+    
+    /* Console elements */
+    .console-header {
+        padding: 0.6rem 1rem;
+        font-size: 0.8em;
+    }
+    
+    .console-output, .qa-output {
+        padding: 1rem;
+        min-height: 120px;
+        max-height: 200px;
+    }
+    
+    /* Buttons */
+    .suggestion-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8em;
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9em;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Roadmap items */
+    .roadmap-item {
+        padding: 1rem;
+    }
+    
+    /* Architecture flow items */
+    .flow-item {
+        min-width: 100px;
+        padding: 0.8rem;
+    }
+    
+    .flow-icon {
+        font-size: 1.5em;
+    }
+    
+    .flow-label {
+        font-size: 0.8em;
+    }
+    
+    /* Code blocks */
+    .reveal pre {
+        font-size: 0.7em;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+    
+    /* Live preview iframe */
+    .live-preview iframe {
+        height: 200px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+    .reveal {
+        font-size: 12px;
+    }
+    
+    .reveal h1 {
+        font-size: 1.3em;
+    }
+    
+    .reveal h2 {
+        font-size: 1em;
+    }
+    
+    /* Title slide */
+    .title-slide h1 {
+        font-size: 1.8em;
+    }
+    
+    /* HAL eyes */
+    .hal-eye-large {
+        width: 60px;
+        height: 60px;
+    }
+    
+    /* Devices */
+    .device.mobile {
+        width: 100px;
+        height: 180px;
+    }
+    
+    .device.tablet {
+        width: 180px;
+        height: 130px;
+    }
+    
+    /* Console */
+    .console-output, .qa-output {
+        min-height: 100px;
+        max-height: 150px;
+        padding: 0.8rem;
+    }
+    
+    /* Terminal prompt */
+    .terminal-prompt {
+        font-size: 0.7em;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    /* Spacing adjustments */
+    .mobile-showcase {
+        padding: 1rem;
+    }
+    
+    .roadmap-item, .tech-stack li, .summary li {
+        padding: 0.8rem;
+    }
+    
+    /* Final message */
+    .final-message {
+        padding: 1rem;
+    }
+    
+    .hal-quote {
+        font-size: 1em;
     }
 }
 
@@ -957,4 +1211,190 @@ title-slide .subtitle {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    /* Touch device specific styles */
+    .suggestion-btn, .cta-button, .console-input-container button, .qa-input-container button {
+        min-height: 44px; /* Apple's recommended minimum touch target */
+        min-width: 44px;
+    }
+    
+    .hal-eye-interactive, .hal-eye-large, .hal-eye-demo {
+        cursor: default;
+    }
+    
+    /* Disable hover animations on touch devices */
+    .flow-item:hover, .roadmap-item:hover, .device:hover {
+        transform: none;
+        box-shadow: inherit;
+    }
+    
+    /* Increase touch targets */
+    .console-input-container input, .qa-input-container input {
+        padding: 1.2rem 1.5rem;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Better spacing for touch */
+    .suggestion-buttons {
+        gap: 1rem;
+    }
+    
+    .cta-buttons {
+        gap: 1.2rem;
+    }
+}
+
+/* Improve performance on mobile */
+@media (max-width: 768px) {
+    /* Reduce animation complexity on mobile */
+    .hal-eye-large, .hal-eye-demo, .hal-eye-interactive {
+        animation-duration: 4s; /* Slower animations for better performance */
+    }
+    
+    /* Simplify gradients for better performance */
+    .mobile-showcase::before {
+        background: rgba(208, 0, 0, 0.05);
+    }
+    
+    /* Reduce shadow complexity */
+    .device {
+        box-shadow: 0 0 20px rgba(208, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.6);
+    }
+    
+    /* Optimize text shadows */
+    .reveal h1, .reveal h2, .reveal h3 {
+        text-shadow: 0 0 5px currentColor;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    /* Disable animations for users who prefer reduced motion */
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .hal-eye-large, .hal-eye-demo, .hal-eye-interactive, .hal-eye-small, .hal-eye-mini, .hal-eye-final {
+        animation: none !important;
+    }
+    
+    .typing-text {
+        animation: none !important;
+        width: 100% !important;
+        border-right: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --hal-red: #ff0000;
+        --hal-blue: #0088ff;
+        --hal-yellow: #ffff00;
+        --hal-white: #ffffff;
+        --hal-black: #000000;
+        --hal-gray: #cccccc;
+        --hal-dark-gray: #444444;
+    }
+    
+    .reveal h1, .reveal h2, .reveal h3 {
+        text-shadow: 2px 2px 4px #000000;
+    }
+    
+    .hal-console-embed, .qa-console {
+        border-width: 3px;
+    }
+}
+
+/* Mobile device specific optimizations */
+.mobile-device {
+    /* Improve scroll performance */
+    -webkit-overflow-scrolling: touch;
+}
+
+.mobile-device .console-output,
+.mobile-device .qa-output {
+    /* Smooth scrolling for console outputs */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+.touch-device .suggestion-btn:active,
+.touch-device .cta-button:active,
+.touch-device .console-input-container button:active,
+.touch-device .qa-input-container button:active {
+    /* Active state feedback for touch */
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* Prevent text selection on touch elements */
+.touch-device .hal-eye-interactive,
+.touch-device .suggestion-btn,
+.touch-device .cta-button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Optimize animations for mobile */
+@media (max-width: 768px) {
+    /* Use transform3d for hardware acceleration */
+    .hal-eye-large, .hal-eye-demo, .hal-eye-interactive,
+    .hal-eye-small, .hal-eye-mini, .hal-eye-final {
+        transform: translateZ(0); /* Force hardware acceleration */
+    }
+    
+    /* Reduce motion for better performance */
+    .reveal .fragment.visible {
+        animation-duration: 0.4s;
+    }
+    
+    /* Optimize gradients */
+    .device {
+        background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+    }
+    
+    .screen {
+        background: #0a0a0a;
+    }
+    
+    /* Simplify complex backgrounds on mobile */
+    .screen::before {
+        display: none;
+    }
+}
+
+/* Improve input focus styles for mobile */
+@media (max-width: 768px) {
+    .console-input-container input:focus,
+    .qa-input-container input:focus {
+        outline: 2px solid var(--hal-red);
+        outline-offset: 2px;
+        box-shadow: 0 0 15px rgba(208, 0, 0, 0.6);
+    }
+}
+
+/* Add loading states for better UX */
+.console-line.typing::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--hal-yellow);
+    margin-left: 8px;
+    animation: typing-dot 1s ease-in-out infinite;
+}
+
+@keyframes typing-dot {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
 }

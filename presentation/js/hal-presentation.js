@@ -1,5 +1,9 @@
 // HAL 9000 Presentation JavaScript
 document.addEventListener('DOMContentLoaded', function() {
+    // Detect mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                     (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+    
     // Initialize Reveal.js
     Reveal.initialize({
         hash: true,
@@ -7,8 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
         progress: true,
         center: true,
         transition: 'fade',
-        transitionSpeed: 'slow',
+        transitionSpeed: isMobile ? 'fast' : 'slow', // Faster transitions on mobile
         backgroundTransition: 'fade',
+        
+        // Mobile-specific optimizations
+        touch: isMobile,
+        loop: false,
+        rtl: false,
+        mouseWheel: !isMobile, // Disable mouse wheel on mobile to prevent conflicts
         
         // Plugins
         plugins: [RevealHighlight, RevealNotes],
@@ -16,23 +26,20 @@ document.addEventListener('DOMContentLoaded', function() {
         // Theme configuration
         theme: 'black',
         
-        // Disable most keyboard shortcuts to prevent interference with demo inputs
-        keyboard: {
-            // Only keep essential navigation keys
+        // Mobile-optimized keyboard shortcuts
+        keyboard: isMobile ? {
+            // Minimal keyboard shortcuts for mobile (most interaction will be touch)
             37: 'left',     // Left arrow
             39: 'right',    // Right arrow
-            38: 'up',       // Up arrow  
-            40: 'down',     // Down arrow
             32: 'next',     // Spacebar
-            // Disable other problematic keys by setting them to null
-            72: null,       // 'h' key - disable HAL interaction during demo
-            79: null,       // 'o' key - disable overview
-            83: null,       // 's' key - disable speaker notes
-            27: null,       // Escape key - disable escape actions
-            66: null,       // 'b' key - disable blackout
-            86: null,       // 'v' key - disable other features
-            70: null,       // 'f' key - disable fullscreen
-            65: null,       // 'a' key - disable other actions
+            // Disable everything else on mobile
+            38: null, 40: null, 72: null, 79: null, 83: null, 27: null, 
+            66: null, 86: null, 70: null, 65: null
+        } : {
+            // Full keyboard shortcuts for desktop
+            37: 'left', 39: 'right', 38: 'up', 40: 'down', 32: 'next',
+            // Disable problematic keys that interfere with demo inputs
+            72: null, 79: null, 83: null, 27: null, 66: null, 86: null, 70: null, 65: null
         }
     });
 
@@ -46,8 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (demoInput && demoSubmit && demoOutput) {
         demoSubmit.addEventListener('click', handleDemoQuery);
+        
+        // Enhanced input handling for mobile and desktop
         demoInput.addEventListener('keydown', function(e) {
-            // Stop event propagation to prevent Reveal.js from capturing keys
             e.stopPropagation();
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -55,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Also handle keyup and keypress to prevent any Reveal.js interference
         demoInput.addEventListener('keyup', function(e) {
             e.stopPropagation();
         });
@@ -63,6 +70,22 @@ document.addEventListener('DOMContentLoaded', function() {
         demoInput.addEventListener('keypress', function(e) {
             e.stopPropagation();
         });
+        
+        // Touch-friendly enhancements
+        if (isMobile) {
+            demoInput.addEventListener('focus', function() {
+                // Prevent page zoom on focus for mobile
+                this.style.fontSize = '16px';
+                // Add visual feedback
+                this.style.borderColor = 'var(--hal-red-bright)';
+                this.style.boxShadow = '0 0 10px rgba(208, 0, 0, 0.5)';
+            });
+            
+            demoInput.addEventListener('blur', function() {
+                this.style.borderColor = '';
+                this.style.boxShadow = '';
+            });
+        }
     }
     
     // Q&A console functionality
@@ -72,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (qaInput && qaSubmit && qaOutput) {
         qaSubmit.addEventListener('click', handleQAQuery);
+        
         qaInput.addEventListener('keydown', function(e) {
-            // Stop event propagation to prevent Reveal.js from capturing keys
             e.stopPropagation();
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -81,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Also handle keyup and keypress to prevent any Reveal.js interference
         qaInput.addEventListener('keyup', function(e) {
             e.stopPropagation();
         });
@@ -89,6 +111,20 @@ document.addEventListener('DOMContentLoaded', function() {
         qaInput.addEventListener('keypress', function(e) {
             e.stopPropagation();
         });
+        
+        // Touch-friendly enhancements for Q&A input
+        if (isMobile) {
+            qaInput.addEventListener('focus', function() {
+                this.style.fontSize = '16px';
+                this.style.borderColor = 'var(--hal-red-bright)';
+                this.style.boxShadow = '0 0 10px rgba(208, 0, 0, 0.5)';
+            });
+            
+            qaInput.addEventListener('blur', function() {
+                this.style.borderColor = '';
+                this.style.boxShadow = '';
+            });
+        }
     }
     
     // Suggestion buttons
@@ -401,11 +437,62 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(slideGlowStyle);
     
+    // Mobile-specific optimizations
+    if (isMobile) {
+        // Optimize performance for mobile devices
+        document.addEventListener('touchstart', function() {
+            // Enable active state for touch devices
+            document.body.classList.add('touch-device');
+        }, { passive: true });
+        
+        // Prevent unwanted scrolling during presentation
+        document.addEventListener('touchmove', function(e) {
+            // Allow scrolling within console outputs
+            if (e.target.closest('.console-output') || e.target.closest('.qa-output')) {
+                return;
+            }
+            // Prevent default scrolling elsewhere
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        // Add mobile-specific CSS class for styling
+        document.documentElement.classList.add('mobile-device');
+        
+        // Optimize console scroll behavior on mobile
+        [demoOutput, qaOutput].forEach(output => {
+            if (output) {
+                output.addEventListener('touchstart', function() {
+                    this.style.overflowY = 'auto';
+                }, { passive: true });
+            }
+        });
+    }
+    
+    // Add orientation change handling
+    window.addEventListener('orientationchange', function() {
+        setTimeout(() => {
+            Reveal.layout();
+            
+            // Adjust console heights after orientation change
+            [demoOutput, qaOutput].forEach(output => {
+                if (output) {
+                    output.scrollTop = output.scrollHeight;
+                }
+            });
+        }, 100);
+    });
+    
     // Initialize presentation state
     console.log('HAL 9000 Presentation System Online');
-    console.log('Press "h" for HAL interaction');
-    console.log('Press "o" for overview mode');
-    console.log('Press "s" for speaker notes');
+    if (isMobile) {
+        console.log('Mobile optimizations active');
+    } else {
+        console.log('Press "h" for HAL interaction');
+        console.log('Press "o" for overview mode');
+        console.log('Press "s" for speaker notes');
+    }
 });
 
 // Fallback error handling
