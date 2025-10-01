@@ -16,11 +16,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Theme configuration
         theme: 'black',
         
-        // Custom keyboard bindings
+        // Disable most keyboard shortcuts to prevent interference with demo inputs
         keyboard: {
-            72: function() { // 'h' key - HAL interaction
-                toggleHALInteraction();
-            }
+            // Only keep essential navigation keys
+            37: 'left',     // Left arrow
+            39: 'right',    // Right arrow
+            38: 'up',       // Up arrow  
+            40: 'down',     // Down arrow
+            32: 'next',     // Spacebar
+            // Disable other problematic keys by setting them to null
+            72: null,       // 'h' key - disable HAL interaction during demo
+            79: null,       // 'o' key - disable overview
+            83: null,       // 's' key - disable speaker notes
+            27: null,       // Escape key - disable escape actions
+            66: null,       // 'b' key - disable blackout
+            86: null,       // 'v' key - disable other features
+            70: null,       // 'f' key - disable fullscreen
+            65: null,       // 'a' key - disable other actions
         }
     });
 
@@ -294,7 +306,10 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
     
-    // Presentation controls enhancement
+    // Presentation controls enhancement - DISABLED for demo
+    // These keyboard shortcuts are disabled to prevent interference with demo inputs
+    // Uncomment if you need presentation controls in non-demo mode
+    /*
     document.addEventListener('keydown', function(e) {
         switch(e.key) {
             case 'Escape':
@@ -315,6 +330,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
         }
     });
+    */
     
     // Enhanced slide transitions with HAL theme
     Reveal.addEventListener('slidechanged', function(event) {
