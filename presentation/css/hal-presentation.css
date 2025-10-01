@@ -17,6 +17,7 @@
     font-family: var(--font-mono);
     color: var(--hal-white);
     background: var(--hal-black);
+    font-size: 18px;
 }
 
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
@@ -28,12 +29,12 @@
 }
 
 .reveal h1 {
-    font-size: 3.5em;
+    font-size: 2.2em;
     margin-bottom: 0.5em;
 }
 
 .reveal h2 {
-    font-size: 2.5em;
+    font-size: 1.5em;
     margin-bottom: 1em;
 }
 
@@ -130,59 +131,38 @@
 }
 
 @keyframes hal-pulse {
-    0%, 100% { 
-        box-shadow: 0 0 20px var(--hal-red), inset 0 0 10px #000;
-        transform: scale(1);
-    }
-    50% { 
-        box-shadow: 0 0 30px var(--hal-red-bright), inset 0 0 15px #000;
-        transform: scale(1.05);
-    }
+    0%, 100% { box-shadow: 0 0 20px var(--hal-red), inset 0 0 10px #000; transform: scale(1); }
+    50% { box-shadow: 0 0 30px var(--hal-red-bright), inset 0 0 15px #000; transform: scale(1.05); }
 }
 
 @keyframes hal-interactive {
-    0%, 100% { 
-        box-shadow: 0 0 30px var(--hal-red), inset 0 0 10px #000;
-        transform: scale(1);
-    }
-    25% { 
-        box-shadow: 0 0 40px var(--hal-red-bright), inset 0 0 15px #000;
-        transform: scale(1.1);
-    }
-    75% { 
-        box-shadow: 0 0 35px var(--hal-red), inset 0 0 12px #000;
-        transform: scale(1.05);
-    }
+    0%, 100% { box-shadow: 0 0 30px var(--hal-red), inset 0 0 10px #000; transform: scale(1); }
+    25% { box-shadow: 0 0 40px var(--hal-red-bright), inset 0 0 15px #000; transform: scale(1.1); }
+    75% { box-shadow: 0 0 35px var(--hal-red), inset 0 0 12px #000; transform: scale(1.05); }
 }
 
 @keyframes hal-farewell {
-    0%, 90%, 100% { 
-        box-shadow: 0 0 25px var(--hal-red), inset 0 0 8px #000;
-        opacity: 1;
-    }
-    95% { 
-        box-shadow: 0 0 50px var(--hal-red-bright), inset 0 0 20px #000;
-        opacity: 0.7;
-    }
+    0%, 90%, 100% { box-shadow: 0 0 25px var(--hal-red), inset 0 0 8px #000; opacity: 1; }
+    95% { box-shadow: 0 0 50px var(--hal-red-bright), inset 0 0 20px #000; opacity: 0.7; }
 }
 
 /* Title Slide Styling */
 .title-slide h1 {
-    font-size: 4em;
+    font-size: 3em;
     color: var(--hal-red);
     text-shadow: 0 0 20px var(--hal-red);
     margin-bottom: 0.2em;
 }
 
-.title-slide h2 {
-    font-size: 1.8em;
+title-slide h2 {
+    font-size: 1.5em;
     color: var(--hal-blue);
     text-shadow: 0 0 10px var(--hal-blue);
     margin-bottom: 1em;
 }
 
-.title-slide .subtitle {
-    font-size: 1.2em;
+title-slide .subtitle {
+    font-size: 1.1em;
     color: var(--hal-gray);
     margin-bottom: 2em;
 }
@@ -705,29 +685,47 @@
 }
 
 /* Responsive Design */
+@media (max-width: 900px) {
+    .reveal h1 {
+        font-size: 1.6em;
+    }
+    .reveal h2 {
+        font-size: 1.1em;
+    }
+    .reveal {
+        font-size: 0.9em;
+    }
+}
+@media (max-width: 600px) {
+    .reveal h1 {
+        font-size: 1.2em;
+    }
+    .reveal h2 {
+        font-size: 1em;
+    }
+    .reveal {
+        font-size: 0.85em;
+    }
+}
+
 @media (max-width: 768px) {
     .flow-container, .device-frames, .implementation-overview, .conclusion-content {
         flex-direction: column;
         gap: 1.5rem;
     }
-    
     .roadmap {
         grid-template-columns: 1fr;
     }
-    
     .suggestion-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
     .cta-buttons {
         align-items: center;
     }
-    
     .reveal h1 {
         font-size: 2.5em;
     }
-    
     .reveal h2 {
         font-size: 2em;
     }
