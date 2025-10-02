@@ -107,6 +107,33 @@
     animation: hal-pulse 1s ease-in-out infinite;
 }
 
+.hal-eye-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--hal-red-bright);
+    box-shadow: 0 0 15px var(--hal-red);
+    display: inline-block;
+    vertical-align: middle;
+    animation: hal-pulse 2s ease-in-out infinite;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.hal-eye-stationary {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid var(--hal-red-bright);
+    box-shadow: 0 0 15px var(--hal-red);
+    display: inline-block;
+    vertical-align: middle;
+    object-fit: cover;
+    margin-right: 1rem;
+    animation: none !important;
+    transform: none !important;
+}
+
 .hal-eye-interactive {
     width: 100px;
     height: 100px;
@@ -1193,6 +1220,140 @@ title-slide .subtitle {
     }
 }
 
+/* Chess Backdrop Slide Styling */
+.chess-backdrop-overlay {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%);
+    overflow: hidden;
+}
+
+.backdrop-title {
+    color: var(--hal-yellow);
+    font-size: 2.5em;
+    text-shadow: 0 0 20px var(--hal-yellow), 2px 2px 4px rgba(0,0,0,0.8);
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    z-index: 10;
+    position: relative;
+}
+
+.scrolling-text {
+    animation: scrollUp 15s linear forwards;
+    animation-delay: 3s;
+    position: absolute;
+    bottom: -200vh;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    z-index: 5;
+    opacity: 0;
+}
+
+.text-section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    border: 1px solid rgba(208, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.text-section h3 {
+    color: var(--hal-blue);
+    font-size: 1.8em;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px var(--hal-blue);
+}
+
+.text-section p {
+    color: var(--hal-white);
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.realization-section {
+    background: rgba(208, 0, 0, 0.2);
+    border: 2px solid var(--hal-red);
+    box-shadow: 0 0 30px rgba(208, 0, 0, 0.5);
+}
+
+.realization-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    z-index: 15;
+    opacity: 0;
+    animation: fadeInRealization 15s linear forwards;
+    animation-delay: 3s;
+}
+
+@keyframes fadeInRealization {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.realization-section .insight-text {
+    color: var(--hal-yellow);
+    font-size: 1.4em;
+    font-weight: bold;
+    text-shadow: 0 0 15px var(--hal-yellow), 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    70% {
+        transform: translateY(-180vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-220vh);
+        opacity: 0;
+    }
+}
+
+@keyframes scrollUpAndStop {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    60% {
+        transform: translateY(-50vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50vh);
+        opacity: 1;
+    }
+}
+
 /* Fragment animations */
 .reveal .fragment {
     transition: all 0.3s ease;
@@ -1397,4 +1558,13 @@ title-slide .subtitle {
 @keyframes typing-dot {
     0%, 100% { opacity: 0.3; }
     50% { opacity: 1; }
+}
+
+/* Bridge text styling */
+.bridge-text {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--hal-white);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    line-height: 1.5;
 }
