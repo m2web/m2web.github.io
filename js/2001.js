@@ -148,6 +148,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 If the user asks about education, school, schooling, writing, or articles, reference or summarize the related essays and articles listed below.
 
+2001 Space Odyssey is one of Mark McFadden's favorite films and inspirations. It was a pivotal influence on his career path.
+
 You have access to the following essays and articles (full text available in the workspace). Reference or summarize these if asked:
 
 ${articleList}`;
