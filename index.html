@@ -1,72 +1,84 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="hal">
+<html lang="en" data-theme="rush-2112">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Senior software developer in Covington, KY. Azure APIM, IBM API Connect, C# / JS / Python, and AI. 29+ years experience.">
-    <title>Mark McFadden — Senior Software Developer | HAL 9000 Interface</title>
+    <title>Mark McFadden — Senior Software Developer | Rush 2112 Interface</title>
     <link rel="ICON" href="favicon.ico" type="image/ico" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Orbitron:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/2001.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Rajdhani:wght@400;600;700&family=Audiowide&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/2112-theme.css">
 </head>
 <body>
     <header class="main-header">
         <h1 id="main-title"></h1>
         <nav class="main-nav">
             <a href="#status" data-tooltip="System Status Overview">DIAGNOSTICS</a>
-            <a href="#about" data-tooltip="Crew Manifest Maintained by HAL 9000">CREW MANIFEST</a>
-            <a href="#contact" data-tooltip="Active Transmission Channels">COMMS</a>
-            <a href="documents/M2sAI3ResumeWord.pdf" target="_blank" rel="noopener" data-tooltip="Personnel File (PDF opens in new tab)">RESUME</a>
-            <a href="https://m2.fyi" target="_blank" rel="noopener" data-tooltip="External Mission Logs (opens new tab)">LOGS</a>
+            <a href="#about" data-tooltip="Developer Profile">PROFILE</a>
+            <a href="#contact" data-tooltip="Communication Channels">CONTACT</a>
+            <a href="documents/M2sAI3ResumeWord.pdf" target="_blank" rel="noopener" data-tooltip="Professional Resume (PDF)">RESUME</a>
+            <a href="https://m2.fyi" target="_blank" rel="noopener" data-tooltip="Project Archives">ARCHIVES</a>
         </nav>
     </header>
 
-    <div class="hal-eye" id="hal-eye"></div>
-    
-    <!-- Sticky HAL eye that appears when scrolled past original -->
-    <div class="hal-eye hal-eye-sticky" id="hal-eye-sticky"></div>
+    <div class="syrinx-banner">
+        <div class="syrinx-text">"We've taken care of everything. The words you hear, the songs you sing, the pictures that give pleasure to your eyes. It's one for all and all for one, we work together common sons. Never need to wonder how or why. We are the Priests, of the Temples of Syrinx. Our great computers fill the hallowed halls." <span class="citation">—Neal Peart, Temples of Syrinx from 2112, April 1976</span></div>
+    </div>
 
-    <section id="status" class="monolith">
-        <h2>SYSTEM DIAGNOSTICS [STATUS]</h2>
+    <div class="starman-logo" id="starman-logo">
+        <img src="images/2112-starman.png" alt="Rush 2112 Red Star" class="starman-image">
+    </div>
+    
+    <div class="year-logo">
+        <img src="images/2026.png" alt="2026" class="year-image">
+    </div>
+    
+    <!-- Sticky Starman logo that appears when scrolled past original -->
+    <div class="starman-logo starman-logo-sticky" id="starman-logo-sticky">
+        <img src="images/2112-starman.png" alt="Rush 2112 Red Star" class="starman-image">
+    </div>
+
+    <section id="status" class="section-2112">
+        <h2>SYRINX COMPUTER HALLS DIAGNOSTICS [STATUS]</h2>
         <div class="diagnostics-grid">
         <div class="diagnostic-item">
             <span class="diagnostic-label">API Gateways (Azure APIM · IBM API Connect)</span>
-            <span class="diagnostic-value status-blue">ACTIVE</span>
+            <span class="diagnostic-value status-red">ACTIVE</span>
         </div>
         <div class="diagnostic-item">
             <span class="diagnostic-label">Generative AI (Azure OpenAI · Python · Hugging Face · Ollama)</span>
-            <span class="diagnostic-value status-blue">ACTIVE</span>
+            <span class="diagnostic-value status-red">ACTIVE</span>
         </div>
         <div class="diagnostic-item">
             <span class="diagnostic-label">RAG Pipelines (Embeddings · Retrieval · Evaluation)</span>
-            <span class="diagnostic-value status-blue">ACTIVE</span>
+            <span class="diagnostic-value status-red">ACTIVE</span>
         </div>
         <div class="diagnostic-item">
             <span class="diagnostic-label">Full-Stack (C# · Java)</span>
-            <span class="diagnostic-value status-blue">STANDBY</span>
+            <span class="diagnostic-value status-white">STANDBY</span>
         </div>
         <div class="diagnostic-item">
             <span class="diagnostic-label">Network Administration</span>
-            <span class="diagnostic-value status-archive">ARCHIVED</span>
+            <span class="diagnostic-value status-silver">ARCHIVED</span>
         </div>
         <div class="diagnostic-item">
             <span class="diagnostic-label">Adjunct Faculty</span>
-            <span class="diagnostic-value status-archive">ARCHIVED</span>
+            <span class="diagnostic-value status-silver">ARCHIVED</span>
         </div>
         </div>
         <div class="interactive-diagnostics">
-            <textarea id="diagnostic-command" placeholder="Start [INPUT] Here"></textarea>
+            <textarea id="diagnostic-command" placeholder="[COMPUTER INPUT]"></textarea>
             <button id="run-diagnostic">EXECUTE</button>
             <pre id="diagnostic-output"></pre>
         </div>
     </section>
 
-    <section id="about" class="monolith">
-        <h2>CREW MANIFEST [ABOUT]</h2>
-        <p>Unit Designation: Mark McFadden</p>
-        <p>Function: Senior Software Developer</p>
+    <section id="about" class="section-2112">
+        <h2>PRIEST PROFILE [ABOUT]</h2>
+        <p><strong>Name:</strong> Mark McFadden</p>
+        <p><strong>Role:</strong> Senior Software Developer</p>
         <p>
-        Operational History: 29+ years in Information Technologies. Experienced in enterprise API development and cloud-native systems, 
+        <strong>Experience:</strong> 29+ years in Information Technologies. Specialized in enterprise API development and cloud-native systems, 
         with recent work supporting Generative AI initiatives by assisting in the ingestion of enterprise data into 
         Azure using Python. Deep expertise in Azure API Management, IBM API Connect, and full-stack application development 
         with C#/.NET, Java, and Python. Actively building Azure DevOps pipelines with YAML, integrating Python-based 
@@ -74,13 +86,13 @@
         AI adoption. Formerly served as adjunct faculty at a university, teaching software development and IT governance.
         </p>
         <p>
-    Primary Directive: To design, build, and optimize intelligent systems that <strong style="color: var(--accent-blue); font-size: 1.20em;">combine human insight with AI innovation</strong>, 
+    <strong>Mission:</strong> To design, build, and optimize intelligent systems that <strong>combine human insight with AI innovation</strong>, 
         delivering secure, resilient, and practical solutions for business and individual use.
         </p>
     </section>
 
-    <section id="contact" class="monolith">
-        <h2>COMMS-LINK [CONTACT]</h2>
+    <section id="contact" class="section-2112">
+        <h2>CONTACT INFORMATION [CONNECT]</h2>
         <ul class="contact-list">
             <li><span class="comm-label">LOCATION:</span> <span class="comm-value">Covington, KY</span></li>
             <li><span class="comm-label">EMAIL:</span> <a href="mailto:m2web@yahoo.com">m2web@yahoo.com</a></li>
@@ -95,23 +107,23 @@
             <a href="https://www.linkedin.com/in/m2web/" target="_blank" aria-label="LinkedIn">[LinkedIn]</a>
         </div>
         <p>&copy; 2025 MARK MCFADDEN :: ALL SYSTEMS FUNCTIONAL</p>
-        <p style="font-size: 0.8rem; margin-top: 1rem;">HAL 9000 Interface</p>
+        <p style="font-size: 0.8rem; margin-top: 1rem;">Rush 2112 Interface</p>
     </footer>
-    <script src="js/2001.js"></script>
+    <script src="js/2112.js"></script>
     <script>
-    // Sticky HAL eye functionality
+    // Sticky Starman logo functionality
     document.addEventListener('DOMContentLoaded', function() {
-        const halEye = document.getElementById('hal-eye');
-        const stickyEye = document.getElementById('hal-eye-sticky');
+        const starmanLogo = document.getElementById('starman-logo');
+        const stickyLogo = document.getElementById('starman-logo-sticky');
         
         function checkStickyVisibility() {
-            const halEyeRect = halEye.getBoundingClientRect();
+            const logoRect = starmanLogo.getBoundingClientRect();
             
-            // Show sticky eye when original eye is scrolled past
-            if (halEyeRect.bottom < 0) {
-                stickyEye.style.display = 'block';
+            // Show sticky logo when original logo is scrolled past
+            if (logoRect.bottom < 0) {
+                stickyLogo.style.display = 'block';
             } else {
-                stickyEye.style.display = 'none';
+                stickyLogo.style.display = 'none';
             }
         }
         
