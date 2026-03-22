@@ -1,21 +1,27 @@
 # Using a Cloudflare Worker with GitHub Pages to Call the OpenAI API
 
-This guide explains how to securely call the OpenAI API from a static site hosted on **GitHub Pages** by using a **Cloudflare Worker** as a proxy. This approach keeps your OpenAI API key secret and enables safe API calls from the browser, since GitHub Pages cannot run server-side code.
+This guide explains how to securely call the OpenAI API from a static site
+hosted on **GitHub Pages** by using a **Cloudflare Worker** as a proxy. This
+approach keeps your OpenAI API key secret and enables safe API calls from the
+browser, since GitHub Pages cannot run server-side code.
 
 ## Why Use a Cloudflare Worker with GitHub Pages?
 
-- **Security:** Never expose your OpenAI API key in client-side code. The Worker acts as a secure backend.
+- **Security:** Never expose your OpenAI API key in client-side code. The Worker
+  acts as a secure backend.
 - **Flexibility:** Add logging, rate limiting, or custom logic in your Worker.
 - **Simplicity:** No need to manage your own server or backend infrastructure.
-- **Compatibility:** GitHub Pages only serves static files, so a Worker is needed for dynamic API calls.
+- **Compatibility:** GitHub Pages only serves static files, so a Worker is
+  needed for dynamic API calls.
 
 ---
 
 ## Step 1: Write the Cloudflare Worker Script
 
-Create a file named `worker.js` with the following code (or use your preferred filename):
+Create a file named `worker.js` with the following code (or use your preferred
+filename):
 
-```js
+```javascript
 export default {
   async fetch(request, env) {
     // Handle CORS pre-flight requests
@@ -87,44 +93,47 @@ function handleOptions(request) {
 
 - Install Wrangler if you haven't:
 
-    ```sh
-       npm install -g wrangler
-    ```
+```bash
+   npm install -g wrangler
+```
 
 - Authenticate Wrangler:
 
-    ```sh
-      wrangler login
-    ```
+```bash
+  wrangler login
+```
 
-- Use the [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/) to store your API key securely:
+- Use the [Wrangler CLI][3] to store your API key securely:
 
-    ```sh
-      npx wrangler secret put OPENAI_API_KEY
-    ```
+[3]: https://developers.cloudflare.com/workers/wrangler/
+
+```bash
+  npx wrangler secret put OPENAI_API_KEY
+```
 
 ---
 
 ## Step 3: Deploy the Worker
 
-- Deploy your Worker. Wrangler will use the `wrangler.toml` file for configuration:
+- Deploy your Worker. Wrangler will use the `wrangler.toml` file for
+  configuration:
 
-   ```sh
-   wrangler deploy
-   ```
+```bash
+wrangler deploy
+```
 
 ---
 
-## Step 4: Call the Worker from Your GitHub Pages Site
+In your GitHub Pages static site, use JavaScript to call your Worker endpoint.
+This allows your static site to interact with the OpenAI API securely, without
+exposing your API key:
 
-In your GitHub Pages static site, use JavaScript to call your Worker endpoint. This allows your static site to interact with the OpenAI API securely, without exposing your API key:
-
-```js
+```javascript
 fetch('https://<your-worker-subdomain>.workers.dev', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-5-mini',
     messages: [{ role: 'user', content: 'Hello!' }]
   })
 })
@@ -132,18 +141,28 @@ fetch('https://<your-worker-subdomain>.workers.dev', {
   .then(data => console.log(data));
 ```
 
-Replace `<your-worker-subdomain>` with your actual Worker URL (e.g., `myworker.myaccount.workers.dev`).
+Replace `<your-worker-subdomain>` with your actual Worker URL (for example,
+`myworker.myaccount.workers.dev`).
 
 ---
 
 ## Notes
 
-- You can add authentication, rate limiting, or logging in your Worker for more control.
-- This approach works for any OpenAI API endpoint—just adjust the Worker code as needed.
-- For more info, see the [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/) and [OpenAI API docs](https://platform.openai.com/docs/api-reference/introduction).
+- You can add authentication, rate limiting, or logging in your Worker for more
+  control.
+- This approach works for any OpenAI API endpoint—just adjust the Worker code
+  as needed.
+- For more info, see the [Cloudflare Workers documentation][1] and
+  [OpenAI API docs][2].
+
+[1]: https://developers.cloudflare.com/workers/
+[2]: https://platform.openai.com/docs/api-reference/introduction
 
 ---
 
 **Summary:**
 
-By using a Cloudflare Worker as a secure proxy, your GitHub Pages static site can safely call the OpenAI API without exposing sensitive credentials. This pattern is recommended for any static site needing to interact with third-party APIs that require secret keys.
+By using a Cloudflare Worker as a secure proxy, your GitHub Pages static site
+can safely call the OpenAI API without exposing sensitive credentials. This
+pattern is recommended for any static site needing to interact with third-party
+APIs that require secret keys.

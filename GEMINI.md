@@ -1,5 +1,35 @@
 # Gemini Session Summary
 
+## Session: 2026-03-22
+
+### Project: m2web.github.io
+
+### User Goal
+
+The user wants to upgrade the underlying AI model for the HAL 9000 interface
+from `gpt-3.5-turbo` to the more modern and efficient `gpt-5-mini`.
+
+### User Preferences
+
+- **Terminal:** PowerShell
+
+### Summary of Work
+
+- **AI Model Upgrade:** Upgraded the OpenAI model configuration from
+  `gpt-3.5-turbo` to `gpt-5-mini` (released August 7, 2025) across the main
+  site logic and the presentation system.
+- **Documentation:** Updated `cloudflare-worker-openai-github-pages.md` with:
+  - Correct model example (`gpt-5-mini`).
+  - Correct Markdown syntax and language identifiers (`javascript`, `bash`) to
+    comply with project linting rules.
+  - Improved formatting to meet the 80-character line length limit.
+- **Technical Files Modified:**
+  - `js/2001.js`
+  - `presentation/js/hal-presentation.js`
+  - `cloudflare-worker-openai-github-pages.md`
+
+---
+
 ## Session: 2025-07-30
 
 ### Project: m2web.github.io

@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                model: 'gpt-3.5-turbo',
+                model: 'gpt-5-mini',
                 messages: messages,
                 max_tokens: 150,
                 temperature: 0.7
