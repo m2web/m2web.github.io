@@ -1,6 +1,6 @@
 {
   "summary": [
-    "Over twenty-nine years\u2019 experience in the Information Technologies field, specializing in Internet Technologies, Network Administration, .Net and J2EE application design and development, API Gateway administration, and utilizing Artificial Intelligence.  I have designed and implemented several Internet-based systems ranging from static \u201cbrochure ware\u201d sites to dynamic e-commerce solutions. Additionally, I have regularly spoken before teams and corporate gatherings, educating them on various topics and technologies, as well as taught at a local university."
+    "Over twenty-nine years’ experience in the Information Technologies field, currently serving as an AI Developer III. Specializing in AI architecture, orchestration engineering (Semantic Kernel, LangGraph), and model governance within Microsoft Foundry. Expert in designing scalable RAG systems and intelligent automation solutions that integrate human insight with state-of-the-art AI innovation."
   ],
   "skills": [
     "* Basic AI Development",
@@ -40,10 +40,12 @@
     "* GitHub Campus Advisor",
     "Employer: Western & Southern Financial Group",
     "Location: Cincinnati, OH",
-    "Title: Senior Software Developer II",
+    "Title: AI Developer III",
     "Duration: 03/2013 \u2013 Present",
+    "* Scaling an enterprise-wide RAG ecosystem with multiple business-line specific applications—including Rush Scholar—to transform internal knowledge into organizational intelligence.",
+    "* Designing and maintaining sophisticated AI orchestration frameworks using Semantic Kernel and LangGraph to manage complex, multi-agent workflows.",
+    "* Overseeing the deployment and optimization of models within Microsoft Foundry and governing gpt-5-mini model implementation for cost-efficiency.",
     "* Participated in the pilot project for Generative AI Development Tools, contributing to the integration and practical application of these tools and assessing their effectiveness in development tools and workflows.",
-    "* Utilized OpenAI APIs in a Personal Proof of Concept",
     "* Setup, Administered, and Developed Enterprise APIs",
     "* Developed .Net MVC Web App for On Demand Correspondence",
     "* Developed Java Based Solutions for New Business Data",

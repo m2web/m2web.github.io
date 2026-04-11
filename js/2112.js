@@ -1,5 +1,5 @@
 // Rush 2112 themed tooltip logic for main menu
-(function() {
+(function () {
     const nav = document.querySelector('.main-nav');
     if (!nav) return;
     let tooltip = document.createElement('div');
@@ -7,7 +7,7 @@
     document.body.appendChild(tooltip);
     let active = null;
 
-    nav.addEventListener('mouseover', function(e) {
+    nav.addEventListener('mouseover', function (e) {
         const link = e.target.closest('a[data-tooltip]');
         if (link) {
             tooltip.textContent = link.getAttribute('data-tooltip');
@@ -24,14 +24,14 @@
             tooltip.style.left = left + window.scrollX + 'px';
         }
     });
-    nav.addEventListener('mouseout', function(e) {
+    nav.addEventListener('mouseout', function (e) {
         const link = e.target.closest('a[data-tooltip]');
         if (link && link === active) {
             tooltip.classList.remove('visible');
             active = null;
         }
     });
-    nav.addEventListener('mousemove', function(e) {
+    nav.addEventListener('mousemove', function (e) {
         if (active) {
             const rect = active.getBoundingClientRect();
             let top = rect.top - tooltip.offsetHeight - 8;
@@ -45,13 +45,13 @@
     });
 })();
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const titleElement = document.getElementById('main-title');
     const titleText = 'M A R K   M C F A D D E N';
-    
+
     // Set the title text immediately and let CSS handle the fade-in
     titleElement.textContent = titleText;
-    
+
     // Add a small delay to ensure the invisible state is rendered before fading in
     setTimeout(() => {
         titleElement.classList.add('fade-in');
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
             links.forEach((a, i) => {
                 const href = a.getAttribute('href');
                 let title = a.textContent.trim().replace(/\s+/g, ' ');
-                articles.push(`${i+1}. ${title} (${href})`);
+                articles.push(`${i + 1}. ${title} (${href})`);
             });
             dynamicArticleList = articles.join('\n');
         } catch (e) {
@@ -150,7 +150,7 @@ ${articleList}`;
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    model: 'gpt-3.5-turbo',
+                    model: 'gpt-5-mini',
                     messages: messages
                 })
             });

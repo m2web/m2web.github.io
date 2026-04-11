@@ -289,6 +289,30 @@ a:hover {
     transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
+.section-label {
+    position: absolute;
+    top: -22px;
+    right: 60px;
+    background: var(--accent-red);
+    color: white;
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding: 10px 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+    box-shadow: 0 0 30px rgba(173, 23, 0, 0.9), inset 0 0 15px rgba(255, 255, 255, 0.2);
+    z-index: 20;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.personal-section .section-label {
+    background: var(--accent-blue);
+    box-shadow: 0 0 30px rgba(30, 58, 138, 0.9), inset 0 0 15px rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-blue-light);
+}
+
 .section-2112.visible {
     opacity: 1;
     transform: translateY(0);
@@ -300,7 +324,7 @@ a:hover {
     top: 0;
     right: 0;
     width: 20px;
-    height: 20px;blue
+    height: 20px;
     background: var(--accent-red);
     clip-path: polygon(100% 0, 100% 100%, 0 0);
 }
@@ -341,6 +365,42 @@ a:hover {
     font-weight: 700;
 }
 
+.section-2112 h3 {
+    color: var(--accent-red);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-left: 4px solid var(--accent-red);
+    padding-left: 15px;
+}
+
+.section-2112 ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.section-2112 li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.section-2112 li::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    color: var(--accent-red);
+    font-size: 0.8rem;
+    top: 4px;
+}
+
 /* Diagnostics Grid */
 .diagnostics-grid {
     display: grid;
@@ -355,7 +415,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     background: var(--bg-secondary);
-    padding: 12px 16px;blue);
+    padding: 12px 16px;
     border: 1px solid var(--accent-blue);
     clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
     transition: all 0.3s ease;
@@ -364,7 +424,6 @@ a:hover {
 .diagnostic-item:hover {
     background: var(--bg-tertiary);
     border-color: var(--accent-blue-light);
-    box-shadow: var(--shadow-blueed);
     box-shadow: var(--shadow-red);
     transform: translateX(5px);
 }
@@ -380,6 +439,29 @@ a:hover {
     padding: 4px 12px;
     border-radius: 3px;
     background: var(--bg-primary);
+}
+
+.archive-header {
+    grid-column: 1 / -1;
+    font-family: var(--font-heading);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    padding: 15px 0 5px 0;
+    border-bottom: 1px solid var(--bg-tertiary);
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.archive-header::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--bg-tertiary) 0%, transparent 100%);
 }
 
 .status-red {
