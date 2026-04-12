@@ -1,4 +1,4 @@
-﻿Mark C. McFadden
+Mark C. McFadden
 	818 Scott Street
 Covington, KY 41011
 Phone: 859-750-1953
@@ -9,7 +9,7 @@ LinkedIn: https://www.linkedin.com/in/m2web/
 	
 
 	SUMMARY OF QUALIFICATIONS
-	Over twenty-nine years’ experience in the Information Technologies field, specializing in Internet Technologies, Network Administration, .Net and J2EE application design and development, API Gateway administration, and utilizing Artificial Intelligence.  I have designed and implemented several Internet-based systems ranging from static “brochure ware” sites to dynamic e-commerce solutions. Additionally, I have regularly spoken before teams and corporate gatherings, educating them on various topics and technologies, as well as taught at a local university.
+	Over twenty-nine years’ experience in the Information Technologies field, currently serving as an AI Developer III. Specializing in AI architecture, orchestration engineering (Semantic Kernel, LangGraph), and model governance within Microsoft Foundry. Expert in designing scalable RAG systems and intelligent automation solutions that integrate human insight with state-of-the-art AI innovation.
 	
 
 	TECHNICAL SKILLS
@@ -55,7 +55,7 @@ Title: Part-Time Faculty
 * GitHub Campus Advisor
 	Employer: Western & Southern Financial Group
 	Location: Cincinnati, OH
-Title: Senior Software Developer II
+Title: AI Developer III
 	Duration: 03/2013 – Present
 * Participated in the pilot project for Generative AI Development Tools, contributing to the integration and practical application of these tools and assessing their effectiveness in development tools and workflows.
 * Utilized OpenAI APIs in a Personal Proof of Concept
