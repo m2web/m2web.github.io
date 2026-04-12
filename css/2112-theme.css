@@ -6,29 +6,42 @@
 
 :root {
     /* 2112 Color Palette - Updated for album aesthetic */
-    --bg-primary: #0d0d0d;           /* Very dark gray instead of pure black */
-    --bg-secondary: #1a1a1a;         /* Lighter dark for depth */
-    --bg-tertiary: #252525;          /* Card/section backgrounds */
-    
-    --accent-red: #ad1700;           /* Custom red - primary accent */
-    --accent-red-dark: #8B0000;      /* Deep red for borders */
-    --accent-red-bright: #DC143C;    /* Bright red for highlights */
-    
-    --accent-blue: #1e3a8a;          /* Dark royal blue - secondary accent */
-    --accent-blue-light: #2563eb;    /* Lighter blue for highlights */
-    
-    --text-primary: #FFFFFF;         /* Pure white */
-    --text-secondary: #C0C0C0;       /* Silver/gray */
-    --text-muted: #808080;           /* Muted gray */
-    
-    --accent-silver: #E8E8E8;        /* Metallic silver */
-    --accent-gold: #FFD700;          /* Gold accents */
-    
+    --bg-primary: #0d0d0d;
+    /* Very dark gray instead of pure black */
+    --bg-secondary: #1a1a1a;
+    /* Lighter dark for depth */
+    --bg-tertiary: #252525;
+    /* Card/section backgrounds */
+
+    --accent-red: #ad1700;
+    /* Custom red - primary accent */
+    --accent-red-dark: #8B0000;
+    /* Deep red for borders */
+    --accent-red-bright: #DC143C;
+    /* Bright red for highlights */
+
+    --accent-blue: #1e3a8a;
+    /* Dark royal blue - secondary accent */
+    --accent-blue-light: #2563eb;
+    /* Lighter blue for highlights */
+
+    --text-primary: #FFFFFF;
+    /* Pure white */
+    --text-secondary: #C0C0C0;
+    /* Silver/gray */
+    --text-muted: #808080;
+    /* Muted gray */
+
+    --accent-silver: #E8E8E8;
+    /* Metallic silver */
+    --accent-gold: #FFD700;
+    /* Gold accents */
+
     /* Typography */
     --font-heading: 'Rajdhani', 'Audiowide', 'Orbitron', sans-serif;
     --font-body: 'Rajdhani', 'Inter', sans-serif;
     --font-mono: 'Space Mono', 'Courier New', monospace;
-    
+
     /* Spacing & Effects */
     --border-red: 2px solid var(--accent-red);
     --border-blue: 2px solid var(--accent-blue);
@@ -47,16 +60,14 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     /* Subtle texture overlay */
-    background-image: 
+    background-image:
         radial-gradient(circle at 20% 50%, rgba(173, 23, 0, 0.03) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(173, 23, 0, 0.02) 0%, transparent 50%),
-        repeating-linear-gradient(
-            0deg,
+        repeating-linear-gradient(0deg,
             transparent,
             transparent 2px,
             rgba(255, 255, 255, 0.01) 2px,
-            rgba(255, 255, 255, 0.01) 4px
-        );
+            rgba(255, 255, 255, 0.01) 4px);
 }
 
 /* Global anchor link styles */
@@ -87,11 +98,10 @@ a:hover {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        var(--accent-blue) 50%, 
-        transparent 100%
-    );
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--accent-blue) 50%,
+            transparent 100%);
 }
 
 #main-title {
@@ -118,6 +128,7 @@ a:hover {
     from {
         filter: drop-shadow(0 0 5px rgba(173, 23, 0, 0.3));
     }
+
     to {
         filter: drop-shadow(0 0 15px rgba(173, 23, 0, 0.6));
     }
@@ -165,6 +176,7 @@ a:hover {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-100%);
     }
@@ -247,10 +259,13 @@ a:hover {
 }
 
 @keyframes starPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         filter: drop-shadow(0 0 20px rgba(173, 23, 0, 0.6));
     }
+
     50% {
         transform: scale(1.03);
         filter: drop-shadow(0 0 35px rgba(173, 23, 0, 0.8));
@@ -266,7 +281,8 @@ a:hover {
     width: 100px;
     height: 100px;
     z-index: 100;
-    pointer-events: auto; /* Allow clicking to go home */
+    pointer-events: auto;
+    /* Allow clicking to go home */
     cursor: pointer;
     background: rgba(13, 13, 13, 0.8);
     backdrop-filter: blur(5px);
@@ -292,16 +308,14 @@ a:hover {
     border: 3px solid var(--accent-blue);
     border-left: 8px solid var(--accent-red);
     border-right: 8px solid var(--accent-blue);
-    clip-path: polygon(
-        0 0,
-        calc(100% - 20px) 0,
-        100% 20px,
-        100% 100%,
-        20px 100%,
-        0 calc(100% - 20px)
-    );
-    box-shadow: 
-        var(--shadow-deep), 
+    clip-path: polygon(0 0,
+            calc(100% - 20px) 0,
+            100% 20px,
+            100% 100%,
+            20px 100%,
+            0 calc(100% - 20px));
+    box-shadow:
+        var(--shadow-deep),
         inset 0 0 60px rgba(30, 58, 138, 0.05),
         0 0 40px rgba(173, 23, 0, 0.1);
     position: relative;
@@ -319,7 +333,8 @@ a:hover {
     font-family: var(--font-mono);
     font-size: 1.2rem;
     font-weight: 900;
-    padding: 10px 32px;
+    padding: 30px 32px 8px 32px;
+    line-height: 1;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
@@ -508,14 +523,12 @@ a:hover {
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.6) 0%, rgba(13, 13, 13, 0.8) 100%);
     border-left: 4px solid var(--accent-red);
     border-right: 4px solid var(--accent-blue);
-    clip-path: polygon(
-        0 0,
-        calc(100% - 15px) 0,
-        100% 15px,
-        100% 100%,
-        15px 100%,
-        0 calc(100% - 15px)
-    );
+    clip-path: polygon(0 0,
+            calc(100% - 15px) 0,
+            100% 15px,
+            100% 100%,
+            15px 100%,
+            0 calc(100% - 15px));
     position: relative;
     overflow: visible;
 }
@@ -699,11 +712,10 @@ a:hover {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        var(--accent-blue) 50%, 
-        transparent 100%
-    );
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--accent-blue) 50%,
+            transparent 100%);
 }
 
 .main-footer p {
@@ -771,64 +783,64 @@ a:hover {
     body {
         font-size: 16px;
     }
-    
+
     .main-header {
         padding: 2rem 1rem;
     }
-    
+
     #main-title {
         font-size: 2rem;
         letter-spacing: 0.15em;
     }
-    
+
     .main-nav {
         gap: 0.3rem;
     }
-    
+
     .main-nav a {
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
         letter-spacing: 0.1em;
     }
-    
+
     .syrinx-banner {
         padding: 0.8rem 0;
     }
-    
+
     .syrinx-text {
         font-size: 0.85rem;
         animation: scrollText 45s linear infinite;
     }
-    
+
     .starman-logo {
         width: 110px;
         height: 110px;
     }
-    
+
     .year-logo {
         width: 160px;
     }
-    
+
     .section-2112 {
         margin: 2rem 1rem;
         padding: 1.5rem;
     }
-    
+
     .section-2112 h2 {
         font-size: 1.8rem;
         letter-spacing: 0.15em;
     }
-    
+
     .section-2112 p {
         font-size: 1rem;
     }
-    
+
     .diagnostic-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
     }
-    
+
     .diagnostic-value {
         align-self: flex-end;
     }
@@ -839,27 +851,28 @@ a:hover {
         font-size: 1.5rem;
         letter-spacing: 0.1em;
     }
-    
+
     .main-nav {
         flex-direction: column;
         gap: 0.5rem;
     }
-    
+
     .main-nav a {
         padding: 0.8rem;
         font-size: 0.85rem;
     }
+
     .year-logo {
         width: 130px;
         margin: 0.5rem auto 1rem auto;
     }
-    
+
     .starman-logo {
         width: 90px;
         height: 90px;
         margin: 1rem auto;
     }
-    
+
     .starman-logo-sticky {
         width: 60px;
         height: 60px;
@@ -867,20 +880,20 @@ a:hover {
         left: 10px;
         padding: 5px;
     }
-    
+
     .section-2112 {
         margin: 1.5rem 0.5rem;
         padding: 1rem;
     }
-    
+
     .section-2112 h2 {
         font-size: 1.5rem;
     }
-    
+
     .section-2112 p {
         font-size: 0.95rem;
     }
-    
+
     .social-links a {
         display: block;
         margin: 0.5rem auto;
