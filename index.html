@@ -44,7 +44,7 @@
     </div>
 
     <!-- Sticky Starman logo that appears when scrolled past original -->
-    <div class="starman-logo starman-logo-sticky" id="starman-logo-sticky">
+    <div class="starman-logo starman-logo-sticky" id="starman-logo-sticky" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         <img src="images/2112-starman.png" alt="Rush 2026 Red Star" class="starman-image">
     </div>
 
@@ -92,6 +92,10 @@
             <div class="diagnostic-item">
                 <span class="diagnostic-label">Adjunct Faculty</span>
                 <span class="diagnostic-value status-silver">ARCHIVED</span>
+            </div>
+            <div class="diagnostic-item" id="sticky-toggle" style="cursor: pointer;">
+                <span class="diagnostic-label">Interface: Sticky Navigation Logo</span>
+                <span class="diagnostic-value status-red" id="sticky-status-indicator">ENABLED</span>
             </div>
         </div>
         <div class="interactive-diagnostics">
@@ -194,17 +198,41 @@
         document.addEventListener('DOMContentLoaded', function () {
             const starmanLogo = document.getElementById('starman-logo');
             const stickyLogo = document.getElementById('starman-logo-sticky');
+            const stickyToggle = document.getElementById('sticky-toggle');
+            const stickyIndicator = document.getElementById('sticky-status-indicator');
+            
+            let isStickyEnabled = true;
 
             function checkStickyVisibility() {
+                if (!isStickyEnabled) {
+                    stickyLogo.style.display = 'none';
+                    return;
+                }
+
                 const logoRect = starmanLogo.getBoundingClientRect();
 
                 // Show sticky logo when original logo is scrolled past
                 if (logoRect.bottom < 0) {
-                    stickyLogo.style.display = 'block';
+                    stickyLogo.style.display = 'flex'; // Use flex to match .starman-logo base
                 } else {
                     stickyLogo.style.display = 'none';
                 }
             }
+
+            // Toggle functionality
+            stickyToggle.addEventListener('click', function() {
+                isStickyEnabled = !isStickyEnabled;
+                
+                if (isStickyEnabled) {
+                    stickyIndicator.textContent = 'ENABLED';
+                    stickyIndicator.className = 'diagnostic-value status-red';
+                } else {
+                    stickyIndicator.textContent = 'DISABLED';
+                    stickyIndicator.className = 'diagnostic-value status-silver';
+                }
+                
+                checkStickyVisibility();
+            });
 
             // Listen for scroll events
             window.addEventListener('scroll', checkStickyVisibility);

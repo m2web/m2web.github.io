@@ -257,9 +257,30 @@ a:hover {
     }
 }
 
-/* Sticky Starman Logo - Disabled */
+/* Sticky Starman Logo - Controlled by JS */
 .starman-logo-sticky {
-    display: none !important;
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+    pointer-events: auto; /* Allow clicking to go home */
+    cursor: pointer;
+    background: rgba(13, 13, 13, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--accent-red);
+    padding: 10px;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    box-shadow: var(--shadow-red);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.starman-logo-sticky:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(173, 23, 0, 0.8);
+    border-color: var(--accent-red-bright);
 }
 
 /* Section Containers (replacing monolith) */
@@ -828,12 +849,11 @@ a:hover {
         padding: 0.8rem;
         font-size: 0.85rem;
     }
-     0.5rem auto;
-    }
-    
     .year-logo {
         width: 130px;
-        margin-bottom: 1rem
+        margin: 0.5rem auto 1rem auto;
+    }
+    
     .starman-logo {
         width: 90px;
         height: 90px;
@@ -841,62 +861,11 @@ a:hover {
     }
     
     .starman-logo-sticky {
-        width: 70px;
-        height: 70px;
-        top: 15px;
-        left: 15px;
-    }
-    
-    .starman-logo::after {
-        width: 75px;
-        height: 75px;
-    }
-    
-    .starman-logo .star-outer {
-        width: 65px;
-        height: 65px;
-    }
-    
-    .starman-logo .star-inner {
-        width: 26px;
-        height: 26px;
-    }
-    
-    .starman-logo-sticky {
-        width: 70px;
-        height: 70px;
-        top: 15px;
-        left: 15px;
-    }
-    
-    .starman-logo-sticky::before {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .starman-logo-sticky::after {
-        width: 58px;
-        height: 58px;
-    }
-    
-    .starman-logo-sticky .star-outer {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .starman-logo-sticky .star-inner {
-        width: 20px;
-        height: 2x;
-    }
-    
-    .starman-logo-sticky .star-outer {
         width: 60px;
         height: 60px;
-    }
-    
-    .starman-logo-sticky .star-inner {
-        width: 30px;
-        height: 30px;
+        top: 10px;
+        left: 10px;
+        padding: 5px;
     }
     
     .section-2112 {
