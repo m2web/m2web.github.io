@@ -1,3 +1,8 @@
+// --- USER CONFIGURATION ---
+const SYSTEM_CONFIG = {
+    fetchArticlesEnabled: true // Set to false to disable dynamic article list integration
+};
+
 // Rush 2112 themed tooltip logic for main menu
 (function () {
     const nav = document.querySelector('.main-nav');
@@ -92,6 +97,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const defaultArticleList = '';
 
     async function fetchArticleList() {
+        if (!SYSTEM_CONFIG.fetchArticlesEnabled) return;
+        
         try {
             const res = await fetch('/thoughts/index.html');
             if (!res.ok) throw new Error('Failed to fetch thoughts index');
@@ -101,15 +108,25 @@ document.addEventListener('DOMContentLoaded', function () {
             const links = doc.querySelectorAll('.hal-subscr ul li a');
             let articles = [];
             links.forEach((a, i) => {
-                const href = a.getAttribute('href');
+                let href = a.getAttribute('href');
+                // Ensure relative paths point to the /thoughts/ directory
+                if (!href.startsWith('/') && !href.startsWith('http')) {
+                    href = '/thoughts/' + href;
+                }
                 let title = a.textContent.trim().replace(/\s+/g, ' ');
-                articles.push(`${i + 1}. ${title} (${href})`);
+                // Provide actual HTML links to the AI
+                articles.push(`${i + 1}. <a href="${href}" target="_blank" style="color: var(--accent-red); text-decoration: underline;">${title}</a>`);
             });
             dynamicArticleList = articles.join('\n');
         } catch (e) {
             dynamicArticleList = null;
             console.error('Error fetching/parsing article list:', e);
         }
+    }
+
+    // Initialize fetching if enabled
+    if (SYSTEM_CONFIG.fetchArticlesEnabled) {
+        fetchArticleList();
     }
 
     async function getOpenAIResponse(prompt) {

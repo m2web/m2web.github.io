@@ -1,5 +1,14 @@
-/* Rush 2112 Theme for Thoughts/Essays */
 @import url('../css/2112-theme.css');
+
+:root {
+    /* Legacy Theme Compatibility Mapping */
+    --accent-color: var(--accent-red);
+    --secondary-color: var(--accent-blue);
+    --light-gray: var(--text-secondary);
+    --medium-gray: var(--text-muted);
+    --white: var(--text-primary);
+    --dark-bg: var(--bg-primary);
+}
 
 /* Override main title to be visible immediately in thought pages */
 #main-title {

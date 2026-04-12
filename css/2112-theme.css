@@ -72,12 +72,12 @@ body {
 
 /* Global anchor link styles */
 a {
-    color: var(--accent-red) !important;
+    color: var(--accent-red);
     text-decoration: none;
 }
 
 a:hover {
-    color: #FFFFFF !important;
+    color: #FFFFFF;
 }
 
 /* Header Styling */
