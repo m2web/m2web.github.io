@@ -1,4 +1,4 @@
-@import url('../css/2112-theme.css');
+/* thoughts/styles.css */
 
 :root {
     /* Legacy Theme Compatibility Mapping */
@@ -15,6 +15,21 @@
     opacity: 1 !important;
     font-size: 2rem !important;
     color: #FFFFFF !important;
+}
+
+/* Base Link Styles */
+a.underline {
+    color: var(--accent-red) !important;
+    text-decoration: underline !important;
+    text-decoration-color: rgba(173, 23, 0, 0.4) !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+a.underline:hover {
+    color: #FFFFFF !important;
+    text-decoration-color: #FFFFFF !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 /* Ensure body has proper background and text color */

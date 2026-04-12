@@ -82,15 +82,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const runDiagnosticButton = document.getElementById('run-diagnostic');
     const diagnosticOutput = document.getElementById('diagnostic-output');
 
-    // Updated greeting message for Rush 2112 theme
-    let conversationLog = '<strong>SYRINX SYSTEM:</strong> Greetings, citizen.\n';
-    diagnosticOutput.innerHTML = conversationLog;
+    // Optimized diagnostic logging using DOM nodes for security
+    function appendToLog(text, label = null) {
+        const line = document.createElement('div');
+        line.className = 'log-line';
+        line.style.marginBottom = '4px';
 
-    function appendToLog(entry) {
-        conversationLog += entry + '\n';
-        diagnosticOutput.innerHTML = conversationLog;
+        if (label) {
+            const labelEl = document.createElement('strong');
+            labelEl.textContent = label + ': ';
+            line.appendChild(labelEl);
+            
+            const textSpan = document.createElement('span');
+            textSpan.textContent = text;
+            line.appendChild(textSpan);
+        } else {
+            line.textContent = text;
+        }
+
+        diagnosticOutput.appendChild(line);
         diagnosticOutput.scrollTop = diagnosticOutput.scrollHeight;
     }
+
+    // Initial greeting
+    appendToLog('Greetings, citizen.', 'SYRINX SYSTEM');
 
     // --- Dynamic Article List Integration ---
     let dynamicArticleList = null;
@@ -114,8 +129,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     href = '/thoughts/' + href;
                 }
                 let title = a.textContent.trim().replace(/\s+/g, ' ');
-                // Provide actual HTML links to the AI
-                articles.push(`${i + 1}. <a href="${href}" target="_blank" style="color: var(--accent-red); text-decoration: underline;">${title}</a>`);
+                // Provide actual HTML links to the AI with security attributes
+                articles.push(`${i + 1}. <a href="${href}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-red); text-decoration: underline;">${title}</a>`);
             });
             dynamicArticleList = articles.join('\n');
         } catch (e) {
@@ -197,7 +212,7 @@ ${articleList}`;
         runDiagnosticButton.disabled = true;
 
         const response = await getOpenAIResponse(command);
-        appendToLog(`<strong>SYRINX SYSTEM:</strong> ${response}`);
+        appendToLog(response, 'SYRINX SYSTEM');
 
         // Re-enable input
         diagnosticCommand.disabled = false;
