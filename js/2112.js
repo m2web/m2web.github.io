@@ -231,4 +231,25 @@ ${articleList}`;
     diagnosticCommand.addEventListener('focus', () => {
         diagnosticCommand.placeholder = '';
     }, { once: true });
+
+    // --- Mobile Menu Logic ---
+    const menuTrigger = document.getElementById('mobile-menu-trigger');
+    const navMenu = document.querySelector('.main-nav');
+    
+    if (menuTrigger && navMenu) {
+        menuTrigger.addEventListener('click', function() {
+            menuTrigger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+        
+        // Close menu when clicking a link
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuTrigger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    }
 });

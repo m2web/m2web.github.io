@@ -70,6 +70,10 @@ body {
             rgba(255, 255, 255, 0.01) 4px);
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 /* Global anchor link styles */
 a {
     color: var(--accent-red);
@@ -181,6 +185,44 @@ a:hover {
     flex-wrap: wrap;
     gap: 0.5rem;
 }
+
+/* Mobile Menu Trigger Styling */
+.mobile-menu-trigger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+.mobile-menu-trigger .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-red);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(173, 23, 0, 0.5);
+}
+
+.mobile-menu-trigger.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-trigger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-trigger.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
 
 /* Syrinx Banner - Scrolling Text */
 .syrinx-banner {
@@ -833,13 +875,52 @@ a:hover {
     }
 
     .main-nav {
-        gap: 0.3rem;
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(13, 13, 13, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        padding: 2rem;
+        border-left: 2px solid var(--accent-red);
+    }
+
+    .main-nav.active {
+        display: flex;
+        animation: menuFadeIn 0.3s ease forwards;
+    }
+
+    @keyframes menuFadeIn {
+        from { opacity: 0; transform: translateX(30px); }
+        to { opacity: 1; transform: translateX(0); }
     }
 
     .main-nav a {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-        letter-spacing: 0.1em;
+        width: 80%;
+        max-width: 300px;
+        margin-bottom: 1rem;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.1rem;
+        border-right: 2px solid var(--accent-blue);
+    }
+
+    .mobile-menu-trigger {
+        display: flex;
+    }
+
+    .main-header {
+        padding: 4rem 1rem 2rem 1rem;
+    }
+
+    #main-title {
+        margin-top: 1rem;
     }
 
     .syrinx-banner {
@@ -891,14 +972,10 @@ a:hover {
         letter-spacing: 0.1em;
     }
 
-    .main-nav {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
     .main-nav a {
+        width: 90%;
         padding: 0.8rem;
-        font-size: 0.85rem;
+        font-size: 1rem;
     }
 
     .year-logo {
