@@ -59,7 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    typeWriter();
+    // The title text is now defined in index.html with rich branded formatting
+    // typeWriter();
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

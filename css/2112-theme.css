@@ -106,18 +106,57 @@ a:hover {
 
 #main-title {
     font-family: var(--font-heading);
-    font-size: 3rem;
-    font-weight: 900;
     margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    background: linear-gradient(135deg, var(--accent-blue-light) 0%, var(--text-primary) 50%, var(--accent-red) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 30px rgba(30, 58, 138, 0.5);
     opacity: 0;
     transition: opacity 2s ease-in;
+}
+
+.brand-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    padding: 0.5rem 0;
+}
+
+.m2-sq {
+    color: #ff0000;
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    line-height: 1;
+}
+
+.brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.1em;
+}
+
+.paren {
+    color: #666;
+    font-size: 3.5rem;
+    font-weight: 300;
+}
+
+.brand-mark {
+    color: #d1dcff;
+}
+
+.brand-pipe {
+    color: #00ffff;
+    font-weight: 400;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.4);
+    margin: 0 0.5rem;
+    font-size: 3.5rem;
+}
+
+.brand-mcfadden {
+    color: #ffd1d1;
 }
 
 #main-title.fade-in {

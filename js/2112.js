@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const titleElement = document.getElementById('main-title');
     const titleText = 'M A R K   M C F A D D E N';
 
-    // Set the title text immediately and let CSS handle the fade-in
-    titleElement.textContent = titleText;
+    // The title text is now defined in index.html with rich formatting
+    // titleElement.textContent = titleText;
 
     // Add a small delay to ensure the invisible state is rendered before fading in
     setTimeout(() => {
