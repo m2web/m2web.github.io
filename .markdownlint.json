@@ -18,6 +18,8 @@
       "javascript",
       "json",
       "markdown",
+      "mermaid",
+      "python",
       "text"
     ],
     "language_only": true

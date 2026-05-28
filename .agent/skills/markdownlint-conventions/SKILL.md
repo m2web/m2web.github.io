@@ -28,7 +28,7 @@ Use `:emoji-code:` text references instead of the emoji character itself.
 - Fence character: **backticks** only (not tildes)
 - Language tag is **required** on every fenced block
 - Allowed languages: `bash`, `html`, `javascript`, `json`, `markdown`,
-  `text`
+  `mermaid`, `python`, `text`
 
 ### Headings
 
