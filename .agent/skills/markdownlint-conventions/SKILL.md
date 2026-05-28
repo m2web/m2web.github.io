@@ -54,6 +54,11 @@ Use `:emoji-code:` text references instead of the emoji character itself.
 - Soft limit enforced (non-strict mode)
 - Line length is **not** checked inside code blocks
 
+### Tables
+
+- Each row must have a consistent column count (`table-column-count`)
+- Every table row must start and end with a pipe character (`|`) (`table-pipe-style`: `leading_and_trailing`)
+
 ## Quick Reference
 
 | Element | Correct | Incorrect |

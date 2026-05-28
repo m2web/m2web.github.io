@@ -1,5 +1,29 @@
 # Gemini Session Summary
 
+## Session: 2026-05-27
+
+### Project: m2web.github.io
+
+### User Goal
+
+The user wants to enforce rules for markdown tables, specifically requiring
+consistent column counts and leading and trailing pipes.
+
+### User Preferences
+
+- **Terminal:** PowerShell
+
+### Summary of Work
+
+- **Markdownlint Table Rules:** Added `"table-column-count": true` and
+  `"table-pipe-style": { "style": "leading_and_trailing" }` to
+  `.markdownlint.json`.
+- **Documentation:** Updated the markdownlint-conventions skill file
+  (`.agent/skills/markdownlint-conventions/SKILL.md`) to document the newly
+  enforced table formatting rules.
+
+---
+
 ## Session: 2026-03-22
 
 ### Project: m2web.github.io
