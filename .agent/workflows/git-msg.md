@@ -9,7 +9,7 @@ When the user types `git msg` or `/git-msg`, do the following:
 1. Run `git diff --cached` to get the staged diff.
 2. If nothing is staged, tell the user to stage files first and stop.
 3. Read the git-conventions skill:
-   `c:\Users\m2web\source\repos\AI\intercede\.agent\skills\git-conventions\SKILL.md`
+   `c:\Users\m2web\source\repos\m2web.github.io\.agent\skills\git-conventions\SKILL.md`
 4. Produce a single commit message that follows the convention exactly:
    - Start with any emoji character or `:emoji_code:` that fits the change
    - Followed by `type: short imperative description` (≤72 chars total)
