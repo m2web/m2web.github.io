@@ -21,6 +21,9 @@ consistent column counts and leading and trailing pipes.
 - **Documentation:** Updated the markdownlint-conventions skill file
   (`.agent/skills/markdownlint-conventions/SKILL.md`) to document the newly
   enforced table formatting rules.
+- **GPT Model Reference Upgrade:** Upgraded references from `GPT-4.1` to
+  `GPT-5.x` across the frontend site (`index.html`), the resume data files
+  (`resume.json`, `M2sResumeWord.txt`), and the `README.md` file.
 
 ---
 

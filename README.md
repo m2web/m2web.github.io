@@ -14,7 +14,7 @@
 | Diagnostic Label                                       | Status    |
 |--------------------------------------------------------|-----------|
 | AI Orchestration (Semantic Kernel · LangGraph)         | ACTIVE    |
-| Foundry Operations (Azure AI · GPT-4.1 · Foundry SDKs) | ACTIVE    |
+| Foundry Operations (Azure AI · GPT-5.x · Foundry SDKs) | ACTIVE    |
 | Enterprise RAG (Proprietary Synthetic Knowledge Systems)| ACTIVE    |
 | Intelligent Systems Design (LLMs · Automation)         | ACTIVE    |
 | Full-Stack Development (Python · Modern Web Stack)     | ACTIVE    |
