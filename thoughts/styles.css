@@ -21,7 +21,7 @@
 a.underline {
     color: var(--accent-red) !important;
     text-decoration: underline !important;
-    text-decoration-color: rgba(173, 23, 0, 0.4) !important;
+    text-decoration-color: rgba(231, 76, 60, 0.4) !important;
     font-weight: 600;
     transition: all 0.3s ease;
 }
@@ -59,7 +59,7 @@ body {
     box-shadow: 
         0 4px 30px rgba(0, 0, 0, 0.8),
         inset 0 0 60px rgba(30, 58, 138, 0.05),
-        0 0 40px rgba(173, 23, 0, 0.1);
+        0 0 40px rgba(231, 76, 60, 0.1);
     color: var(--text-primary) !important;
     font-family: var(--font-body);
     position: relative;
@@ -93,7 +93,7 @@ h1, h2, h3 {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    text-shadow: 0 0 10px rgba(173, 23, 0, 0.5);
+    text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
 }
 
 h1 {
@@ -157,7 +157,7 @@ blockquote {
 }
 
 .callout {
-    background: linear-gradient(135deg, rgba(173, 23, 0, 0.1) 0%, rgba(30, 58, 138, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(30, 58, 138, 0.1) 100%);
     border: 2px solid var(--accent-red);
     padding: 1.5rem;
     margin: 2rem 0;
@@ -198,7 +198,7 @@ table {
 
 thead tr {
     border-bottom: 2px solid var(--accent-red);
-    background: rgba(173, 23, 0, 0.1);
+    background: rgba(231, 76, 60, 0.1);
 }
 
 th {
@@ -245,7 +245,7 @@ img {
     margin: 2rem auto;
     max-width: 900px;
     border: 3px solid var(--accent-red);
-    box-shadow: 0 0 30px rgba(173, 23, 0, 0.3);
+    box-shadow: 0 0 30px rgba(231, 76, 60, 0.3);
 }
 
 @media (max-width: 768px) {

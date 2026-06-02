@@ -2,4 +2,6 @@
 node_modules/
 # Ignore Cloudflare Wrangler state and cache
 .wrangler/
+# Ignore original unoptimized images (backups)
+images/originals/
 _site

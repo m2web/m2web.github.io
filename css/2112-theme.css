@@ -13,12 +13,12 @@
     --bg-tertiary: #252525;
     /* Card/section backgrounds */
 
-    --accent-red: #ad1700;
-    /* Custom red - primary accent */
-    --accent-red-dark: #8B0000;
+    --accent-red: #e74c3c;
+    /* WCAG AA compliant red — 5.09:1 vs #0d0d0d */
+    --accent-red-dark: #b91c1c;
     /* Deep red for borders */
-    --accent-red-bright: #DC143C;
-    /* Bright red for highlights */
+    --accent-red-bright: #f87171;
+    /* Bright red for highlights & hover states */
 
     --accent-blue: #1e3a8a;
     /* Dark royal blue - secondary accent */
@@ -29,8 +29,8 @@
     /* Pure white */
     --text-secondary: #C0C0C0;
     /* Silver/gray */
-    --text-muted: #808080;
-    /* Muted gray */
+    --text-muted: #999999;
+    /* Muted gray — WCAG AA 6.82:1 vs #0d0d0d */
 
     --accent-silver: #E8E8E8;
     /* Metallic silver */
@@ -45,9 +45,14 @@
     /* Spacing & Effects */
     --border-red: 2px solid var(--accent-red);
     --border-blue: 2px solid var(--accent-blue);
-    --shadow-red: 0 0 20px rgba(173, 23, 0, 0.5);
+    --shadow-red: 0 0 20px rgba(231, 76, 60, 0.5);
     --shadow-blue: 0 0 20px rgba(30, 58, 138, 0.5);
     --shadow-deep: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
 /* Base Styles */
@@ -61,8 +66,8 @@ body {
     overflow-x: hidden;
     /* Subtle texture overlay */
     background-image:
-        radial-gradient(circle at 20% 50%, rgba(173, 23, 0, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(173, 23, 0, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 20% 50%, rgba(231, 76, 60, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(231, 76, 60, 0.02) 0%, transparent 50%),
         repeating-linear-gradient(0deg,
             transparent,
             transparent 2px,
@@ -124,10 +129,10 @@ a:hover {
 }
 
 .m2-sq {
-    color: #ff0000;
+    color: var(--accent-red);
     font-size: 3.5rem;
     font-weight: 900;
-    text-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    text-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
     line-height: 1;
 }
 
@@ -169,11 +174,11 @@ a:hover {
 
 @keyframes titleGlow {
     from {
-        filter: drop-shadow(0 0 5px rgba(173, 23, 0, 0.3));
+        filter: drop-shadow(0 0 5px rgba(231, 76, 60, 0.3));
     }
 
     to {
-        filter: drop-shadow(0 0 15px rgba(173, 23, 0, 0.6));
+        filter: drop-shadow(0 0 15px rgba(231, 76, 60, 0.6));
     }
 }
 
@@ -208,7 +213,7 @@ a:hover {
     height: 3px;
     background-color: var(--accent-red);
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(173, 23, 0, 0.5);
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
 }
 
 .mobile-menu-trigger.active .bar:nth-child(1) {
@@ -296,11 +301,19 @@ a:hover {
 }
 
 .main-nav a:hover {
-    color: #ad1700;
+    color: var(--accent-red);
     border-color: var(--accent-blue-light);
     background: var(--accent-blue);
     box-shadow: var(--shadow-blue);
     transform: translateY(-2px);
+}
+
+/* Active nav link — highlighted when section is in view */
+.main-nav a.active {
+    color: var(--accent-red);
+    border-color: var(--accent-red);
+    background: rgba(231, 76, 60, 0.12);
+    box-shadow: 0 0 12px rgba(231, 76, 60, 0.3);
 }
 
 /* Starman Logo (Red Star) - Image-based */
@@ -318,7 +331,7 @@ a:hover {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 0 20px rgba(173, 23, 0, 0.6));
+    filter: drop-shadow(0 0 20px rgba(231, 76, 60, 0.6));
     animation: starPulse 3s ease-in-out infinite;
 }
 
@@ -336,7 +349,7 @@ a:hover {
     width: 100%;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 0 15px rgba(173, 23, 0, 0.4));
+    filter: drop-shadow(0 0 15px rgba(231, 76, 60, 0.4));
 }
 
 @keyframes starPulse {
@@ -344,12 +357,12 @@ a:hover {
     0%,
     100% {
         transform: scale(1);
-        filter: drop-shadow(0 0 20px rgba(173, 23, 0, 0.6));
+        filter: drop-shadow(0 0 20px rgba(231, 76, 60, 0.6));
     }
 
     50% {
         transform: scale(1.03);
-        filter: drop-shadow(0 0 35px rgba(173, 23, 0, 0.8));
+        filter: drop-shadow(0 0 35px rgba(231, 76, 60, 0.8));
     }
 }
 
@@ -376,7 +389,7 @@ a:hover {
 
 .starman-logo-sticky:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 30px rgba(173, 23, 0, 0.8);
+    box-shadow: 0 0 30px rgba(231, 76, 60, 0.8);
     border-color: var(--accent-red-bright);
 }
 
@@ -398,7 +411,7 @@ a:hover {
     box-shadow:
         var(--shadow-deep),
         inset 0 0 60px rgba(30, 58, 138, 0.05),
-        0 0 40px rgba(173, 23, 0, 0.1);
+        0 0 40px rgba(231, 76, 60, 0.1);
     position: relative;
     opacity: 0;
     transform: translateY(30px);
@@ -419,7 +432,7 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: 0.2em;
     clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
-    box-shadow: 0 0 30px rgba(173, 23, 0, 0.9), inset 0 0 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 30px rgba(231, 76, 60, 0.9), inset 0 0 15px rgba(255, 255, 255, 0.2);
     z-index: 20;
     border: 2px solid rgba(255, 255, 255, 0.4);
 }
@@ -467,7 +480,7 @@ a:hover {
     letter-spacing: 0.2em;
     border-bottom: 2px solid var(--accent-red-dark);
     padding-bottom: 0.5rem;
-    text-shadow: 0 0 10px rgba(173, 23, 0, 0.5);
+    text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
 }
 
 .section-2112 p {
@@ -649,7 +662,7 @@ a:hover {
     outline: none;
     border-color: var(--accent-red);
     border-left-color: var(--accent-red);
-    box-shadow: 0 0 20px rgba(173, 23, 0, 0.4), inset 0 0 30px rgba(173, 23, 0, 0.05);
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.4), inset 0 0 30px rgba(231, 76, 60, 0.05);
     background: rgba(15, 15, 15, 0.95);
 }
 
@@ -685,7 +698,7 @@ a:hover {
 
 #run-diagnostic:hover {
     background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%);
-    box-shadow: 0 0 30px rgba(173, 23, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(231, 76, 60, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
     letter-spacing: 0.25em;
 }
@@ -705,13 +718,13 @@ a:hover {
     max-height: 300px;
     overflow-y: auto;
     clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
-    box-shadow: inset 0 0 40px rgba(173, 23, 0, 0.1);
+    box-shadow: inset 0 0 40px rgba(231, 76, 60, 0.1);
 }
 
 #diagnostic-output strong {
-    color: #ad1700;
+    color: var(--accent-red);
     font-weight: 700;
-    text-shadow: 0 0 8px rgba(173, 23, 0, 0.5);
+    text-shadow: 0 0 8px rgba(231, 76, 60, 0.5);
 }
 
 /* Contact Section */
@@ -764,7 +777,7 @@ a:hover {
 .section-2112 a {
     color: var(--accent-red) !important;
     text-decoration: underline;
-    text-decoration-color: rgba(173, 23, 0, 0.4);
+    text-decoration-color: rgba(231, 76, 60, 0.4);
     font-weight: 600;
     transition: all 0.3s ease;
 }
@@ -874,6 +887,29 @@ a:hover {
         letter-spacing: 0.15em;
     }
 
+    .brand-title {
+        gap: 0.6rem;
+        flex-wrap: wrap;
+    }
+
+    .m2-sq {
+        font-size: 2.4rem;
+    }
+
+    .brand-wrap {
+        font-size: 2rem;
+        gap: 0.3rem;
+    }
+
+    .paren {
+        font-size: 2.4rem;
+    }
+
+    .brand-pipe {
+        font-size: 2.4rem;
+        margin: 0 0.3rem;
+    }
+
     .main-nav {
         display: none;
         position: fixed;
@@ -972,6 +1008,30 @@ a:hover {
         letter-spacing: 0.1em;
     }
 
+    .brand-title {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .m2-sq {
+        font-size: 2rem;
+    }
+
+    .brand-wrap {
+        font-size: 1.4rem;
+        gap: 0.2rem;
+        letter-spacing: 0.05em;
+    }
+
+    .paren {
+        font-size: 1.6rem;
+    }
+
+    .brand-pipe {
+        font-size: 1.6rem;
+        margin: 0 0.2rem;
+    }
+
     .main-nav a {
         width: 90%;
         padding: 0.8rem;
@@ -1046,4 +1106,42 @@ a:hover {
 ::-moz-selection {
     background: var(--accent-red);
     color: var(--text-primary);
+}
+
+/* Accessibility: Reduced Motion
+ * Disables all animations, transitions, and smooth scrolling
+ * for users who prefer reduced motion.
+ */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .syrinx-text {
+        animation: none;
+        padding-left: 1rem;
+        white-space: normal;
+    }
+
+    .starman-image {
+        animation: none;
+    }
+
+    .section-2112 {
+        opacity: 1;
+        transform: none;
+    }
+
+    #main-title {
+        opacity: 1;
+    }
 }

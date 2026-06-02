@@ -7,6 +7,22 @@
     <meta name="description"
         content="AI Developer III in Covington, KY. Azure APIM, IBM API Connect, C# / JS / Python, and AI. 29+ years experience.">
     <title>Mark McFadden — AI Developer III | Rush 2026 Interface</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mark McFadden — AI Developer III">
+    <meta property="og:description"
+        content="AI Developer III in Covington, KY. AI orchestration, enterprise RAG systems, and full-stack development. 29+ years experience.">
+    <meta property="og:image" content="https://m2web.github.io/images/2112-starman.png">
+    <meta property="og:url" content="https://m2web.github.io/">
+    <meta property="og:site_name" content="Mark McFadden — Rush 2026 Interface">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mark McFadden — AI Developer III">
+    <meta name="twitter:description"
+        content="AI Developer III in Covington, KY. AI orchestration, enterprise RAG systems, and full-stack development.">
+    <meta name="twitter:image" content="https://m2web.github.io/images/2112-starman.png">
     <link rel="ICON" href="favicon.ico" type="image/ico" />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Rajdhani:wght@400;600;700&family=Audiowide&family=Space+Mono:wght@400;700&display=swap"
@@ -201,10 +217,11 @@
             <a href="https://github.com/m2web" target="_blank" aria-label="GitHub">[GitHub]</a>
             <a href="https://www.linkedin.com/in/m2web/" target="_blank" aria-label="LinkedIn">[LinkedIn]</a>
         </div>
-        <p>&copy; 2025 MARK MCFADDEN :: ALL SYSTEMS FUNCTIONAL</p>
+        <p>&copy; 2026 MARK MCFADDEN :: ALL SYSTEMS FUNCTIONAL</p>
         <p style="font-size: 0.8rem; margin-top: 1rem;">Rush 2026 Interface</p>
     </footer>
     <script src="js/2112.js"></script>
+    <script src="js/starfield.js"></script>
     <script>
         // --- USER CONFIGURATION ---
         const CONFIG = {
@@ -239,6 +256,59 @@
 
             // Initial check
             checkStickyVisibility();
+        });
+
+        // Active nav highlighting — scroll-spy via IntersectionObserver
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.main-nav a[href^="#"]');
+            const sections = [];
+
+            navLinks.forEach(function (link) {
+                const id = link.getAttribute('href').slice(1);
+                const section = document.getElementById(id);
+                if (section) sections.push({ link: link, section: section });
+            });
+
+            if (sections.length === 0) return;
+
+            // Track which section is most visible
+            let currentActive = null;
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    // Store intersection ratio on the element for comparison
+                    entry.target._visibleRatio = entry.isIntersecting ? entry.intersectionRatio : 0;
+                });
+
+                // Find the section with the highest visibility
+                let best = null;
+                let bestRatio = 0;
+
+                sections.forEach(function (item) {
+                    var ratio = item.section._visibleRatio || 0;
+                    if (ratio > bestRatio) {
+                        bestRatio = ratio;
+                        best = item;
+                    }
+                });
+
+                // Update active state
+                if (best && best.link !== currentActive) {
+                    if (currentActive) currentActive.classList.remove('active');
+                    best.link.classList.add('active');
+                    currentActive = best.link;
+                } else if (!best && bestRatio === 0 && currentActive) {
+                    currentActive.classList.remove('active');
+                    currentActive = null;
+                }
+            }, {
+                threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
+                rootMargin: '-80px 0px -20% 0px'
+            });
+
+            sections.forEach(function (item) {
+                observer.observe(item.section);
+            });
         });
     </script>
 </body>
