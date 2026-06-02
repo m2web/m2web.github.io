@@ -23,6 +23,7 @@ The user wants to keep the structured resume files (`resume.json` and
 - **JSON Sync:** Modified `docx_to_json.py` to parse the new `PERSONAL LABS & PROJECTS` section and generate `resume.json`.
 - **Sync Execution:** Regenerated `resume.json` with the updated, structured
   experience and education arrays.
+- **Thoughts Menu Toggle:** Implemented a JavaScript-based toggle option (`showThoughtsMenu`) in `index.html`'s `CONFIG` block to dynamically show or hide the `THOUGHTS` menu item.
 
 ---
 

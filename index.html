@@ -54,7 +54,7 @@
             <a href="#contact" data-tooltip="Communication Channels">CONTACT</a>
             <a href="documents/M2sAI3ResumeWord.pdf" target="_blank" rel="noopener"
                 data-tooltip="Professional Resume (PDF)">RESUME</a>
-            <a href="thoughts/index.html" data-tooltip="AI Thoughts & Essays Archive">THOUGHTS</a>
+            <a id="nav-thoughts" href="thoughts/index.html" data-tooltip="AI Thoughts & Essays Archive">THOUGHTS</a>
             <a href="https://m2.fyi" target="_blank" rel="noopener" data-tooltip="Project Archives">ARCHIVES</a>
         </nav>
     </header>
@@ -225,8 +225,17 @@
     <script>
         // --- USER CONFIGURATION ---
         const CONFIG = {
-            isStickyEnabled: true // Toggle sticky logo feature here
+            isStickyEnabled: true, // Toggle sticky logo feature here
+            showThoughtsMenu: true // Set to false to hide the THOUGHTS menu item
         };
+
+        // Toggle Thoughts menu visibility
+        document.addEventListener('DOMContentLoaded', function () {
+            const thoughtsNav = document.getElementById('nav-thoughts');
+            if (thoughtsNav) {
+                thoughtsNav.style.display = CONFIG.showThoughtsMenu ? '' : 'none';
+            }
+        });
 
         // Sticky Starman logo functionality
         document.addEventListener('DOMContentLoaded', function () {
