@@ -1,7 +1,45 @@
-Mark C. McFadden 818 Scott Street, Covington, KY 41011 Phone: 859-750-1953 http://www.markmcfadden.net Blog: https://m2.fyi E-Mail: m2web@yahoo.com LinkedIn: https://www.linkedin.com/in/m2web/ SUMMARY OF QUALIFICATIONSSenior AI Developer with over 30 years of experience in Information Technology. Specializing in Agentic Orchestration Frameworks, enterprise RAG systems, and large-scale API governance. Proven track record of transitioning legacy enterprise infrastructures into modern, AI-driven ecosystems while providing strategic leadership and model lifecycle management.TECHNICAL SKILLSAI Orchestration: Agentic Orchestration Frameworks, Multi-Agent Workflows, Enterprise RAG (Proprietary Synthetic Knowledge Systems).Foundry Operations: Azure AI Studio, Microsoft Foundry, GPT-5.x, Frontier SDKs, Model Evaluation & Validation. Development: Python, C#/.NET, Java, Modern Web Stacks, Hugo (Static Site Generation). Cloud & Governance: Azure API Management, IBM API Connect, Strategic Oversight & Technical Leadership. EMPLOYMENT HISTORYEmployer: Western & Southern Financial GroupLocation: Cincinnati, OHTitle: AI Developer IIIDuration: 01/2026 – PresentAI Architecture & Strategy: Designing and maintaining sophisticated Agentic Orchestration Frameworks to manage complex, multi-agent workflows.Enterprise RAG Systems: Scaling an enterprise-wide RAG ecosystem across multiple business lines to transform internal knowledge into actionable organizational intelligence.Model Lifecycle Management: Overseeing the deployment and optimization of models within Azure AI Studio, Document Intelligence, and Microsoft Foundry. Technical Leadership: Governing broader technical infrastructure and ensuring cross-system stability and integrity.Standardization: Defining development standards through Frontier API definitions to provide consistent design templates and streamline developer onboarding.Employer: Western & Southern Financial GroupLocation: Cincinnati, OHTitle: Senior Software Developer IIDuration: 03/2013 – 01/2026Generative AI Pilot: Assisted in early RAG pipeline prototyping and integration of OpenAI APIs into enterprise workflows. API Administration: Setup and administered enterprise Azure and IBM API Connect gateways.Full-Stack Development: Developed .NET MVC web applications for on-demand correspondence and Java-based solutions for new business data. System Integration: Created Windows Services and Web Services for Service Oriented Architecture (SOA) using WebSphere and DB2. Employer: Northern Kentucky University
-Location: Highland Heights, KY
+MARK C. MCFADDEN
+818 Scott Street, Covington, KY 41011 • 859-750-1953 • ai@markmcfadden.net • https://markmcfadden.net • https://m2.fyi • linkedin.com/in/m2web/
+
+SUMMARY OF QUALIFICATIONS
+Senior AI Developer with over 30 years of experience in Information Technology. Specializing in Agentic Orchestration Frameworks, enterprise RAG systems, and large-scale API governance. Proven track record of transitioning legacy enterprise infrastructures into modern, AI-driven ecosystems while providing strategic leadership and model lifecycle management.
+TECHNICAL SKILLS
+AI Orchestration: Agentic Orchestration Frameworks, Multi-Agent Workflows, Enterprise RAG (Proprietary Synthetic Knowledge Systems).
+Foundry Operations: Azure AI Studio, Microsoft Foundry, GPT-4.1, Frontier SDKs, Model Evaluation & Validation.
+Development: Python, C#/.NET, Java, Modern Web Stacks, Hugo (Static Site Generation).
+Cloud & Governance: Azure API Management, IBM API Connect, Strategic Oversight & Technical Leadership.
+EMPLOYMENT HISTORY
+Employer: Western & Southern Financial Group
+Title: AI Developer III
+Duration: 01/2026 – Present
+AI Architecture & Strategy: Designing and maintaining sophisticated Agentic Orchestration Frameworks to manage complex, multi-agent workflows.
+Enterprise RAG Systems: Scaling an enterprise-wide RAG ecosystem across multiple business lines to transform internal knowledge into actionable organizational intelligence.
+Model Lifecycle Management: Overseeing the deployment and optimization of models within Azure AI Studio, Document Intelligence, and Microsoft Foundry.
+Technical Leadership: Governing broader technical infrastructure and ensuring cross-system stability and integrity.
+Standardization: Defining development standards through Frontier API definitions to provide consistent design templates and streamline developer onboarding.
+Employer: Western & Southern Financial Group
+Title: Senior Software Developer II
+Duration: 03/2013 – 01/2026
+Generative AI Pilot: Assisted in early RAG pipeline prototyping and integration of OpenAI APIs into enterprise workflows.
+API Administration: Set up and administered enterprise Azure and IBM API Connect gateways.
+Full-Stack Development: Developed .NET MVC web applications for on-demand correspondence and Java-based solutions for new business data.
+System Integration: Created Windows Services and Web Services for Service Oriented Architecture (SOA) using WebSphere and DB2.
+Employer: Northern Kentucky University
 Title: Part-Time Faculty
-Duration: 08/2015 – 05/2023 Taught college students Advanced Line of Business Application Programming and Introduction to Database Courses. Instructor in the Graduate Level Information Technology Governance Course. GitHub Campus Advisor. Employer: US BankLocation: Cincinnati, OHTitle: Application DeveloperDuration: 11/2000 – 03/2013Developed a Java Based Commercial Customer Banking Application. Full-Stack Implementation: Implemented enterprise solutions using C# and SQL Server. Combined Ant Build Scripts and JUnit Tests into automated builds and tests. Utilized Automated Testing Applications such as NUnit for Test Driven Development. Created .Net XML Web and Windows Services. Employer: ICES LimitedLocation: Air Force Institute of Technology, WPAFB, OHTitle: Web AdministratorDuration: 08/1999 – 11/2000Employer: PIC 17 Workforce Board
-Location: Circleville, Ohio
-Title: Systems Administration/Web Developer
-Duration: 05/1995 – 08/1999 EDUCATIONMaster of Science in Business Informatics (3.86 GPA) | Northern Kentucky University Bachelor of Science in Education (Summa Cum Laude) | Ohio University 
+Duration: 08/2015 – 05/2023
+Taught Advanced Line of Business Application Programming and Database Courses.
+Instructor for Graduate Level Information Technology Governance.
+Served as GitHub Campus Advisor.
+Employer: US Bank
+Title: Application Developer
+Duration: 11/2000 – 03/2013
+Developed Java-based commercial banking applications and established automated build/test scripts using Ant and JUnit.
+Full-Stack Implementation: Implemented enterprise solutions using C# and SQL Server.
+Utilized Automated Testing Applications such as NUnit for Test Driven Development.
+EDUCATION
+Microsoft Certified: Azure AI Fundamentals (2024)
+M.S. in Business Informatics | Northern Kentucky University (3.86 GPA)
+B.S. in Education (Summa Cum Laude) | Ohio University
+PERSONAL LABS & PROJECTS
+Synthetic Hemispheres: A creative laboratory for thematic UI engineering and localized RAG architecture (Lore-integrated Knowledge Systems).
+Static Site Architecture: Leveraging Hugo for high-performance, low-maintenance personal web ecosystems.

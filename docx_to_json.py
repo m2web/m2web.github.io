@@ -6,14 +6,16 @@ section_headers = {
     "SUMMARY OF QUALIFICATIONS": "summary",
     "TECHNICAL SKILLS": "skills",
     "EDUCATION": "education",
-    "EMPLOYMENT HISTORY": "experience"
+    "EMPLOYMENT HISTORY": "experience",
+    "PERSONAL LABS & PROJECTS": "projects"
 }
 
 sections = {
     "summary": [],
     "skills": [],
     "education": [],
-    "experience": []
+    "experience": [],
+    "projects": []
 }
 
 # Read the entire file

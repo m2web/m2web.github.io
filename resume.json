@@ -4,20 +4,24 @@
   ],
   "skills": [
     "AI Orchestration: Agentic Orchestration Frameworks, Multi-Agent Workflows, Enterprise RAG (Proprietary Synthetic Knowledge Systems).",
-    "Foundry Operations: Azure AI Studio, Microsoft Foundry, GPT-5.x, Frontier SDKs, Model Evaluation & Validation.",
+    "Foundry Operations: Azure AI Studio, Microsoft Foundry, GPT-4.1, Frontier SDKs, Model Evaluation & Validation.",
     "Development: Python, C#/.NET, Java, Modern Web Stacks, Hugo (Static Site Generation).",
     "Cloud & Governance: Azure API Management, IBM API Connect, Strategic Oversight & Technical Leadership."
   ],
   "education": [
-    "Master of Science in Business Informatics (3.86 GPA) | Northern Kentucky University Bachelor of Science in Education (Summa Cum Laude) | Ohio University"
+    "Microsoft Certified: Azure AI Fundamentals (2024)",
+    "M.S. in Business Informatics | Northern Kentucky University (3.86 GPA)",
+    "B.S. in Education (Summa Cum Laude) | Ohio University"
   ],
   "experience": [
     "",
-    "Employer:  Western & Southern Financial Group\nLocation: Cincinnati, OH\nTitle: AI Developer III\nDuration: 01/2026 \u2013 PresentAI Architecture & Strategy: Designing and maintaining sophisticated Agentic Orchestration Frameworks to manage complex, multi-agent workflows.Enterprise RAG Systems: Scaling an enterprise-wide RAG ecosystem across multiple business lines to transform internal knowledge into actionable organizational intelligence.Model Lifecycle Management: Overseeing the deployment and optimization of models within Azure AI Studio, Document Intelligence, and Microsoft Foundry. Technical Leadership: Governing broader technical infrastructure and ensuring cross-system stability and integrity.Standardization: Defining development standards through Frontier API definitions to provide consistent design templates and streamline developer onboarding.",
-    "Employer:  Western & Southern Financial Group\nLocation: Cincinnati, OH\nTitle: Senior Software Developer II\nDuration: 03/2013 \u2013 01/2026Generative AI Pilot: Assisted in early RAG pipeline prototyping and integration of OpenAI APIs into enterprise workflows. API Administration: Setup and administered enterprise Azure and IBM API Connect gateways.Full-Stack Development: Developed .NET MVC web applications for on-demand correspondence and Java-based solutions for new business data. System Integration: Created Windows Services and Web Services for Service Oriented Architecture (SOA) using WebSphere and DB2.",
-    "Employer:  Northern Kentucky University\n\nLocation: Highland Heights, KY\n\nTitle: Part-Time Faculty\n\nDuration: 08/2015 \u2013 05/2023 Taught college students Advanced Line of Business Application Programming and Introduction to Database Courses. Instructor in the Graduate Level Information Technology Governance Course. GitHub Campus Advisor.",
-    "Employer:  US Bank\nLocation: Cincinnati, OH\nTitle: Application Developer\nDuration: 11/2000 \u2013 03/2013Developed a Java Based Commercial Customer Banking Application. Full-Stack Implementation: Implemented enterprise solutions using C# and SQL Server. Combined Ant Build Scripts and JUnit Tests into automated builds and tests. Utilized Automated Testing Applications such as NUnit for Test Driven Development. Created .Net XML Web and Windows Services.",
-    "Employer:  ICES Limited\nLocation: Air Force Institute of Technology, WPAFB, OH\nTitle: Web Administrator\nDuration: 08/1999 \u2013 11/2000",
-    "Employer:  PIC 17 Workforce Board\n\nLocation: Circleville, Ohio\n\nTitle: Systems Administration/Web Developer\n\nDuration: 05/1995 \u2013 08/1999"
+    "Employer:  Western & Southern Financial Group\n\nTitle: AI Developer III\n\nDuration: 01/2026 \u2013 Present\nAI Architecture & Strategy: Designing and maintaining sophisticated Agentic Orchestration Frameworks to manage complex, multi-agent workflows.\nEnterprise RAG Systems: Scaling an enterprise-wide RAG ecosystem across multiple business lines to transform internal knowledge into actionable organizational intelligence.\nModel Lifecycle Management: Overseeing the deployment and optimization of models within Azure AI Studio, Document Intelligence, and Microsoft Foundry.\nTechnical Leadership: Governing broader technical infrastructure and ensuring cross-system stability and integrity.\nStandardization: Defining development standards through Frontier API definitions to provide consistent design templates and streamline developer onboarding.",
+    "Employer:  Western & Southern Financial Group\n\nTitle: Senior Software Developer II\n\nDuration: 03/2013 \u2013 01/2026\nGenerative AI Pilot: Assisted in early RAG pipeline prototyping and integration of OpenAI APIs into enterprise workflows.\nAPI Administration: Set up and administered enterprise Azure and IBM API Connect gateways.\nFull-Stack Development: Developed .NET MVC web applications for on-demand correspondence and Java-based solutions for new business data.\nSystem Integration: Created Windows Services and Web Services for Service Oriented Architecture (SOA) using WebSphere and DB2.",
+    "Employer:  Northern Kentucky University\n\nTitle: Part-Time Faculty\n\nDuration: 08/2015 \u2013 05/2023\nTaught Advanced Line of Business Application Programming and Database Courses.\nInstructor for Graduate Level Information Technology Governance.\nServed as GitHub Campus Advisor.",
+    "Employer:  US Bank\n\nTitle: Application Developer\n\nDuration: 11/2000 \u2013 03/2013\nDeveloped Java-based commercial banking applications and established automated build/test scripts using Ant and JUnit.\nFull-Stack Implementation: Implemented enterprise solutions using C# and SQL Server.\nUtilized Automated Testing Applications such as NUnit for Test Driven Development."
+  ],
+  "projects": [
+    "Synthetic Hemispheres: A creative laboratory for thematic UI engineering and localized RAG architecture (Lore-integrated Knowledge Systems).",
+    "Static Site Architecture: Leveraging Hugo for high-performance, low-maintenance personal web ecosystems."
   ]
 }
