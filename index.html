@@ -71,7 +71,7 @@
     </div>
 
     <div class="year-logo">
-        <img src="images/2026.png" alt="2026" class="year-image">
+        <img src="images/2026.png" alt="2026" class="year-image" loading="lazy">
     </div>
 
     <!-- Sticky Starman logo that appears when scrolled past original -->
@@ -260,8 +260,17 @@
                 }
             }
 
-            // Listen for scroll events
-            window.addEventListener('scroll', checkStickyVisibility);
+            // Throttle scroll events via requestAnimationFrame
+            let scrollTicking = false;
+            window.addEventListener('scroll', function () {
+                if (!scrollTicking) {
+                    requestAnimationFrame(function () {
+                        checkStickyVisibility();
+                        scrollTicking = false;
+                    });
+                    scrollTicking = true;
+                }
+            });
 
             // Initial check
             checkStickyVisibility();

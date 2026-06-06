@@ -176,7 +176,6 @@ ${articleList}`;
                 ];
             }
         }
-        console.log('OpenAI API messages:', messages);
         try {
             const response = await fetch(workerUrl, {
                 method: 'POST',

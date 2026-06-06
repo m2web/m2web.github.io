@@ -135,6 +135,22 @@ export default {
       return new Response('Invalid JSON in request body', { status: 400 });
     }
 
+    // --- Input validation: prevent token bombing and model switching ---
+    if (!body || !Array.isArray(body.messages) || body.messages.length === 0) {
+      return new Response(
+        JSON.stringify({ error: 'Request must include a non-empty messages array.' }),
+        { status: 400, headers: { 'Content-Type': 'application/json', ...getCorsHeaders(request) } }
+      );
+    }
+    // Cap the number of messages to prevent oversized payloads
+    if (body.messages.length > 10) {
+      body.messages = body.messages.slice(-10);
+    }
+    // Lock the model — ignore whatever the client sends
+    body.model = 'gpt-5-mini';
+    // Enforce a max_tokens ceiling to control per-request cost
+    body.max_tokens = Math.min(body.max_tokens || 500, 500);
+
     // Check if the user's message contains keywords to trigger resume context
     let shouldIncludeResume = false;
     let userMessage = '';
@@ -171,8 +187,7 @@ export default {
             { role: 'system', content: systemMsg },
             ...body.messages
           ];
-          // Log the system message and a flag for debugging
-          console.log('[RESUME INJECTED DEBUG]', systemMsg);
+          // System message prepended for resume context
         }
       }
     }
