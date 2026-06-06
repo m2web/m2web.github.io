@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function getOpenAIResponse(prompt) {
         // Use a configurable worker URL. Set window.WORKER_URL in your HTML to override for different environments.
-        const workerUrl = window.WORKER_URL || 'https://hal-9000-proxy.m2web.workers.dev';
+        const workerUrl = window.WORKER_URL || 'https://markmcfadden-proxy.m2web.workers.dev';
 
         let messages;
         if (Array.isArray(prompt)) {

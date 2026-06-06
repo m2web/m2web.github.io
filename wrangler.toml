@@ -1,4 +1,4 @@
-name = "hal-9000-proxy"
+name = "markmcfadden-proxy"
 main = "functions/api/worker.js"
 compatibility_date = "2025-08-01"
 

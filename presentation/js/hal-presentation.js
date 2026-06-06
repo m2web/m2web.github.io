@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // HAL Console Integration
-    const workerUrl = 'https://hal-9000-proxy.m2web.workers.dev';
+    const workerUrl = 'https://markmcfadden-proxy.m2web.workers.dev';
     
     // Demo console functionality
     const demoInput = document.getElementById('demo-input');
