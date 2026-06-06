@@ -34,20 +34,6 @@
 
 ---
 
-## Cloudflare Worker Security
-
-The AI chatbot proxy (`markmcfadden-proxy.m2web.workers.dev`) includes
-the following protections:
-
-- **Rate Limiting:** 10 requests per IP per 60-second window via KV
-- **Input Validation:** Messages array capped at 10 entries
-- **Token Budget:** `max_tokens` enforced at 500 ceiling
-- **Model Locking:** Client cannot override the model; locked to
-  `gpt-5-mini`
-- **CORS Allowlist:** Only `m2web.github.io` and local dev origins
-
----
-
 ## CREW MANIFEST [ABOUT]
 
 **AI Architecture & Strategic Development:**
