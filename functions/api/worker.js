@@ -3,6 +3,59 @@ const ALLOWED_ORIGINS = [
   'http://127.0.0.1:5500'
 ];
 
+// --- Rate Limiting Configuration ---
+const RATE_LIMIT = {
+  MAX_REQUESTS: 10,       // Maximum requests per window per IP
+  WINDOW_SECONDS: 60,     // Time window in seconds
+};
+
+/**
+ * Check and enforce per-IP rate limiting using KV.
+ * Returns { allowed, remaining, retryAfter }.
+ */
+async function checkRateLimit(request, env) {
+  const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+  const now = Date.now();
+  const windowId = Math.floor(now / (RATE_LIMIT.WINDOW_SECONDS * 1000));
+  const key = `rl:${ip}:${windowId}`;
+
+  const current = parseInt(await env.RESUME.get(key)) || 0;
+
+  if (current >= RATE_LIMIT.MAX_REQUESTS) {
+    // Calculate seconds until the current window expires
+    const windowEnd = (windowId + 1) * RATE_LIMIT.WINDOW_SECONDS * 1000;
+    const retryAfter = Math.ceil((windowEnd - now) / 1000);
+    return { allowed: false, remaining: 0, retryAfter };
+  }
+
+  // Increment counter with auto-expiring TTL (2x window to cover edge cases)
+  await env.RESUME.put(key, String(current + 1), {
+    expirationTtl: RATE_LIMIT.WINDOW_SECONDS * 2
+  });
+
+  return {
+    allowed: true,
+    remaining: RATE_LIMIT.MAX_REQUESTS - current - 1,
+    retryAfter: 0
+  };
+}
+
+/**
+ * Build CORS headers for a given request origin.
+ */
+function getCorsHeaders(request) {
+  const origin = request.headers.get('Origin');
+  const headers = {
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  };
+  if (origin && ALLOWED_ORIGINS.includes(origin)) {
+    headers['Access-Control-Allow-Origin'] = origin;
+    headers['Vary'] = 'Origin';
+  }
+  return headers;
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -12,7 +65,7 @@ export default {
       return handleOptions(request);
     }
 
-    // Serve resume.json from KV at /api/resume
+    // Serve resume.json from KV at /api/resume (not rate-limited)
     if (request.method === 'GET' && url.pathname === '/api/resume') {
       const origin = request.headers.get('Origin');
       let corsHeaders = {
@@ -43,6 +96,25 @@ export default {
           ...corsHeaders
         }
       });
+    }
+
+    // --- Rate limit the OpenAI proxy ---
+    const rateLimit = await checkRateLimit(request, env);
+    if (!rateLimit.allowed) {
+      const cors = getCorsHeaders(request);
+      return new Response(
+        JSON.stringify({ error: 'Rate limit exceeded. Please try again shortly.' }),
+        {
+          status: 429,
+          headers: {
+            'Content-Type': 'application/json',
+            'Retry-After': String(rateLimit.retryAfter),
+            'X-RateLimit-Limit': String(RATE_LIMIT.MAX_REQUESTS),
+            'X-RateLimit-Remaining': '0',
+            ...cors
+          }
+        }
+      );
     }
 
     // Proxy requests to the OpenAI Chat Completions API:
