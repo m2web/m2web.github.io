@@ -1,8 +1,8 @@
 /**
  * starfield.js — 3D warp-speed starfield for a Rush 2112-themed site.
  *
- * Stars radiate outward from a central vanishing point, stretching into
- * streaks as they accelerate — evoking travel through deep space.
+ * Stars rush inward toward a central vanishing point, stretching into
+ * streaks as they recede — evoking reverse travel through deep space.
  *
  * Respects prefers-reduced-motion by rendering a static starfield.
  * Self-initialises on DOMContentLoaded — no markup changes required.
@@ -14,10 +14,11 @@
   /*  Configuration                                                      */
   /* ------------------------------------------------------------------ */
 
-  var STAR_COUNT       = 300;
-  var SPEED            = 1.5;             // base travel speed
-  var MAX_DEPTH        = 1500;            // how far "into" the screen stars spawn
-  var STREAK_LENGTH    = 3;               // trail multiplier (higher = longer streaks)
+  var STAR_COUNT       = 950;
+  var SPEED            = 1.0;             // base travel speed (screen space rate)
+  var MIN_DEPTH        = 10;              // spawn depth near viewer (larger size/alpha)
+  var MAX_DEPTH        = 1000;            // reset depth far away (tiny size/alpha)
+  var STREAK_LENGTH    = 4;               // trail multiplier
   var RED_STAR_CHANCE  = 0.08;            // ~8% of stars are faint red
   var RED_COLOR_R      = 231;             // #e74c3c
   var RED_COLOR_G      = 76;
@@ -41,15 +42,36 @@
   }
 
   Star.prototype.reset = function (w, h, startFar) {
-    // Position in 3D space centred on (0,0)
-    this.x = rand(-w / 2, w / 2);
-    this.y = rand(-h / 2, h / 2);
-    this.z = startFar ? rand(1, MAX_DEPTH) : MAX_DEPTH;
+    if (startFar) {
+      // Distribute 1/z uniformly for uniform visual density on the screen
+      var invZ = rand(1 / MAX_DEPTH, 1 / MIN_DEPTH);
+      this.z = 1 / invZ;
+      this.x = rand(-this.z, this.z);
+      this.y = rand(-this.z, this.z);
+    } else {
+      this.z = MIN_DEPTH;
+      // When resetting, spawn stars just outside the screen edges at MIN_DEPTH so they fly inward
+      var side = Math.floor(Math.random() * 4);
+      var border = 1.05; // start slightly off-screen
+      if (side === 0) {
+        this.x = -this.z * border;
+        this.y = rand(-1, 1) * this.z * border;
+      } else if (side === 1) {
+        this.x = this.z * border;
+        this.y = rand(-1, 1) * this.z * border;
+      } else if (side === 2) {
+        this.x = rand(-1, 1) * this.z * border;
+        this.y = -this.z * border;
+      } else {
+        this.x = rand(-1, 1) * this.z * border;
+        this.y = this.z * border;
+      }
+    }
 
     // Color
     this.isRed = Math.random() < RED_STAR_CHANCE;
 
-    // Per-star speed variation for organic feel
+    // Per-star speed variation in screen space
     this.speed = rand(0.8, 1.4);
   };
 
@@ -132,8 +154,9 @@
         var s  = stars[i];
         var sx = cx + (s.x / s.z) * cx;
         var sy = cy + (s.y / s.z) * cy;
-        var r  = Math.max(0.5, (1 - s.z / MAX_DEPTH) * 2);
-        var a  = Math.max(0.2, 1 - s.z / MAX_DEPTH);
+        var depthRatio = (1 / s.z - 1 / MAX_DEPTH) / (1 / MIN_DEPTH - 1 / MAX_DEPTH);
+        var r  = Math.max(0.5, depthRatio * 2);
+        var a  = Math.max(0.2, depthRatio);
 
         if (s.isRed) {
           ctx.fillStyle = 'rgba(' + RED_COLOR_R + ',' + RED_COLOR_G + ',' + RED_COLOR_B + ',' + (a * 0.5).toFixed(3) + ')';
@@ -163,27 +186,24 @@
         var prevSx = cx + (s.x / prevZ) * cx;
         var prevSy = cy + (s.y / prevZ) * cy;
 
-        // Move star closer to viewer
-        s.z -= SPEED * s.speed;
+        // Move star away from viewer (decreasing screen coordinate 1/z linearly)
+        var invZ = 1 / s.z;
+        invZ -= (SPEED * s.speed) / 1000;
 
-        // If past the viewer, reset to far depth
-        if (s.z <= 0.5) {
+        // If it reaches the center vanishing point, reset it
+        if (invZ <= 1 / MAX_DEPTH) {
           s.reset(w, h, false);
           continue;
         }
+
+        s.z = 1 / invZ;
 
         // Current projected position
         var sx = cx + (s.x / s.z) * cx;
         var sy = cy + (s.y / s.z) * cy;
 
-        // Skip if off-screen
-        if (sx < -10 || sx > w + 10 || sy < -10 || sy > h + 10) {
-          s.reset(w, h, false);
-          continue;
-        }
-
-        // Brightness increases as star gets closer
-        var depthRatio = 1 - s.z / MAX_DEPTH;
+        // Brightness and size decrease as star recedes
+        var depthRatio = (invZ - 1 / MAX_DEPTH) / (1 / MIN_DEPTH - 1 / MAX_DEPTH);
         var alpha = Math.max(0.05, depthRatio);
         var radius = Math.max(0.3, depthRatio * 2.5);
 
@@ -198,23 +218,23 @@
           ctx.fillStyle   = 'rgba(255,255,255,' + wa + ')';
         }
 
-        // Draw streak line from previous to current position
+        // Draw streak line from current to previous position (trailing behind)
         ctx.lineWidth = radius * 0.8;
         ctx.beginPath();
-        ctx.moveTo(prevSx, prevSy);
+        ctx.moveTo(sx, sy);
 
-        // Extend the streak beyond current position for emphasis
-        var dx = sx - prevSx;
-        var dy = sy - prevSy;
-        var streakX = sx + dx * STREAK_LENGTH * depthRatio;
-        var streakY = sy + dy * STREAK_LENGTH * depthRatio;
+        // Extend the streak from previous position outward for emphasis
+        var dx = prevSx - sx;
+        var dy = prevSy - sy;
+        var streakX = prevSx + dx * STREAK_LENGTH * depthRatio;
+        var streakY = prevSy + dy * STREAK_LENGTH * depthRatio;
 
         ctx.lineTo(streakX, streakY);
         ctx.stroke();
 
-        // Draw star dot at the leading edge
+        // Draw star dot at the leading edge (moving inward)
         ctx.beginPath();
-        ctx.arc(streakX, streakY, radius, 0, Math.PI * 2);
+        ctx.arc(sx, sy, radius, 0, Math.PI * 2);
         ctx.fill();
       }
 
