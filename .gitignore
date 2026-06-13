@@ -7,3 +7,5 @@ images/originals/
 _site
 # Ignore Gemini session history / summaries
 GEMINI.md
+# Ignore scratch folder
+scratch/
