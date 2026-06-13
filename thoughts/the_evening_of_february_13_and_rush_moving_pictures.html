@@ -38,7 +38,7 @@
         using my stereo receiver and tape deck, I knew I needed to leave practice by 10 PM to make it home in time.</p>
 
       <figure>
-        <img src="Fri13RushImages/Picture1.png" alt="Wikipedia Moving Pictures Album Cover; Release Date"
+        <img src="Fri13RushImages/Picture1.png" alt="Wikipedia Moving Pictures Album Cover; Release Date" class="zoomable-image"
           style="max-width:350px; width:100%; display:block; margin:0 auto;">
         <figcaption>Wikipedia Moving Pictures Album Cover (released February 12, 1981)</figcaption>
       </figure>
@@ -52,8 +52,8 @@
 
       <figure>
         <img src="Fri13RushImages/Picture2.png"
-          alt="A map showing the route from the band practice location to my home."
-          style="max-width:600px; width:100%; display:block; margin:0 auto;">
+          alt="A map showing the route from the band practice location to my home." class="zoomable-image"
+          style="max-width:850px; width:100%; display:block; margin:0 auto;">
         <figcaption>A map showing the route from the band practice location to my home.</figcaption>
       </figure>
 
@@ -67,8 +67,8 @@
         However, I was looking forward to listening to and recording the latest album by one of my favorite bands.</p>
 
       <figure>
-        <img src="Fri13RushImages/Picture3.png" alt="Record Herald Newspaper Headlines"
-          style="max-width:600px; width:100%; display:block; margin:0 auto;">
+        <img src="Fri13RushImages/Picture3.png" alt="Record Herald Newspaper Headlines" class="zoomable-image"
+          style="max-width:850px; width:100%; display:block; margin:0 auto;">
         <figcaption>Record Herald Newspaper Headlines (Saturday, February 14, 1981)</figcaption>
       </figure>
 
@@ -82,8 +82,8 @@
       <p>In fact, a Letter to the Editor of the same newspaper from local attorneys validated my concern:</p>
 
       <figure>
-        <img src="Fri13RushImages/Picture4.png" alt="Letter to the Editor from local attorney"
-          style="max-width:600px; width:100%; display:block; margin:0 auto;">
+        <img src="Fri13RushImages/Picture4.png" alt="Letter to the Editor from local attorney" class="zoomable-image"
+          style="max-width:850px; width:100%; display:block; margin:0 auto;">
         <figcaption>Letter to the Editor from local attorney</figcaption>
       </figure>
 
@@ -98,6 +98,54 @@
   <footer class="main-footer">
     <div>© 2026 M2Web. Rush 2112 Theme. <a href="../index.html">Return Home</a></div>
   </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox-modal">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Zoomed image">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const closeBtn = document.getElementById('lightbox-close');
+
+      document.querySelectorAll('.zoomable-image').forEach(image => {
+        image.addEventListener('click', () => {
+          lightboxImg.src = image.src;
+          lightboxImg.alt = image.alt;
+          
+          // Find the caption if it exists in a sibling figcaption
+          const figcaption = image.parentNode.querySelector('figcaption');
+          lightboxCaption.textContent = figcaption ? figcaption.textContent : image.alt;
+          
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden'; // Disable background scrolling
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Re-enable scrolling
+      }
+
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg && e.target !== lightboxCaption) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
