@@ -14,8 +14,8 @@
   /*  Configuration                                                      */
   /* ------------------------------------------------------------------ */
 
-  var STAR_COUNT       = 950;
-  var SPEED            = 1.0;             // base travel speed (screen space rate)
+  var STAR_COUNT       = 400;
+  var SPEED            = 0.45;            // base travel speed (screen space rate)
   var MIN_DEPTH        = 10;              // spawn depth near viewer (larger size/alpha)
   var MAX_DEPTH        = 1000;            // reset depth far away (tiny size/alpha)
   var STREAK_LENGTH    = 4;               // trail multiplier
