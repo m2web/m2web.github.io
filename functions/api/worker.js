@@ -150,8 +150,11 @@ export default {
     }
     // Lock the model — ignore whatever the client sends
     body.model = 'gpt-5-mini';
-    // Enforce a max_completion_tokens ceiling to control per-request cost (reasoning models use max_completion_tokens)
-    body.max_completion_tokens = Math.min(body.max_completion_tokens || body.max_tokens || 500, 500);
+    // Enforce a max_completion_tokens ceiling to control per-request cost.
+    // Reasoning models (like gpt-5-mini) use part of this budget for internal
+    // chain-of-thought, so the limit must be high enough to leave room for
+    // visible output after reasoning tokens are consumed.
+    body.max_completion_tokens = Math.min(body.max_completion_tokens || body.max_tokens || 2048, 2048);
     delete body.max_tokens;
 
     // Check if the user's message contains keywords to trigger resume context
