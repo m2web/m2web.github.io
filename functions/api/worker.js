@@ -1,5 +1,7 @@
 const ALLOWED_ORIGINS = [
   'https://m2web.github.io',
+  'https://markmcfadden.net',
+  'https://www.markmcfadden.net',
   'http://127.0.0.1:5500'
 ];
 
