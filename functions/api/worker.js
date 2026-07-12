@@ -150,8 +150,9 @@ export default {
     }
     // Lock the model — ignore whatever the client sends
     body.model = 'gpt-5-mini';
-    // Enforce a max_tokens ceiling to control per-request cost
-    body.max_tokens = Math.min(body.max_tokens || 500, 500);
+    // Enforce a max_completion_tokens ceiling to control per-request cost (reasoning models use max_completion_tokens)
+    body.max_completion_tokens = Math.min(body.max_completion_tokens || body.max_tokens || 500, 500);
+    delete body.max_tokens;
 
     // Check if the user's message contains keywords to trigger resume context
     let shouldIncludeResume = false;
