@@ -757,8 +757,13 @@ a:hover {
 }
 
 #run-diagnostic.working::before {
-    content: '⧖';
-    animation: spin 1s linear infinite;
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(231, 76, 60, 0.3);
+    border-top-color: var(--accent-red);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
