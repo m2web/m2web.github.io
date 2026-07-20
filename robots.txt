@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://markmcfadden.net/sitemap.xml

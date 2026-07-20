@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>https://markmcfadden.net/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- HAL Dialog -->
+  <url>
+    <loc>https://markmcfadden.net/HAL-dialog.html</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Presentation -->
+  <url>
+    <loc>https://markmcfadden.net/presentation/</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- SOCR -->
+  <url>
+    <loc>https://markmcfadden.net/socr/</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Thoughts Index -->
+  <url>
+    <loc>https://markmcfadden.net/thoughts/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Thoughts Articles -->
+  <url>
+    <loc>https://markmcfadden.net/thoughts/a-single-perfect-sphere.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/abortion.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/alex-lifeson-envy-of-none.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/american-syncretism.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/hawkish-isolationism.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/hiding-in-plain-sight.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/ideas-matter-now.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/illiberal-left-authoritarian-right-decade.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/irony-and-insult.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/restoring_a_pariah_trump_putin_russia.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/RIP_Globalism_1945-2024.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/strategic-contradictions-in-us-ai-policy.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/tarrif-dividend.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/the_evening_of_february_13_and_rush_moving_pictures.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/The-time-for-overreach-is-now.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/when_power_shapes_the_past.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/WalPo-AI-Conversation.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/8-18-24.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markmcfadden.net/thoughts/8-29-24.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Misc -->
+  <url>
+    <loc>https://markmcfadden.net/misc/ForestHill5KMcFaddenResults.html</loc>
+    <priority>0.3</priority>
+  </url>
+</urlset>
