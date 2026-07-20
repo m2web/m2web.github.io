@@ -198,6 +198,9 @@ export default {
       }
     }
 
+    // Enable streaming for real-time token delivery
+    body.stream = true;
+
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
@@ -208,7 +211,7 @@ export default {
     });
 
     // Add CORS headers to the response
-    const newHeaders = new Headers(response.headers);
+    const newHeaders = new Headers();
     const origin = request.headers.get('Origin');
     if (origin && ALLOWED_ORIGINS.includes(origin)) {
       newHeaders.set('Access-Control-Allow-Origin', origin);
@@ -216,6 +219,8 @@ export default {
     }
     newHeaders.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
     newHeaders.set('Access-Control-Allow-Headers', 'Content-Type');
+    newHeaders.set('Content-Type', 'text/event-stream');
+    newHeaders.set('Cache-Control', 'no-cache');
 
     return new Response(response.body, {
       status: response.status,

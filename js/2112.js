@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fetchArticleList();
     }
 
-    async function getOpenAIResponse(prompt) {
+    async function getOpenAIResponse(prompt, onChunk) {
         // Use a configurable worker URL. Set window.WORKER_URL in your HTML to override for different environments.
         const workerUrl = window.WORKER_URL || 'https://markmcfadden-proxy.m2web.workers.dev';
 
@@ -182,7 +182,8 @@ ${articleList}`;
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     model: 'gpt-5-mini',
-                    messages: messages
+                    messages: messages,
+                    stream: true
                 })
             });
 
@@ -191,8 +192,41 @@ ${articleList}`;
                 throw new Error(`API request failed with status ${response.status}: ${errorText}`);
             }
 
-            const data = await response.json();
-            return data.choices[0].message.content.trim();
+            // Read the SSE stream
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let fullText = '';
+            let buffer = '';
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                buffer += decoder.decode(value, { stream: true });
+                const lines = buffer.split('\n');
+                // Keep the last potentially incomplete line in the buffer
+                buffer = lines.pop();
+
+                for (const line of lines) {
+                    const trimmed = line.trim();
+                    if (!trimmed || !trimmed.startsWith('data:')) continue;
+                    const data = trimmed.slice(5).trim();
+                    if (data === '[DONE]') continue;
+
+                    try {
+                        const parsed = JSON.parse(data);
+                        const delta = parsed.choices?.[0]?.delta?.content;
+                        if (delta) {
+                            fullText += delta;
+                            if (onChunk) onChunk(delta);
+                        }
+                    } catch (e) {
+                        // Skip malformed JSON chunks
+                    }
+                }
+            }
+
+            return fullText.trim();
         } catch (error) {
             console.error('Error calling OpenAI API via Cloudflare Worker:', error);
             return "System diagnostics indicate a communication error. Please review console logs for details.";
@@ -218,27 +252,53 @@ ${articleList}`;
         loadingIndicator.className = 'log-line loading-indicator';
         loadingIndicator.style.marginBottom = '4px';
 
-        const labelEl = document.createElement('strong');
-        labelEl.textContent = 'SYRINX SYSTEM: ';
-        loadingIndicator.appendChild(labelEl);
+        const loadingLabel = document.createElement('strong');
+        loadingLabel.textContent = 'SYRINX SYSTEM: ';
+        loadingIndicator.appendChild(loadingLabel);
 
-        const textSpan = document.createElement('span');
-        textSpan.className = 'loading-text';
-        textSpan.textContent = 'ANALYZING INPUT...';
-        loadingIndicator.appendChild(textSpan);
+        const loadingSpan = document.createElement('span');
+        loadingSpan.className = 'loading-text';
+        loadingSpan.textContent = 'ANALYZING INPUT...';
+        loadingIndicator.appendChild(loadingSpan);
 
         diagnosticOutput.appendChild(loadingIndicator);
         diagnosticOutput.scrollTop = diagnosticOutput.scrollHeight;
 
-        try {
-            const response = await getOpenAIResponse(command);
-            
-            // Remove visual loading indicator
-            if (loadingIndicator.parentNode) {
-                loadingIndicator.parentNode.removeChild(loadingIndicator);
-            }
+        // Prepare a DOM line for streamed response
+        const streamLine = document.createElement('div');
+        streamLine.className = 'log-line';
+        streamLine.style.marginBottom = '4px';
 
-            appendToLog(response, 'SYRINX SYSTEM');
+        const streamLabel = document.createElement('strong');
+        streamLabel.textContent = 'SYRINX SYSTEM: ';
+        streamLine.appendChild(streamLabel);
+
+        const streamContent = document.createElement('span');
+        streamLine.appendChild(streamContent);
+
+        let firstChunk = true;
+
+        try {
+            await getOpenAIResponse(command, (chunk) => {
+                // On first token, swap loading indicator for the stream line
+                if (firstChunk) {
+                    if (loadingIndicator.parentNode) {
+                        loadingIndicator.parentNode.removeChild(loadingIndicator);
+                    }
+                    diagnosticOutput.appendChild(streamLine);
+                    firstChunk = false;
+                }
+                streamContent.textContent += chunk;
+                diagnosticOutput.scrollTop = diagnosticOutput.scrollHeight;
+            });
+
+            // If we never got a chunk (empty response), still clean up the loader
+            if (firstChunk) {
+                if (loadingIndicator.parentNode) {
+                    loadingIndicator.parentNode.removeChild(loadingIndicator);
+                }
+                appendToLog('No response received.', 'SYRINX SYSTEM');
+            }
         } catch (error) {
             if (loadingIndicator.parentNode) {
                 loadingIndicator.parentNode.removeChild(loadingIndicator);
