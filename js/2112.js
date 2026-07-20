@@ -209,11 +209,46 @@ ${articleList}`;
         // Disable input while waiting for response
         diagnosticCommand.disabled = true;
         runDiagnosticButton.disabled = true;
+        runDiagnosticButton.classList.add('working');
+        const originalButtonText = runDiagnosticButton.textContent;
+        runDiagnosticButton.textContent = 'PROCESSING...';
 
-        const response = await getOpenAIResponse(command);
-        appendToLog(response, 'SYRINX SYSTEM');
+        // Add visual loading indicator in output console
+        const loadingIndicator = document.createElement('div');
+        loadingIndicator.className = 'log-line loading-indicator';
+        loadingIndicator.style.marginBottom = '4px';
 
-        // Re-enable input
+        const labelEl = document.createElement('strong');
+        labelEl.textContent = 'SYRINX SYSTEM: ';
+        loadingIndicator.appendChild(labelEl);
+
+        const textSpan = document.createElement('span');
+        textSpan.className = 'loading-text';
+        textSpan.textContent = 'ANALYZING INPUT...';
+        loadingIndicator.appendChild(textSpan);
+
+        diagnosticOutput.appendChild(loadingIndicator);
+        diagnosticOutput.scrollTop = diagnosticOutput.scrollHeight;
+
+        try {
+            const response = await getOpenAIResponse(command);
+            
+            // Remove visual loading indicator
+            if (loadingIndicator.parentNode) {
+                loadingIndicator.parentNode.removeChild(loadingIndicator);
+            }
+
+            appendToLog(response, 'SYRINX SYSTEM');
+        } catch (error) {
+            if (loadingIndicator.parentNode) {
+                loadingIndicator.parentNode.removeChild(loadingIndicator);
+            }
+            appendToLog("System diagnostics indicate an unexpected retrieval error.", 'SYRINX SYSTEM');
+        }
+
+        // Re-enable input and restore button state
+        runDiagnosticButton.classList.remove('working');
+        runDiagnosticButton.textContent = originalButtonText;
         diagnosticCommand.disabled = false;
         runDiagnosticButton.disabled = false;
         diagnosticCommand.focus();

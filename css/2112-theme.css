@@ -727,6 +727,45 @@ a:hover {
     text-shadow: 0 0 8px rgba(231, 76, 60, 0.5);
 }
 
+/* AI Working Indicator inside Console */
+.loading-indicator {
+    color: var(--accent-red);
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.loading-text {
+    animation: blink-text 1.5s ease-in-out infinite;
+}
+
+@keyframes blink-text {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; text-shadow: 0 0 8px var(--accent-red); }
+}
+
+#run-diagnostic.working {
+    background: linear-gradient(135deg, #4a0000 0%, #2b0000 100%) !important;
+    border-color: #8a1a1a !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    cursor: not-allowed;
+    letter-spacing: 0.15em;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.2) !important;
+    transform: none !important;
+    pointer-events: none;
+}
+
+#run-diagnostic.working::before {
+    content: '⧖';
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
 /* Contact Section */
 .contact-list {
     list-style: none;
