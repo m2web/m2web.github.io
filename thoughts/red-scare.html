@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="rush-2112">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Scare? | Rush 2112 Archives</title>
+    <link rel="stylesheet" href="../css/2112-theme.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="underline">Back Home</a>
+        
+        <header class="post-header" style="margin-bottom: 2rem;">
+            <h1 class="custom-title" style="margin-bottom: 0.5rem;">Red Scare?</h1>
+            <time class="post-date" datetime="2026-07-28" style="color: var(--text-secondary); font-family: var(--font-body); font-size: 0.9rem;">July 28, 2026</time>
+        </header>
+
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+            <img src="images/red-scare-overreaction.jpg" alt="A satirical 1950s American advertisement styled illustration of a suburban family screaming in comical panic over a harmless hippie outside their window." style="max-width: 100%; height: auto; display: block; margin: 0 auto; max-height: 450px;" class="zoomable-image">
+        </div>
+
+        <section class="post-content">
+            <p>Ever notice how every time someone talks about making life a little easier for everyday families, someone else starts shouting about "communism" or "socialism"?</p>
+
+            <p>It’s an old trick, and honestly, it’s mostly just a scare tactic used by some conservative, primetime talk shows.</p>
+
+            <figure style="float: right; margin: 0 0 1.5rem 1.5rem; width: 35%; max-width: 240px;">
+                <img src="images/joseph-mccarthy.png" alt="Senator Joseph McCarthy holding a pen and speaking at a microphone during a hearing" class="zoomable-image" style="width: 100%; height: auto;">
+                <figcaption>Sen. Joseph McCarthy</figcaption>
+            </figure>
+
+            <p>Back in the 1950s, people called it the "Red Scare." Politicians and fake news of the era convinced people that "Reds under the bed"—secret communist spies—were hiding everywhere, waiting to steal their stuff and take away their freedom. It got people so paranoid that they stopped asking whether ideas were actually <em>good</em> or <em>bad</em>. They just ran from the scary label. Remember Joseph McCarthy?</p>
+
+            <p>Fast forward to today, and the exact same buzzwords get tossed around whenever anyone suggests things like:</p>
+
+            <ul>
+                <li>Making sure public schools get better funding.</li>
+                <li>Ensuring families don't go broke just because someone gets sick.</li>
+                <li>Fixing the starting line so non-wealthy kids get a fair shot at success.</li>
+            </ul>
+
+            <p>Here’s the reality: <strong>That isn't communism or socialism.</strong></p>
+
+            <p>Communism is a system where the government controls <em>everything</em>—every factory, every store, every job, and every price. Traditional socialism involves state or collective ownership of the major means of production. Almost nobody is asking for either of those.</p>
+
+            <p>Wanting a country where hard work pays off, where kids get a great education no matter their zip code, and where a medical emergency doesn't ruin your life isn't about destroying the free market. It’s about <strong>opportunity</strong>.</p>
+
+            <div class="callout">
+                <p>Think of it like a board game. Nobody wants to ban winning or stop people from playing hard. But if player one starts with half the board, all the money, and extra turns, the game isn't fun or fair for anyone else. Leveling the board so everyone can actually play isn't "taking over the game"—it's just making sure everyone gets a fair turn.</p>
+            </div>
+
+            <p>So the next time you hear someone yell "Communism!" or "Socialism!" at a basic idea to help working families, don't just take the bait. Look past the scare tactics and ask the real question: <em>Is this just about giving everyone a fair shot?</em></p>
+        </section>
+
+        <hr>
+
+        <a href="index.html" class="underline">Back Home</a>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Zoomed image">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const closeBtn = document.getElementById('lightbox-close');
+
+            document.querySelectorAll('.zoomable-image').forEach(image => {
+                image.addEventListener('click', () => {
+                    lightboxImg.src = image.src;
+                    lightboxImg.alt = image.alt;
+                    lightboxCaption.textContent = image.alt;
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target !== lightboxImg && e.target !== lightboxCaption) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
