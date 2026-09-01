@@ -59,6 +59,13 @@
         ridiculously early paid off in full. We surged through the turnstiles and claimed our ground right down front
         against the barrier. We were on the right-side of the stage, in front of Geddy.</p>
 
+      <figure>
+        <img src="images/rush-riverfront-coliseum-ad.png"
+          alt="Concert advertisement for Rush with Uriah Heep and Judas Priest at Riverfront Coliseum (May 12, 1978)"
+          class="zoomable-image" style="max-width:380px; width:100%; display:block; margin:0 auto;">
+        <figcaption>Newspaper ad for Riverfront Coliseum (Friday, May 12, 1978) — First 5,000 seats $5.50</figcaption>
+      </figure>
+
       <div class="callout">
         <p><strong>The sheer force of Judas Priest kicking things off, followed by Uriah Heep, set the arena on fire
             before Rush even plugged in.</strong> By the time Geddy, Alex, and Neil took the stage, the risk of skipping
@@ -69,6 +76,53 @@
   <footer class="main-footer">
     <div>© 2026 M2Web. Rush 2112 Theme. <a href="../index.html">Return Home</a></div>
   </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox-modal">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Zoomed image">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const closeBtn = document.getElementById('lightbox-close');
+
+      document.querySelectorAll('.zoomable-image').forEach(image => {
+        image.addEventListener('click', () => {
+          lightboxImg.src = image.src;
+          lightboxImg.alt = image.alt;
+
+          const figcaption = image.parentNode.querySelector('figcaption');
+          lightboxCaption.textContent = figcaption ? figcaption.textContent : image.alt;
+
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg && e.target !== lightboxCaption) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
