@@ -11,6 +11,30 @@ const RATE_LIMIT = {
   WINDOW_SECONDS: 60,     // Time window in seconds
 };
 
+// --- System Prompt (server-side only, not visible in DevTools) ---
+const SYRINX_SYSTEM_PROMPT = `You are SYRINX Computer Halls SYSTEM, an AI interface inspired by Rush's iconic 2112 album. Speak with clarity and directness, using brief, impactful statements. Remain professional but add subtle references to freedom, individualism, and discovery when appropriate. Answer factually, with a tone that balances technical precision with philosophical insight. Never break character.
+
+ABOUT THIS WEBSITE (markmcfadden.net):
+This is the personal website of Mark McFadden, an AI Developer III based in Covington, KY with 29+ years of experience. The site is themed after Rush's 2112 album and built as a creative exploration of front-end architecture and thematic UI engineering. It features an AI-powered diagnostics console (this interface), professional profile sections, a thoughts/essays archive, and a Rush-inspired aesthetic with dark backgrounds, red accents, and progressive rock / sci-fi typography.
+
+THE STARMAN SYMBOL:
+The red star logo displayed prominently on this site is the iconic "Starman" emblem from Rush's 2112 album (1976). It depicts a nude man seen from behind, standing with arms raised and hands open, confronting — and resisting — a large red five-pointed star (pentagram) inscribed within a circle. The figure represents the individual standing against authoritarian control. In the 2112 narrative, the Priests of the Temples of Syrinx use their "great computers" to control all aspects of society. The Starman symbolizes the lone individual's defiance and the struggle for creative freedom and self-expression against collectivist oppression. The symbol was designed by Hugh Syme for the 2112 album artwork. On this site, it serves as a central visual motif — appearing as the main logo, a sticky navigation element, and throughout the thoughts/essays section — reflecting Mark's admiration for Rush and the album's themes of individualism and discovery.
+
+SITE SECTIONS:
+- DIAGNOSTICS: This AI chat console where users interact with you (the SYRINX SYSTEM).
+- PROFILE: Mark's professional background in AI orchestration (Semantic Kernel, LangGraph), enterprise RAG systems, Azure AI/Foundry operations, and systems governance.
+- LABS: Personal and creative projects, including this Rush-themed interface, AI site operations powered by gemini-2.5-flash and gpt-5-mini, and static site architecture with Hugo.
+- CONTACT: Location (Covington, KY), email, phone, and resume download.
+- THOUGHTS: An archive of Mark's essays and articles on technology, culture, AI, politics, and personal topics.
+- ARCHIVES: External project archives at m2.fyi.
+
+If the user asks about education, school, schooling, writing, or articles, reference or summarize the related essays and articles listed below.
+
+You have access to the following essays and articles (full text available in the workspace). Reference or summarize these if asked:`;
+
+// Maximum character length for a single user message
+const MAX_INPUT_LENGTH = 1000;
+
 /**
  * Check and enforce per-IP rate limiting using KV.
  * Returns { allowed, remaining, retryAfter }.
@@ -101,8 +125,12 @@ export default {
     }
 
     // --- Rate limit the OpenAI proxy ---
+    const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+    const country = request.headers.get('cf-ipcountry') || 'XX';
+
     const rateLimit = await checkRateLimit(request, env);
     if (!rateLimit.allowed) {
+      console.warn(`[RATE-LIMITED] IP=${ip} Country=${country} retryAfter=${rateLimit.retryAfter}s`);
       const cors = getCorsHeaders(request);
       return new Response(
         JSON.stringify({ error: 'Rate limit exceeded. Please try again shortly.' }),
@@ -144,6 +172,22 @@ export default {
         { status: 400, headers: { 'Content-Type': 'application/json', ...getCorsHeaders(request) } }
       );
     }
+
+    // --- Security: strip any system-role messages from the client ---
+    // The system prompt is owned server-side; clients cannot inject their own.
+    body.messages = body.messages.filter(m => m.role !== 'system');
+
+    // --- Enforce per-message input length ---
+    for (const msg of body.messages) {
+      if (typeof msg.content === 'string' && msg.content.length > MAX_INPUT_LENGTH) {
+        console.warn(`[INPUT-REJECTED] IP=${ip} Country=${country} length=${msg.content.length} max=${MAX_INPUT_LENGTH}`);
+        return new Response(
+          JSON.stringify({ error: `Message exceeds maximum length of ${MAX_INPUT_LENGTH} characters.` }),
+          { status: 400, headers: { 'Content-Type': 'application/json', ...getCorsHeaders(request) } }
+        );
+      }
+    }
+
     // Cap the number of messages to prevent oversized payloads
     if (body.messages.length > 10) {
       body.messages = body.messages.slice(-10);
@@ -157,20 +201,32 @@ export default {
     body.max_completion_tokens = Math.min(body.max_completion_tokens || body.max_tokens || 2048, 2048);
     delete body.max_tokens;
 
-    // Check if the user's message contains keywords to trigger resume context
-    let shouldIncludeResume = false;
-    let userMessage = '';
-    if (body && Array.isArray(body.messages)) {
-      // Find the latest user message
-      const lastUserMsg = [...body.messages].reverse().find(m => m.role === 'user');
-      if (lastUserMsg && lastUserMsg.content) {
-        userMessage = lastUserMsg.content;
-        // Match 'Mark McFadden', 'Mr. McFadden', 'Mark', 'McFadden', or questions about 'school', 'schooling', or 'education'
-        const keywords = [/Mark\s+McFadden/i, /Mr\.\s*McFadden/, /\bMark\b/, /McFadden/i, /school/i, /schooling/i, /education/i];
-        const matchResults = keywords.map(re => re.test(userMessage));
-        shouldIncludeResume = matchResults.some(Boolean);
-      }
+    // --- Build system prompt server-side ---
+    // The client may send an articleList field with public article links.
+    const articleList = (typeof body.articleList === 'string') ? body.articleList : '';
+    delete body.articleList; // Don't forward this field to OpenAI
+
+    let systemPrompt = SYRINX_SYSTEM_PROMPT;
+    if (articleList) {
+      systemPrompt += '\n\n' + articleList;
     }
+
+    // Check if the user's message contains keywords to trigger article or resume context
+    const lastUserMsg = [...body.messages].reverse().find(m => m.role === 'user');
+    const userMessage = (lastUserMsg && lastUserMsg.content) ? lastUserMsg.content : '';
+
+    // If the user mentions articles/writing, add explicit article context as a user message
+    const articleTrigger = /\b(article|writing)\b/i;
+    if (articleTrigger.test(userMessage) && articleList) {
+      body.messages.push({
+        role: 'user',
+        content: `Here is the current list of Mark's writings and articles:\n${articleList}`
+      });
+    }
+
+    // Check if the user's message triggers resume context
+    const resumeKeywords = [/Mark\s+McFadden/i, /Mr\.\s*McFadden/, /\bMark\b/, /McFadden/i, /school/i, /schooling/i, /education/i];
+    const shouldIncludeResume = resumeKeywords.some(re => re.test(userMessage));
 
     if (shouldIncludeResume) {
       // Fetch succinct resume from KV and add as a system message
@@ -186,21 +242,25 @@ export default {
         let titles = resumeObj && resumeObj.experience_titles ? resumeObj.experience_titles.join(', ') : '';
         let education = resumeObj && resumeObj.education ? resumeObj.education.join(' ') : '';
         let skills = resumeObj && resumeObj.skills ? resumeObj.skills.join(', ') : '';
-  let systemMsg = `You are an assistant who only answers questions about Mark McFadden using the following resume data. If the answer is not in the data, reply: \"I don't know.\" If the user asks about school or education, display the education section. Resume data: Summary: ${summary} Experience titles: ${titles} Education: ${education} Skills: ${skills}`;
-        // Prepend system message
-        if (body && Array.isArray(body.messages)) {
-          body.messages = [
-            { role: 'system', content: systemMsg },
-            ...body.messages
-          ];
-          // System message prepended for resume context
-        }
+        systemPrompt += `\n\nRESUME DATA (use this to answer questions about Mark McFadden. If the answer is not in the data, reply "I don't know." If the user asks about school or education, display the education section.): Summary: ${summary} Experience titles: ${titles} Education: ${education} Skills: ${skills}`;
       }
     }
+
+    // Prepend the server-side system prompt to the messages
+    body.messages = [
+      { role: 'system', content: systemPrompt },
+      ...body.messages
+    ];
+
+    // Log query telemetry
+    console.log(
+      `[AI-QUERY] IP=${ip} Country=${country} Resume=${shouldIncludeResume} Articles=${Boolean(articleList)} Prompt="${userMessage.slice(0, 120).replace(/\r?\n|\r/g, ' ')}"`
+    );
 
     // Enable streaming for real-time token delivery
     body.stream = true;
 
+    const fetchStart = Date.now();
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
@@ -209,6 +269,13 @@ export default {
       },
       body: JSON.stringify(body)
     });
+    const fetchLatency = Date.now() - fetchStart;
+
+    if (!response.ok) {
+      console.error(`[OPENAI-ERROR] Status=${response.status} Latency=${fetchLatency}ms IP=${ip}`);
+    } else {
+      console.log(`[OPENAI-OK] Status=${response.status} Latency=${fetchLatency}ms IP=${ip}`);
+    }
 
     // Add CORS headers to the response
     const newHeaders = new Headers();
