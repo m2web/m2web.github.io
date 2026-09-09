@@ -51,6 +51,16 @@ const SYSTEM_CONFIG = {
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
+    // --- Developer Console Easter Egg ---
+    console.log(
+        '%c[SYRINX COMPUTER HALLS]%c Mark McFadden — AI Developer III\n' +
+        '%cArchitecture: Cloudflare Edge · OpenAI gpt-5-mini · Streaming SSE\n' +
+        'Contact: mark@markmcfadden.net · Covington, KY',
+        'color: #ff2222; font-family: monospace; font-weight: bold; font-size: 13px;',
+        'color: #e0e0e0; font-family: monospace; font-size: 13px;',
+        'color: #888888; font-family: monospace; font-size: 11px;'
+    );
+
     const titleElement = document.getElementById('main-title');
     const titleText = 'M A R K   M C F A D D E N';
 
@@ -158,6 +168,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Send article list as a data field — the worker assembles the system prompt server-side
         const articleList = dynamicArticleList || defaultArticleList;
 
+        const startTime = performance.now();
+        let firstTokenLogged = false;
+
         try {
             const response = await fetch(workerUrl, {
                 method: 'POST',
@@ -202,6 +215,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         const parsed = JSON.parse(data);
                         const delta = parsed.choices?.[0]?.delta?.content;
                         if (delta) {
+                            if (!firstTokenLogged) {
+                                const ttft = Math.round(performance.now() - startTime);
+                                console.info(`%c[SYRINX]%c Stream established · TTFT: ${ttft}ms`, 'color: #ff3333; font-weight: bold;', 'color: #888;');
+                                firstTokenLogged = true;
+                            }
                             fullText += delta;
                             if (onChunk) onChunk(delta);
                         }
@@ -210,6 +228,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             }
+
+            const totalDuration = Math.round(performance.now() - startTime);
+            console.info(`%c[SYRINX]%c Response complete · ${totalDuration}ms · ${fullText.length} chars`, 'color: #ff3333; font-weight: bold;', 'color: #888;');
 
             return fullText.trim();
         } catch (error) {
