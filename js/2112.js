@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- Developer Console Easter Egg ---
     console.log(
         '%c[SYRINX COMPUTER HALLS]%c Mark McFadden — AI Developer III\n' +
-        '%cArchitecture: Cloudflare Edge · OpenAI gpt-5-mini · Streaming SSE\n' +
+        '%cArchitecture: Cloudflare Edge · OpenAI gpt-5.4-mini · Streaming SSE\n' +
         'Contact: mark@markmcfadden.net · Covington, KY',
         'color: #ff2222; font-family: monospace; font-weight: bold; font-size: 13px;',
         'color: #e0e0e0; font-family: monospace; font-size: 13px;',

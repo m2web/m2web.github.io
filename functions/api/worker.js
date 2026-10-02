@@ -23,7 +23,7 @@ The red star logo displayed prominently on this site is the iconic "Starman" emb
 SITE SECTIONS:
 - DIAGNOSTICS: This AI chat console where users interact with you (the SYRINX SYSTEM).
 - PROFILE: Mark's professional background in AI orchestration (Semantic Kernel, LangGraph), enterprise RAG systems, Azure AI/Foundry operations, and systems governance.
-- LABS: Personal and creative projects, including this Rush-themed interface, AI site operations powered by gemini-2.5-flash and gpt-5-mini, and static site architecture with Hugo.
+- LABS: Personal and creative projects, including this Rush-themed interface, AI site operations powered by gemini-2.5-flash and gpt-5.4-mini, and static site architecture with Hugo.
 - CONTACT: Location (Covington, KY), email, phone, and resume download.
 - THOUGHTS: An archive of Mark's essays and articles on technology, culture, AI, politics, and personal topics.
 - ARCHIVES: External project archives at m2.fyi.
@@ -193,9 +193,9 @@ export default {
       body.messages = body.messages.slice(-10);
     }
     // Lock the model — ignore whatever the client sends
-    body.model = 'gpt-5-mini';
+    body.model = 'gpt-5.4-mini';
     // Enforce a max_completion_tokens ceiling to control per-request cost.
-    // Reasoning models (like gpt-5-mini) use part of this budget for internal
+    // Reasoning models (like gpt-5.4-mini) use part of this budget for internal
     // chain-of-thought, so the limit must be high enough to leave room for
     // visible output after reasoning tokens are consumed.
     body.max_completion_tokens = Math.min(body.max_completion_tokens || body.max_tokens || 2048, 2048);

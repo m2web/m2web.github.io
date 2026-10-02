@@ -29,7 +29,7 @@
 | Hosting    | GitHub Pages                 | Static CDN, HTTPS enforced             |
 | CDN/Proxy  | Cloudflare Workers           | OpenAI API proxy + resume KV           |
 | Frontend   | Vanilla HTML/CSS/JS          | No framework, no build step            |
-| AI Backend | OpenAI `gpt-5-mini` via CF   | Proxied via `markmcfadden-proxy`       |
+| AI Backend | OpenAI `gpt-5.4-mini` via CF | Proxied via `markmcfadden-proxy`       |
 | Theme      | Rush 2112 / 2026             | Black/Red/Blue sci-fi aesthetic        |
 
 ---
@@ -49,7 +49,7 @@ organizational intelligence.
 **Foundry Operations & Model Governance:**
 Overseeing the deployment and optimization of models within **Microsoft
 Foundry** (Azure AI Studio) and **Foundry Tools** (Azure AI Services).
-Directing the specific implementation of the **gpt-5-mini** model,
+Directing the specific implementation of the **gpt-5.4-mini** model,
 ensuring that model selection aligns with both performance requirements
 and operational cost-efficiency.
 
