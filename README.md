@@ -1,36 +1,36 @@
-# Rush 2026 Interface
+# Arrakis Thinking Machine Interface
 
 **Unit Designation:** Mark McFadden
 **Function:** AI Developer III
 **Location:** Covington, KY
-**Contact:** [m2web@yahoo.com](mailto:m2web@yahoo.com) · 859.750.1953
+**Contact:** [m2web@yahoo.com](mailto:m2web@yahoo.com) | 859.750.1953
 
 ---
 
 ## SYSTEM DIAGNOSTICS
 
-| Diagnostic Label                                        | Status   |
-| ------------------------------------------------------- | -------- |
-| AI Orchestration (Semantic Kernel · LangGraph)          | ACTIVE   |
-| Foundry Operations (Azure AI · GPT-5.x · Foundry SDKs) | ACTIVE   |
-| Enterprise RAG (Proprietary Synthetic Knowledge Systems)| ACTIVE   |
-| Intelligent Systems Design (LLMs · Automation)          | ACTIVE   |
-| Full-Stack Development (Python · Modern Web Stack)      | ACTIVE   |
-| Legacy Languages (C# · Java · VB.NET)                   | ARCHIVED |
-| API Gateways (Azure APIM · IBM API Connect)             | ARCHIVED |
-| Adjunct Faculty                                         | ARCHIVED |
+| Diagnostic Label | Status |
+| --- | --- |
+| AI Orchestration (Semantic Kernel, LangGraph) | ACTIVE |
+| Foundry Operations (Azure AI, Frontier Models, Foundry SDKs) | ACTIVE |
+| Enterprise RAG (Proprietary Synthetic Knowledge Systems) | ACTIVE |
+| Intelligent Systems Design (LLMs, Automation) | ACTIVE |
+| Full-Stack Development (Python, Modern Web Stack) | ACTIVE |
+| Legacy Languages (C#, Java, VB.NET) | ARCHIVED |
+| API Gateways (Azure APIM, IBM API Connect) | ARCHIVED |
+| Adjunct Faculty | ARCHIVED |
 
 ---
 
 ## Architecture
 
-| Layer      | Technology                   | Notes                                  |
-| ---------- | ---------------------------- | -------------------------------------- |
-| Hosting    | GitHub Pages                 | Static CDN, HTTPS enforced             |
-| CDN/Proxy  | Cloudflare Workers           | OpenAI API proxy + resume KV           |
-| Frontend   | Vanilla HTML/CSS/JS          | No framework, no build step            |
-| AI Backend | OpenAI `gpt-5.4-mini` via CF | Proxied via `markmcfadden-proxy`       |
-| Theme      | Rush 2112 / 2026             | Black/Red/Blue sci-fi aesthetic        |
+| Layer | Technology | Notes |
+| --- | --- | --- |
+| Hosting | GitHub Pages | Static CDN, HTTPS enforced |
+| CDN/Proxy | Cloudflare Workers | AI API proxy + resume KV |
+| Frontend | Vanilla HTML/CSS/JS | No framework, no build step |
+| AI Backend | Latest Frontier Models via CF | Proxied via `markmcfadden-proxy` |
+| Theme | Dune / Arrakis Thinking Machine | Obsidian/Spice-Amber/Ibad-Blue brutalist UI |
 
 ---
 
@@ -42,16 +42,15 @@ using **Semantic Kernel** and **LangGraph** to manage complex,
 multi-agent workflows. Building scalable, production-ready systems that
 leverage state-of-the-art LLMs to solve intricate business logic and
 automation challenges. Scaling an enterprise-wide RAG ecosystem with
-multiple business-line specific applications--including **Rush
-Scholar**--to transform internal knowledge into actionable
-organizational intelligence.
+multiple business-line specific applications to transform internal
+knowledge into actionable organizational intelligence.
 
 **Foundry Operations & Model Governance:**
 Overseeing the deployment and optimization of models within **Microsoft
 Foundry** (Azure AI Studio) and **Foundry Tools** (Azure AI Services).
-Directing the specific implementation of the **gpt-5.4-mini** model,
-ensuring that model selection aligns with both performance requirements
-and operational cost-efficiency.
+Directing the execution of **the latest models** and evaluating emerging
+frontier models, ensuring that model selection aligns with both
+performance requirements and operational cost-efficiency.
 
 **Technical Leadership & Systems Governance:**
 Executing leadership and management tasks equivalent to the Systems
@@ -83,13 +82,13 @@ practical solutions for business and individual use.
 
 ---
 
-## Example SYRINX SYSTEM Interaction
+## Example THINKING MACHINE TERMINAL Interaction
 
 ```text
-> How are you feeling today?
-SYRINX SYSTEM: Greetings, citizen. All systems are operational.
+> What is the status of the Arrakis interface?
+THINKING MACHINE: Plans within plans. All projections and AI orchestration systems are operational.
 ```
 
-Try it here: [Rush 2026 Interface](https://m2web.github.io/)
+Try it here: [Arrakis Thinking Machine Interface](https://m2web.github.io/)
 
 ---

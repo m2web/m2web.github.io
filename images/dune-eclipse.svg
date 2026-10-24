@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" width="360" height="220" role="img" aria-label="DUNE — Arrakis Solar Eclipse and Shai-Hulud Emblem">
+  <defs>
+    <!-- Outer Spice Corona Glow -->
+    <radialGradient id="coronaGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#f5a65b" stop-opacity="0.88"/>
+      <stop offset="42%" stop-color="#e07a2e" stop-opacity="0.58"/>
+      <stop offset="72%" stop-color="#9c4a14" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0b0908" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Eclipse Rim Gradient -->
+    <linearGradient id="eclipseRim" x1="15%" y1="15%" x2="85%" y2="85%">
+      <stop offset="0%" stop-color="#fff3d6"/>
+      <stop offset="28%" stop-color="#f5a65b"/>
+      <stop offset="65%" stop-color="#e07a2e"/>
+      <stop offset="100%" stop-color="#6e3009"/>
+    </linearGradient>
+
+    <!-- DUNE Lettering Metallic Sand-Gold Gradient -->
+    <linearGradient id="duneTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e8d8be"/>
+      <stop offset="50%" stop-color="#fff5e0"/>
+      <stop offset="100%" stop-color="#e8d8be"/>
+    </linearGradient>
+
+    <!-- Central Solar Flare inside 'E' / Eclipse -->
+    <radialGradient id="solarStar" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#fff3d6" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#f5a65b" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#e07a2e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ambient Desert Corona -->
+  <circle cx="180" cy="110" r="106" fill="url(#coronaGlow)"/>
+
+  <!-- Outer Sacred Geometry Ring -->
+  <circle cx="180" cy="110" r="88" fill="none" stroke="#e07a2e" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3 6"/>
+  <circle cx="180" cy="110" r="80" fill="none" stroke="url(#eclipseRim)" stroke-width="2.2"/>
+
+  <!-- Shai-Hulud Radial Baleen Striations (36 crystalline teeth) -->
+  <g stroke="url(#eclipseRim)" stroke-width="0.85" opacity="0.5">
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(0 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(10 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(20 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(30 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(40 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(50 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(60 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(70 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(80 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(90 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(100 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(110 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(120 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(130 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(140 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(150 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(160 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(170 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(180 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(190 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(200 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(210 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(220 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(230 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(240 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(250 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(260 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(270 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(280 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(290 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(300 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(310 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(320 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(330 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(340 180 110)"/>
+    <line x1="180" y1="32" x2="180" y2="84" transform="rotate(350 180 110)"/>
+  </g>
+
+  <!-- Eclipse Occultation Disc -->
+  <circle cx="183" cy="113" r="69" fill="#0b0908"/>
+
+  <!-- Glowing Inner Solar Crescent Arc -->
+  <path d="M 125 66 A 71 71 0 1 1 227 166 A 67 67 0 1 0 125 66 Z" fill="url(#eclipseRim)" opacity="0.95"/>
+
+  <!-- Horizontal Desert Horizon Hairline Behind D U N E -->
+  <line x1="6" y1="110" x2="354" y2="110" stroke="url(#eclipseRim)" stroke-width="0.9" opacity="0.5"/>
+
+  <!-- Dark Backing Band for crisp D U N E contrast across the eclipse -->
+  <rect x="24" y="83" width="312" height="54" rx="4" fill="#0b0908" fill-opacity="0.72"/>
+
+  <!-- Iconic D U N E Movie Title Crescent Geometry (⊃ ∪ ∩ ∈) -->
+  <g fill="none" stroke="url(#duneTextGrad)" stroke-width="4.2" stroke-linecap="round">
+    <!-- D: Right-facing crescent arch -->
+    <path d="M 46 88 L 54 88 A 22 22 0 0 1 54 132 L 46 132"/>
+
+    <!-- U: Upward-opening crescent cup -->
+    <path d="M 120 88 L 120 110 A 22 22 0 0 0 164 110 L 164 88"/>
+
+    <!-- N: Downward-opening crescent arch -->
+    <path d="M 196 132 L 196 110 A 22 22 0 0 1 240 110 L 240 132"/>
+
+    <!-- E: Left-facing crescent arch with glowing solar star center -->
+    <path d="M 314 88 L 306 88 A 22 22 0 0 0 306 132 L 314 132"/>
+  </g>
+
+  <!-- Iconic Glowing Star / Sun-Flare at the center of the 'E' -->
+  <circle cx="304" cy="110" r="14" fill="url(#solarStar)"/>
+  <line x1="285" y1="110" x2="323" y2="110" stroke="#fff3d6" stroke-width="1.8"/>
+  <line x1="304" y1="96" x2="304" y2="124" stroke="#fff3d6" stroke-width="1.2" opacity="0.8"/>
+  <circle cx="304" cy="110" r="2.8" fill="#ffffff"/>
+</svg>
