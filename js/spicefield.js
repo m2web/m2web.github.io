@@ -282,6 +282,96 @@
       ctx.fillStyle = skyGrad;
       ctx.fillRect(0, 0, w, h);
 
+      // 1b. TWIN MOONS OF ARRAKIS (Krelln & Muad'Dib — positioned in the left sky below the banner)
+      var moon1X = w * 0.095;
+      var moon1Y = h * 0.455;
+      var moon1R = Math.max(22, Math.min(w, h) * 0.038);
+
+      // Soft warm atmospheric corona around First Moon (Krelln)
+      var moon1Halo = ctx.createRadialGradient(moon1X, moon1Y, moon1R * 0.6, moon1X, moon1Y, moon1R * 2.6);
+      moon1Halo.addColorStop(0.0, 'rgba(232, 188, 142, 0.35)');
+      moon1Halo.addColorStop(0.5, 'rgba(232, 188, 142, 0.12)');
+      moon1Halo.addColorStop(1.0, 'rgba(232, 188, 142, 0)');
+      ctx.fillStyle = moon1Halo;
+      ctx.beginPath();
+      ctx.arc(moon1X, moon1Y, moon1R * 2.6, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Sunlit disc of First Moon
+      var moon1Grad = ctx.createLinearGradient(
+        moon1X - moon1R, moon1Y - moon1R,
+        moon1X + moon1R, moon1Y + moon1R
+      );
+      moon1Grad.addColorStop(0.0, '#fffaf2');
+      moon1Grad.addColorStop(0.45, '#efd0ae');
+      moon1Grad.addColorStop(0.85, '#cf9b6a');
+      moon1Grad.addColorStop(1.0, '#b87f4c');
+      ctx.fillStyle = moon1Grad;
+      ctx.beginPath();
+      ctx.arc(moon1X, moon1Y, moon1R, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Daylight sky-blended shadow cutout to form a sculpted crescent on Moon 1
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(moon1X, moon1Y, moon1R, 0, Math.PI * 2);
+      ctx.clip();
+
+      ctx.fillStyle = 'rgba(206, 220, 234, 0.78)';
+      ctx.beginPath();
+      ctx.arc(moon1X - moon1R * 0.42, moon1Y + moon1R * 0.12, moon1R * 0.92, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Subtle rim highlight on the sunlit edge of Moon 1
+      ctx.strokeStyle = 'rgba(255, 250, 240, 0.85)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(moon1X, moon1Y, moon1R - 0.75, -Math.PI * 0.55, Math.PI * 0.42);
+      ctx.stroke();
+      ctx.restore();
+
+      // Second smaller moon (Muad'Dib) — companion moon down and to the right
+      var moon2X = moon1X + moon1R * 1.95;
+      var moon2Y = moon1Y + moon1R * 1.35;
+      var moon2R = moon1R * 0.48;
+
+      var moon2Halo = ctx.createRadialGradient(moon2X, moon2Y, moon2R * 0.4, moon2X, moon2Y, moon2R * 2.4);
+      moon2Halo.addColorStop(0.0, 'rgba(224, 152, 88, 0.32)');
+      moon2Halo.addColorStop(1.0, 'rgba(224, 152, 88, 0)');
+      ctx.fillStyle = moon2Halo;
+      ctx.beginPath();
+      ctx.arc(moon2X, moon2Y, moon2R * 2.4, 0, Math.PI * 2);
+      ctx.fill();
+
+      var moon2Grad = ctx.createLinearGradient(
+        moon2X - moon2R, moon2Y - moon2R,
+        moon2X + moon2R, moon2Y + moon2R
+      );
+      moon2Grad.addColorStop(0.0, '#fff6e8');
+      moon2Grad.addColorStop(0.5, '#e8bc8e');
+      moon2Grad.addColorStop(1.0, '#bf824e');
+      ctx.fillStyle = moon2Grad;
+      ctx.beginPath();
+      ctx.arc(moon2X, moon2Y, moon2R, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(moon2X, moon2Y, moon2R, 0, Math.PI * 2);
+      ctx.clip();
+
+      ctx.fillStyle = 'rgba(214, 226, 238, 0.74)';
+      ctx.beginPath();
+      ctx.arc(moon2X - moon2R * 0.38, moon2Y + moon2R * 0.14, moon2R * 0.9, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = 'rgba(255, 248, 235, 0.8)';
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.arc(moon2X, moon2Y, moon2R - 0.6, -Math.PI * 0.55, Math.PI * 0.42);
+      ctx.stroke();
+      ctx.restore();
+
       // 2. DISTANT HIGH DUNE MASSIF (Right-side background plateau)
       fillDuneMound(
         [
