@@ -28,7 +28,7 @@
     <meta name="twitter:image" content="https://markmcfadden.net/images/dune-eclipse.svg">
     <link rel="ICON" href="favicon.ico" type="image/ico" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;700&family=Orbitron:wght@600;800&family=Rajdhani:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;700&family=Orbitron:wght@600;800&family=Rajdhani:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/dune-theme.css">
 </head>
@@ -36,14 +36,74 @@
 <body>
     <header class="main-header">
         <h1 id="main-title" class="brand-title">
-            <span class="m2-sq">M<sup>2</sup></span>
-            <span class="brand-wrap">
-                <span class="paren">(</span>
-                <span class="brand-mark">MARK</span>
-                <span class="brand-pipe">|</span>
-                <span class="brand-mcfadden">MCFADDEN</span>
-                <span class="paren">)</span>
-            </span>
+            <span class="sr-only">M² (Mark | McFadden)</span>
+            <!-- Custom Dune crescent-letterform wordmark: M² ( MARK | MCFADDEN ) -->
+            <svg class="brand-svg" viewBox="-4 -10 682 66" aria-hidden="true" focusable="false">
+                <defs>
+                    <radialGradient id="brandFlareGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+                        <stop offset="30%" stop-color="#fff3d6" stop-opacity="0.9" />
+                        <stop offset="65%" stop-color="#f5a65b" stop-opacity="0.45" />
+                        <stop offset="100%" stop-color="#e07a2e" stop-opacity="0" />
+                    </radialGradient>
+                    <radialGradient id="brandEclipseGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="55%" stop-color="#2b8cbe" stop-opacity="0.55" />
+                        <stop offset="100%" stop-color="#2b8cbe" stop-opacity="0" />
+                    </radialGradient>
+                </defs>
+
+                <!-- M² -->
+                <g class="glyph glyph-m2">
+                    <path d="M0 40V11A9 9 0 0 1 18 11V40M18 11A9 9 0 0 1 36 11V40" />
+                    <path transform="translate(42 -2) scale(0.45)" stroke-width="6.5"
+                        d="M2 12A10 10 0 0 1 22 12C22 22 2 30 2 40H24" />
+                </g>
+
+                <!-- ( -->
+                <path class="glyph glyph-paren" transform="translate(72 0)" d="M12 -6A34 34 0 0 0 12 46" />
+
+                <!-- MARK -->
+                <g class="glyph glyph-mark">
+                    <path transform="translate(100 0)" d="M0 40V11A9 9 0 0 1 18 11V40M18 11A9 9 0 0 1 36 11V40" />
+                    <path transform="translate(150 0)" d="M0 40V16A14 14 0 0 1 28 16V40M0 27H28" />
+                    <path transform="translate(192 0)" d="M0 40V2H12A10 10 0 0 1 12 22H0M12 22L26 40" />
+                    <path transform="translate(232 0)" d="M0 2V40M24 2L1 23M9 16L26 40" />
+                </g>
+
+                <!-- Divider: miniature solar eclipse with horizon flare -->
+                <g transform="translate(288 21)">
+                    <line x1="-16" y1="0" x2="16" y2="0" stroke="#f5a65b" stroke-width="1" stroke-opacity="0.6" />
+                    <circle r="11" fill="url(#brandEclipseGlow)" />
+                    <circle r="7" fill="#0b0908" stroke="#2b8cbe" stroke-width="1.6" />
+                    <circle cx="4.9" cy="-4.9" r="3.5" fill="url(#brandFlareGlow)" />
+                    <circle cx="4.9" cy="-4.9" r="1.2" fill="#ffffff" />
+                </g>
+
+                <!-- MCFADDEN -->
+                <g class="glyph glyph-mcfadden">
+                    <path transform="translate(318 0)" d="M0 40V11A9 9 0 0 1 18 11V40M18 11A9 9 0 0 1 36 11V40" />
+                    <path transform="translate(368 0)" d="M28 2H19A19 19 0 0 0 19 40H28" />
+                    <path transform="translate(410 0)" d="M0 40V2H24M0 21H18" />
+                    <path transform="translate(448 0)" d="M0 40V16A14 14 0 0 1 28 16V40M0 27H28" />
+                    <path transform="translate(490 0)" d="M0 2V40M0 2H9A19 19 0 0 1 9 40H0" />
+                    <path transform="translate(532 0)" d="M0 2V40M0 2H9A19 19 0 0 1 9 40H0" />
+                    <path transform="translate(574 0)" d="M28 2H19A19 19 0 0 0 19 40H28M0 21H16" />
+                    <path transform="translate(618 0)" d="M0 40V16A14 14 0 0 1 28 16V40" />
+                </g>
+
+                <!-- Signature Dune solar star-flare in the E of MCFADDEN -->
+                <g transform="translate(598 21)">
+                    <circle r="7" fill="url(#brandFlareGlow)" />
+                    <line x1="-10" y1="0" x2="12" y2="0" stroke="#fff3d6" stroke-width="1.4"
+                        stroke-linecap="round" />
+                    <line x1="0" y1="-6" x2="0" y2="6" stroke="#fff3d6" stroke-width="1" stroke-opacity="0.8"
+                        stroke-linecap="round" />
+                    <circle r="1.8" fill="#ffffff" />
+                </g>
+
+                <!-- ) -->
+                <path class="glyph glyph-paren" transform="translate(662 0)" d="M0 -6A34 34 0 0 1 0 46" />
+            </svg>
         </h1>
         <button id="mobile-menu-trigger" class="mobile-menu-trigger" aria-label="Toggle Menu">
             <span class="bar"></span>
@@ -63,15 +123,13 @@
     </header>
 
     <div class="syrinx-banner">
-        <div class="syrinx-text">"I must not fear. Fear is the mind-killer. Fear
-            is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me
-            and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has
-            gone there will be nothing. Only I will remain." <span class="citation">—Bene Gesserit Litany Against
-                Fear, Arrakis Imperium Archive</span></div>
-    </div>
-
-    <div class="starman-logo" id="starman-logo">
-        <img src="images/dune-eclipse.svg" alt="DUNE Arrakis Solar Eclipse Emblem" class="starman-image">
+        <div class="syrinx-text">"I must not fear. Fear is the mind-killer. Fear is the little-death that
+            brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when
+            it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing.
+            Only I will remain."
+            <span class="citation">—Bene Gesserit Litany Against Fear, Arrakis Imperium Archive - Frank Herbert - Dune
+            </span>
+        </div>
     </div>
 
     <section id="status" class="section-2112">

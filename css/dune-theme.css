@@ -4,6 +4,9 @@
  * Deep Obsidian Night, Glowing Melange Spice Amber, Fremen Eyes-of-Ibad Blue, and Sun-Bleached Sand
  */
 
+/* Geometric sans-serif heading font (loaded here so /thoughts/ pages inherit it too) */
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap');
+
 :root {
     /* Arrakis Nights & Melange Spice Palette */
     --bg-primary: #0b0908;
@@ -48,7 +51,7 @@
     /* Imperial House seal gold */
 
     /* Typography */
-    --font-heading: 'Cinzel', 'Orbitron', 'Rajdhani', sans-serif;
+    --font-heading: 'Syncopate', 'Orbitron', 'Rajdhani', sans-serif;
     --font-body: 'Rajdhani', 'Inter', sans-serif;
     --font-mono: 'Space Mono', 'Courier New', monospace;
 
@@ -142,48 +145,53 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.2rem;
     padding: 0.5rem 0;
 }
 
-.m2-sq {
-    color: var(--accent-spice-bright);
-    font-size: 3.5rem;
-    font-weight: 900;
-    text-shadow: 0 0 18px rgba(224, 122, 46, 0.55);
-    line-height: 1;
+/* Custom SVG Dune crescent-letterform wordmark: M² ( MARK | MCFADDEN ) */
+.brand-svg {
+    display: block;
+    width: min(640px, 92vw);
+    height: auto;
+    overflow: visible;
+    filter: drop-shadow(0 0 10px rgba(224, 122, 46, 0.28));
 }
 
-.brand-wrap {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    font-size: 2.8rem;
-    font-weight: 700;
-    font-family: var(--font-heading);
-    letter-spacing: 0.22em;
+.brand-svg .glyph {
+    fill: none;
+    stroke-width: 3.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
-.paren {
-    color: var(--text-muted);
-    font-size: 3.4rem;
-    font-weight: 300;
+.brand-svg .glyph-m2 {
+    stroke: var(--accent-spice-bright);
 }
 
-.brand-mark {
-    color: var(--text-primary);
+.brand-svg .glyph-mark {
+    stroke: var(--text-primary);
 }
 
-.brand-pipe {
-    color: var(--accent-ibad-light);
-    font-weight: 400;
-    text-shadow: 0 0 12px rgba(43, 140, 190, 0.9), 0 0 24px rgba(43, 140, 190, 0.45);
-    margin: 0 0.5rem;
-    font-size: 3.4rem;
+.brand-svg .glyph-mcfadden {
+    stroke: var(--accent-spice-bright);
 }
 
-.brand-mcfadden {
-    color: var(--accent-spice-bright);
+.brand-svg .glyph-paren {
+    stroke: var(--text-muted);
+    stroke-width: 1.8;
+}
+
+/* Visually hidden text for screen readers and search engines */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 #main-title.fade-in {
@@ -290,10 +298,10 @@ a:hover {
     text-decoration: none;
     padding: 0.8rem 1.5rem;
     font-family: var(--font-heading);
-    font-size: 0.95rem;
+    font-size: 0.74rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.16em;
     border: 1px solid var(--accent-spice-dark);
     background: var(--bg-tertiary);
     clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
@@ -465,6 +473,11 @@ a:hover {
     transform: translateY(0);
 }
 
+/* Leave a clear window of Arrakis sky (and the twin moons) below the banner */
+#status {
+    margin-top: 5rem;
+}
+
 .section-2112::before {
     content: '';
     position: absolute;
@@ -489,12 +502,12 @@ a:hover {
 
 .section-2112 h2 {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
     color: var(--accent-spice-bright);
     text-transform: uppercase;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.14em;
     border-bottom: 1px solid var(--accent-spice-dark);
     padding-bottom: 0.6rem;
     text-shadow: 0 0 12px rgba(224, 122, 46, 0.35);
@@ -515,11 +528,11 @@ a:hover {
 .section-2112 h3 {
     color: var(--accent-spice-bright);
     font-family: var(--font-heading);
-    font-size: 1.35rem;
+    font-size: 1.02rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.1em;
     border-left: 4px solid var(--accent-spice);
     padding-left: 15px;
 }
@@ -593,10 +606,10 @@ a:hover {
     grid-column: 1 / -1;
     font-family: var(--font-heading);
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.16em;
     padding: 15px 0 5px 0;
     border-bottom: 1px solid var(--bg-tertiary);
     margin-top: 10px;
@@ -693,10 +706,10 @@ a:hover {
     padding: 15px;
     margin-top: 1rem;
     font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-size: 0.92rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.24em;
+    letter-spacing: 0.2em;
     cursor: pointer;
     clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
     transition: all 0.3s ease;
@@ -876,8 +889,9 @@ a:hover {
 
 .main-footer p {
     font-family: var(--font-heading);
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.12em;
     color: var(--text-secondary);
 }
 
@@ -902,11 +916,11 @@ a:hover {
     color: var(--accent-ibad-light);
     text-decoration: none;
     margin: 0 15px;
-    font-size: 1.05rem;
+    font-size: 0.8rem;
     font-family: var(--font-heading);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     padding: 8px 18px;
     border: 1px solid var(--accent-ibad-light);
     display: inline-block;
@@ -929,7 +943,7 @@ a:hover {
     background: var(--bg-secondary);
     color: var(--accent-spice-bright);
     font-family: var(--font-heading);
-    font-size: 0.92rem;
+    font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     padding: 0.6em 1.2em;
@@ -959,32 +973,7 @@ a:hover {
     }
 
     #main-title {
-        font-size: 2rem;
-        letter-spacing: 0.15em;
         margin-top: 1rem;
-    }
-
-    .brand-title {
-        gap: 0.6rem;
-        flex-wrap: wrap;
-    }
-
-    .m2-sq {
-        font-size: 2.4rem;
-    }
-
-    .brand-wrap {
-        font-size: 1.9rem;
-        gap: 0.3rem;
-    }
-
-    .paren {
-        font-size: 2.4rem;
-    }
-
-    .brand-pipe {
-        font-size: 2.4rem;
-        margin: 0 0.3rem;
     }
 
     .main-nav {
@@ -1020,7 +1009,7 @@ a:hover {
         margin-bottom: 1rem;
         text-align: center;
         padding: 1rem;
-        font-size: 1.05rem;
+        font-size: 0.85rem;
         border-right: 2px solid var(--accent-ibad-light);
     }
 
@@ -1052,8 +1041,8 @@ a:hover {
     }
 
     .section-2112 h2 {
-        font-size: 1.6rem;
-        letter-spacing: 0.15em;
+        font-size: 1.15rem;
+        letter-spacing: 0.1em;
     }
 
     .section-2112 p {
@@ -1072,39 +1061,14 @@ a:hover {
 }
 
 @media (max-width: 480px) {
-    #main-title {
-        font-size: 1.5rem;
-        letter-spacing: 0.1em;
-    }
-
-    .brand-title {
-        flex-direction: column;
-        gap: 0.2rem;
-    }
-
-    .m2-sq {
-        font-size: 2rem;
-    }
-
-    .brand-wrap {
-        font-size: 1.35rem;
-        gap: 0.2rem;
-        letter-spacing: 0.08em;
-    }
-
-    .paren {
-        font-size: 1.6rem;
-    }
-
-    .brand-pipe {
-        font-size: 1.6rem;
-        margin: 0 0.2rem;
+    .brand-svg {
+        width: 94vw;
     }
 
     .main-nav a {
         width: 90%;
         padding: 0.8rem;
-        font-size: 0.95rem;
+        font-size: 0.8rem;
     }
 
     .year-logo {
@@ -1132,7 +1096,7 @@ a:hover {
     }
 
     .section-2112 h2 {
-        font-size: 1.35rem;
+        font-size: 0.98rem;
     }
 
     .section-2112 p {

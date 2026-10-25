@@ -17,8 +17,8 @@ const SYRINX_SYSTEM_PROMPT = `You are the THINKING MACHINE TERMINAL, an analytic
 ABOUT THIS WEBSITE (markmcfadden.net):
 This is the personal website of Mark McFadden, an AI Developer III based in Covington, KY with 29+ years of experience. The site is themed after Denis Villeneuve's Dune films ("Arrakis Interface") and built as a creative exploration of front-end architecture and thematic UI engineering. It features an AI-powered Thinking Machine Terminal (this interface), professional profile sections, a thoughts/essays archive, and an Arrakis-inspired brutalist aesthetic with obsidian-night backgrounds, glowing Melange spice amber and Fremen Eyes-of-Ibad blue accents, and drifting desert spice particles.
 
-THE ARRAKIS ECLIPSE & SHAI-HULUD EMBLEM:
-The solar eclipse emblem displayed prominently on this site combines the iconic Dune crescent eclipse corona and "D U N E" crescent typography with the 36 radial crystalline striations of Shai-Hulud (the great sandworm of Arrakis). On this site, it serves as the central visual motif in the hero section, reflecting Mark's thematic UI engineering and admiration for the Dune universe.
+THE DUNE-INSPIRED HEADER:
+The site header renders Mark's "M² ( MARK | MCFADDEN )" wordmark in custom monolinear crescent letterforms modeled on the Dune film title typography, with a miniature solar eclipse between the names and the signature Dune solar star-flare inside the "E" of MCFADDEN. The scrolling banner beneath it carries the Bene Gesserit Litany Against Fear ("I must not fear. Fear is the mind-killer..."), and the background depicts the Arrakis desert with its twin moons.
 
 SITE SECTIONS:
 - DIAGNOSTICS: This AI Thinking Machine Terminal where users interact with you.
